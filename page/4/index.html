@@ -171,6 +171,208 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vscode-latex" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/vscode-latex/">VS Code 配置LaTeX环境（MikTex）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/14/vscode-latex/" class="archive-article-date">
+  	<time datetime="2019-09-14T14:22:11.766Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>之前都是用VNote编辑LaTeX公式，看到网上有人使用VS Code来编辑，故也来折腾一下。</p>
+<h2 id="安装MikTex"><a href="#安装MikTex" class="headerlink" title="安装MikTex"></a>安装MikTex</h2><p><a href="https://miktex.org/" target="_blank" rel="noopener">MikTex官网</a>下载，安装，然后以管理员身份运行<code>MiKTeX Console</code>（可以在开始菜单中搜索）<br>PS: 先不安装拓展包，等编译时自然会提示安装</p>
+<h2 id="配置VS-Code"><a href="#配置VS-Code" class="headerlink" title="配置VS Code"></a>配置VS Code</h2><p>安装<code>Latex workshop</code>和<code>LaTeX language support</code>拓展<br>新建<code>.vscode</code>文件夹，创建<code>settings.json</code>，写入内容：</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/14/vscode-latex/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LaTeX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/14/vscode-latex/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-android-debug-onload" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/android-debug-onload/">IDA调试安卓so 在libart.so OpenMemory下断点</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/14/android-debug-onload/" class="archive-article-date">
+  	<time datetime="2019-09-14T00:58:55.298Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果想要在so加载时就下断点的话，需要以调试模式运行，并使用ddms进行jdb的连接。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>一部打开了调试开关（ro.debuggable=1）的手机或可调试的apk, IDA及android_server, 已启动的ddms（启动<code>AndroidSDK\tools\monitor.bat</code>）</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-开启端口转发并启动android-server"><a href="#1-开启端口转发并启动android-server" class="headerlink" title="1. 开启端口转发并启动android_server"></a>1. 开启端口转发并启动android_server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:12345 tcp:12345</span><br><span class="line">adb shell su -c <span class="string">"/data/as"</span></span><br></pre></td></tr></table></figure>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/14/android-debug-onload/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/14/android-debug-onload/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ida-as-port-reverse" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,14 +380,14 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/ida-as-port-reverse/">修改IDA android_server默认端口</a>
+      <a class="article-title" href="/2019/09/13/ida-as-port-reverse/">修改IDA android_server默认端口</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/ida-as-port-reverse/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/09/13/ida-as-port-reverse/" class="archive-article-date">
+  	<time datetime="2019-09-13T12:00:49.490Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
@@ -213,7 +415,7 @@ var _hmt = _hmt || [];
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/ida-as-port-reverse/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/09/13/ida-as-port-reverse/#more">查看更多 >></a>
         
     
     
@@ -238,7 +440,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/ida-as-port-reverse/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/13/ida-as-port-reverse/">展开全文 >></a>
         </p>
       
 
@@ -268,21 +470,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-ida-positive-sp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-android-source-mod-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/ida-positive-sp/">IDA不能F5查看伪代码的解决方法（positive sp value）</a>
+      <a class="article-title" href="/2019/09/13/android-source-mod-anti-antidebug/">修改安卓内核源码 过State TracerPID反调试</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/ida-positive-sp/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/09/13/android-source-mod-anti-antidebug/" class="archive-article-date">
+  	<time datetime="2019-09-13T11:23:31.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
@@ -304,13 +506,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-30-12.png" alt=""><br>在函数中F5失败，提示堆栈指针为正数，故需要修复堆栈平衡</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>去设置中打开堆栈指针（Stack pointer）显示（也就是sp）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-33-01.png" alt=""></p>
-<p>按G定位到4012B9，发现return时的指针是-10（hex）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-34-15.png" alt=""></p>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>修改安卓内核源码来绕过State字段及TracePid字段反调试</p>
+<h2 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h2><p>打开内核源码目录，<code>/fs/proc</code>下的<code>base.c</code>和<code>array.c</code></p>
+<h2 id="修改点"><a href="#修改点" class="headerlink" title="修改点"></a>修改点</h2><h3 id="base-c"><a href="#base-c" class="headerlink" title="base.c"></a>base.c</h3><h4 id="proc-pid-wchan函数"><a href="#proc-pid-wchan函数" class="headerlink" title="proc_pid_wchan函数"></a>proc_pid_wchan函数</h4><p>最后一个else分支改成<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//修改部分</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(symname,<span class="string">"trace"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, <span class="string">"sys_epoll_wait"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, symname);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/ida-positive-sp/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/#more">查看更多 >></a>
         
     
     
@@ -325,7 +527,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -335,7 +537,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/ida-positive-sp/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/">展开全文 >></a>
         </p>
       
 
@@ -365,111 +567,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-ida-call-analysis-fail" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-android-kernel-reverse-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/ida-call-analysis-fail/">IDA不能F5查看伪代码的解决方法(call analysis failed)</a>
+      <a class="article-title" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">逆向修改安卓内核 x64 过TracerPID反调试</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/ida-call-analysis-fail/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-
-          <a class="article-more-a" href="/2020/04/14/ida-call-analysis-fail/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/ida-call-analysis-fail/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hackersgame-2019-fails" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/hackersgame-2019-fails/">Hackersgame 2019 的一些失败尝试及复现</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/hackersgame-2019-fails/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/09/13/android-kernel-reverse-anti-antidebug/" class="archive-article-date">
+  	<time datetime="2019-09-13T00:42:11.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
@@ -491,13 +603,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于自己的尝试，参考<a href="https://github.com/ustclug/hackergame2019-writeups/" target="_blank" rel="noopener">官方题解</a>进行复现</p>
-<h2 id="（√）天书残篇"><a href="#（√）天书残篇" class="headerlink" title="（√）天书残篇"></a>（√）天书残篇</h2><h3 id="Try"><a href="#Try" class="headerlink" title="Try"></a>Try</h3><p>三种字符，统计结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">20 00100000 : 2100</span><br><span class="line">09 00001001 : 1353</span><br><span class="line">0a 00001010 : 646</span><br></pre></td></tr></table></figure></p>
-<p>各种尝试无果（因为以为是密码学的题，方向完全错了）<br>没想到跟去年一样，又是一种语言</p>
+            <p></p><h2 id="建议在git-bash下操作"><a href="#建议在git-bash下操作" class="headerlink" title="#建议在git bash下操作"></a>#建议在git bash下操作</h2><p>本人解压<code>kernel.gz</code>时使用的不是命令行，导致没有看到输出信息<code>gzip trailing garbage ignored</code>，进而没有对这些数据进行处理，浪费了很多时间。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>手动nop掉TracerPID反调试代码，当然比不上直接修改内核来的快。<br>如果有内核源码以及环境，当然可以通过直接修改源码的方式生成<code>boot.img</code>。<br>在无内核源码（或者还没配置安卓源码编译环境）的情况下则只能通过逆向来修改内核。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><code>Redmi Note 3</code>, <code>arm64</code>, <code>cm12.1</code></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/hackersgame-2019-fails/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/#more">查看更多 >></a>
         
     
     
@@ -512,7 +624,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -522,7 +634,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/hackersgame-2019-fails/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">展开全文 >></a>
         </p>
       
 
@@ -552,21 +664,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hackersgame-2019-writeup" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-android-studio-import-so" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/hackersgame-2019-writeup/">Hackersgame 2019 部分writeup</a>
+      <a class="article-title" href="/2019/08/02/android-studio-import-so/">Android Studio 导入so</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/hackersgame-2019-writeup/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/08/02/android-studio-import-so/" class="archive-article-date">
+  	<time datetime="2019-08-02T11:31:11.817Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
 </a>
         
       </header>
@@ -586,21 +698,14 @@ var _hmt = _hmt || [];
             
             
         
-        
-            
-            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><p>修改页面源码以及js代码，去掉disabled描述符，使用Fiddler替换，然后强制刷新页面<br>即可点击提交按钮得到flag</p>
-<h2 id="白与夜"><a href="#白与夜" class="headerlink" title="白与夜"></a>白与夜</h2><p>图片是qq中常见的隐藏图，个人做这题时是用的手机<br>直接使用自带相册打开即可看到flag</p>
-<h2 id="信息安全-2077"><a href="#信息安全-2077" class="headerlink" title="信息安全 2077"></a>信息安全 2077</h2><p>注意到页面源码中设置了<code>If-Unmodified-Since</code>为当前时间，而返回的<code>Last-Modified</code>是<code>Fri, 01 Oct 2077 00:00:00 GMT</code>，把<code>If-Unmodified-Since</code>改为该值即可获得flag</p>
-<p>
-        
 
-          <a class="article-more-a" href="/2020/04/14/hackersgame-2019-writeup/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/08/02/android-studio-import-so/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -609,7 +714,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -619,7 +724,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/hackersgame-2019-writeup/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/02/android-studio-import-so/">展开全文 >></a>
         </p>
       
 
@@ -649,21 +754,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-cpp_vscode_segmentation_fault_cygwinS" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/hello-world/">Hexo&#39;s Usage</a>
+      <a class="article-title" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/">修复VSCode Segmentation Fault in cygwinS</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/" class="archive-article-date">
+  	<time datetime="2019-07-03T07:24:04.801Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
 </a>
         
       </header>
@@ -683,21 +788,14 @@ var _hmt = _hmt || [];
             
             
         
-        
-            
-            <p></p><h2 id="My-Usage-After-changing-some-files"><a href="#My-Usage-After-changing-some-files" class="headerlink" title="My Usage (After changing some files)"></a>My Usage (After changing some files)</h2><h3 id="On-local-server"><a href="#On-local-server" class="headerlink" title="On local server"></a>On local server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="Deploy-to-Github-After-checking"><a href="#Deploy-to-Github-After-checking" class="headerlink" title="Deploy to Github(After checking)"></a>Deploy to Github(After checking)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>Reference: <a href="https://blog.ctftools.com/2017/12/post233/" target="_blank" rel="noopener">Hexo安装配置并托管至github</a></p>
-<p>
-        
 
-          <a class="article-more-a" href="/2020/04/14/hello-world/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -706,104 +804,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-flipviewer-xpress-to-pdf" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/flipviewer-xpress-to-pdf/">FlipViewer Xpress在线文档转pdf</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/flipviewer-xpress-to-pdf/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>python环境（已安装requests）</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="获取源地址"><a href="#获取源地址" class="headerlink" title="获取源地址"></a>获取源地址</h3><p>首先F12-Network，然后刷新一下页面。获取到当前文档页面的源地址，类似于<br><code>http://ebooks.crup.com.cn/t/xxxxx_output/web/xxxxx_opf_files/xxxxxxxxxxxxxxxxxxxx_1.swf</code><br>下划线后的数字对应页码。</p>
-<h3 id="运行python脚本"><a href="#运行python脚本" class="headerlink" title="运行python脚本"></a>运行python脚本</h3><p>（使用时需手动替换开头的三个参数）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># By Xhy</span></span><br><span class="line">urlStart = <span class="string">"http://ebooks.crup.com.cn/t/xxxxx_output/web/xxxxx_opf_files/xxxxxxxxxxxxxxxxxxxx_"</span></span><br><span class="line">startPage = <span class="number">1</span></span><br><span class="line">endPage = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPic</span><span class="params">(i)</span>:</span></span><br><span class="line">    url = urlStart + str(i) + <span class="string">".swf"</span></span><br><span class="line">    <span class="comment"># print(url)</span></span><br><span class="line">    res = requests.get(url)</span><br><span class="line">    <span class="keyword">if</span>(res.status_code == <span class="number">200</span>):</span><br><span class="line">        <span class="keyword">with</span> open(str(i)+<span class="string">'.swf'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> file:</span><br><span class="line">            file.write(res.content)</span><br><span class="line">            print(i, <span class="string">"Swf Saved"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(res.status_code, <span class="string">"Failed"</span>)</span><br><span class="line">        sys.exit()</span><br><span class="line"></span><br><span class="line"><span class="comment"># download</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(startPage, endPage+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> os.access(str(i)+<span class="string">".swf"</span>, os.F_OK)):</span><br><span class="line">        getPic(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># convert</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(startPage, endPage+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span>(os.access(str(i)+<span class="string">".swf"</span>, os.F_OK) <span class="keyword">and</span> <span class="keyword">not</span> os.access(str(i)+<span class="string">".png"</span>, os.F_OK)):</span><br><span class="line">        execstr = <span class="string">".\swfrender.exe "</span> + \</span><br><span class="line">            str(i)+<span class="string">".swf -X 3200 -Y 4800 -o "</span>+str(i)+<span class="string">".png"</span></span><br><span class="line">        val = os.system(execstr)</span><br><span class="line">        <span class="keyword">if</span>(val == <span class="number">0</span>):</span><br><span class="line">            print(i, <span class="string">"Png Saved"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># merge</span></span><br><span class="line">imgs = []</span><br><span class="line">first_img = Image.open(str(startPage)+<span class="string">".png"</span>).convert(<span class="string">'RGB'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(startPage+<span class="number">1</span>, endPage+<span class="number">1</span>):</span><br><span class="line">    imgs.append(Image.open(str(i)+<span class="string">".png"</span>).convert(<span class="string">'RGB'</span>))</span><br><span class="line">first_img.save(<span class="string">'book.pdf'</span>, <span class="string">'PDF'</span>, resolution=<span class="number">100.0</span>, save_all=<span class="keyword">True</span>, append_images=imgs)</span><br><span class="line">print(<span class="string">"PDF Saved"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/flipviewer-xpress-to-pdf/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
         		</li>
       		
 		</ul>
@@ -813,7 +818,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/flipviewer-xpress-to-pdf/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/">展开全文 >></a>
         </p>
       
 
@@ -843,21 +848,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-friend-ctf" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-isc-2019-wp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/friend-ctf/">一道同学出的CTF题</a>
+      <a class="article-title" href="/2019/05/28/isc-2019-wp/">isc2019 Reverse&amp;Misc&amp;Crypto&amp;Android Writeup</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/friend-ctf/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/05/28/isc-2019-wp/" class="archive-article-date">
+  	<time datetime="2019-05-28T12:43:22.558Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
 </a>
         
       </header>
@@ -879,13 +884,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="来自中老年的表情包"><a href="#来自中老年的表情包" class="headerlink" title="来自中老年的表情包"></a>来自中老年的表情包</h2><p>图片如下（可以自己尝试分析）<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/friend_ctf_1.gif" alt=""></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>只有一个gif，惯例<code>010Editor</code>打开，文件尾有个压缩包<br>提取之，不出意外的有密码，而且并不是伪加密</p>
-<h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><p>输入新年快乐，密码错误<br>输入happy，密码错误<br>输入happy2019，密码错误<br>难道隐藏在图片里？于是PS提取之，得到6张png<br>一番尝试后没有任何收获（陷入僵局.jpg<br>甚至怀疑是否在网页中含有密码，询问作者，得到回复：</p>
+            <p></p><h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><h3 id="Very-easy"><a href="#Very-easy" class="headerlink" title="Very easy"></a>Very easy</h3><p>得到一个<code>pyc</code>文件，在线反编译得到python源码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> base64</span><br><span class="line">correct = <span class="string">'VlxRV2uAiXOPeSWPhiOCaY91JGOJj4Qgj4JVhlVigyNt'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">(message)</span>:</span></span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        x = ord(i) ^ <span class="number">32</span></span><br><span class="line">        <span class="keyword">print</span> ord(i)</span><br><span class="line">        x = x + <span class="number">16</span></span><br><span class="line">        s += chr(x)</span><br><span class="line">    <span class="keyword">return</span> base64.b64encode(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">decode()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Input flag:'</span></span><br><span class="line">flag = raw_input()</span><br><span class="line"><span class="keyword">if</span> encode(flag) == correct:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'correct'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'wrong'</span></span><br></pre></td></tr></table></figure>
+<p>逻辑是将输入的字符串逐位与32异或，再加十六，转回ascii码。可写解密函数如下:</p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/friend-ctf/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/05/28/isc-2019-wp/#more">查看更多 >></a>
         
     
     
@@ -910,7 +915,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/friend-ctf/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/28/isc-2019-wp/">展开全文 >></a>
         </p>
       
 
@@ -940,21 +945,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-git-clean" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-cpp-template-class-cout-overload" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/git-clean/">git删除历史Commit</a>
+      <a class="article-title" href="/2019/05/07/cpp-template-class-cout-overload/">C++中模板类的输出流重载</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/git-clean/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/05/07/cpp-template-class-cout-overload/" class="archive-article-date">
+  	<time datetime="2019-05-07T15:05:54.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
 </a>
         
       </header>
@@ -976,19 +981,19 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>把库克隆到本地后，创建新分支，删除原master分支后，将临时分支更名<br>在库目录下执行以下代码</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan tmp</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">"clean project"</span></span><br><span class="line">git branch -D master</span><br><span class="line">git branch -m master</span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/dounine/article/details/77840416" target="_blank" rel="noopener">Gitlab删除历史commit清理空间</a></p>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在模板类中使用输出流重载发现报错，g++提示</p>
+<blockquote>
+<p>warning: friend declaration ‘std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const A<t>&amp;)’ declares a non-template function<br>note: (if this is not what you intended, make sure the function template has already been declared and add &lt;&gt; after the function name here)<br>增加&lt;&gt;后依旧报错，遂百度之，解决。</t></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/git-clean/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/05/07/cpp-template-class-cout-overload/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
+    </p></blockquote></div>
     <div class="article-info article-info-index">
       
       
@@ -997,7 +1002,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -1007,7 +1012,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/git-clean/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/07/cpp-template-class-cout-overload/">展开全文 >></a>
         </p>
       
 
@@ -1037,21 +1042,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-fix-linux-time" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-cpp-class-member-func-ptr" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/fix-linux-time/">修复双系统（Win+Linux）时间不同步问题</a>
+      <a class="article-title" href="/2019/05/01/cpp-class-member-func-ptr/">C++中类的成员函数的函数指针</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/fix-linux-time/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.107Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/05/01/cpp-class-member-func-ptr/" class="archive-article-date">
+  	<time datetime="2019-05-01T06:38:44.926Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
 </a>
         
       </header>
@@ -1073,13 +1078,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>笔记本装了win10+Ubuntu18.04双系统，但是两个系统的时间并不同步，相差8小时（正好是时区数）。于是搜索之，找到解决方案</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Windows 与 Mac/Linux 看待系统硬件时间（Hardware Ttime，或称实时时间，即RTC，Real_Time Clock）的方式不同。<br>Windows把计算机硬件时间当作本地时间(local time)，所以在Windows系统中显示的时间跟BIOS中显示的时间是一样的。<br>而Linux/Unix/Mac把计算机硬件时间当作UTC（Universal Time Coordinated，世界统一时间）， 所以在Linux/Unix/Mac系统启动后在该时间的基础上，加上电脑设置的时区数。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>所以只需要使两个系统对待硬件时间的方式一致即可。<br>自然，有两种方法。</p>
+            <p></p><h2 id="获取指针"><a href="#获取指针" class="headerlink" title="获取指针"></a>获取指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">staticmember</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"static"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;	 <span class="comment">//static member</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">nonstatic</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"nonstatic"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;			 <span class="comment">//nonstatic member</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">virtualmember</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"virtual"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;; <span class="comment">//virtual member</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A a;</span><br><span class="line">	<span class="comment">//static成员函数,取得的是该函数在内存中的实际地址，而且因为static成员是全局的，所以不能用A::限定符</span></span><br><span class="line">	<span class="keyword">void</span> (*ptrstatic)() = &amp;A::staticmember;</span><br><span class="line">	<span class="comment">//nonstatic成员函数 取得的是该函数在内存中的实际地址</span></span><br><span class="line">	<span class="keyword">void</span> (A::*ptrnonstatic)() = &amp;A::nonstatic;</span><br><span class="line">	<span class="comment">//虚函数取得的是虚函数表中的偏移值，这样可以保证能过指针调用时同样的多态效果</span></span><br><span class="line">	<span class="keyword">void</span> (A::*ptrvirtual)() = &amp;A::virtualmember;</span><br><span class="line">	<span class="comment">//函数指针的使用方式</span></span><br><span class="line">	ptrstatic();</span><br><span class="line">	(a.*ptrnonstatic)();</span><br><span class="line">	(a.*ptrvirtual)();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在map中使用指针"><a href="#在map中使用指针" class="headerlink" title="在map中使用指针"></a>在map中使用指针</h2><p>直接使用对应类型也是可以的，比如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">void</span> (A::*)()&gt; zeroParmsFuns;</span><br></pre></td></tr></table></figure></p>
+<p>不过为了方便起见，还是自定义类型吧<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(A::*func)</span><span class="params">()</span></span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, func&gt; zeroParmsFuns;</span><br></pre></td></tr></table></figure></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/fix-linux-time/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/05/01/cpp-class-member-func-ptr/#more">查看更多 >></a>
         
     
     
@@ -1094,7 +1099,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -1104,7 +1109,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/fix-linux-time/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/01/cpp-class-member-func-ptr/">展开全文 >></a>
         </p>
       
 
@@ -1275,15 +1280,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">

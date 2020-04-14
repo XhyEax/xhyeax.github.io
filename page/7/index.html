@@ -171,21 +171,21 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-anti-web-js-debugger-code" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-tgbot-ret-md" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/anti-web-js-debugger-code/">绕过网站js中的debugger反调试</a>
+      <a class="article-title" href="/2018/12/03/tgbot-ret-md/">telegram机器人返回markdown格式</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/anti-web-js-debugger-code/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.100Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2018/12/03/tgbot-ret-md/" class="archive-article-date">
+  	<time datetime="2018-12-03T14:38:55.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
 </a>
         
       </header>
@@ -207,13 +207,207 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用开发者工具(F12)分析一个网站时发现：<br>每隔一段时间就会有js代码主动触发调试器断点，妨碍分析。<br>问之度娘，遂得解法。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+            <p></p><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>让telegram机器人使用markdown语法渲染，并返回信息</p>
+<h2 id="修改处"><a href="#修改处" class="headerlink" title="修改处"></a>修改处</h2><p><code>sendMessage</code>设置<code>parse_mode</code>为<code>Markdown</code>即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sendMessage(text=<span class="string">'_test_'</span>,chat_id=chat_id, parse_mode=<span class="string">'Markdown'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>返回 <em>test</em></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/anti-web-js-debugger-code/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/12/03/tgbot-ret-md/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/03/tgbot-ret-md/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-isa-ctf3" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/isa-ctf3/">填数游戏&amp;Nonstandard Writeup</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/02/isa-ctf3/" class="archive-article-date">
+  	<time datetime="2018-12-02T08:30:27.013Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="填数游戏"><a href="#填数游戏" class="headerlink" title="填数游戏"></a>填数游戏</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>IDA打开，发现是C++代码。<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-31-16.png" alt=""><br><code>check函数</code><br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-31-24.png" alt=""><br>看对象名字就是数独啊，初始化的内存大小为<code>324=4*9*9</code>，把<code>_data_start_</code>数据导出，脚本跑出数表，然后在线解一下。<a href="http://zh.sudoku.menu/info/solver.html" target="_blank" rel="noopener">在线解数独</a><br><code>问题：005300000800000020070010500400005300010070006003200080060500009004000030000009700</code><br><code>答案：145327698839654127672918543496185372218473956753296481367542819984761235521839764</code><br>提交flag提示错误，所以没那么简单。<br>前面还有个<code>set_sudu</code>函数，点进去看看<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-37-03.png" alt=""><br>要成功走到下一步就需要<code>set_sudu</code>返回0，也就是需要<code>set_number</code>返回1<br>点开<code>set_number</code><br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-43-08.png" alt=""><br>需要<code>*(_DWORD *)(a1 + 4 * (row + 9 * (_DWORD)this))</code>为0，才能返回1。而这个指针指向的就是题目对应位置的数字，所以flag对应位置的要为0</p>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printList</span><span class="params">(li)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(li)):</span><br><span class="line">        print(li[i],end=<span class="string">''</span>)</span><br><span class="line">quiz = list(<span class="string">"005300000800000020070010500400005300010070006003200080060500009004000030000009700"</span>)</span><br><span class="line">printList(quiz)</span><br><span class="line">print()</span><br><span class="line">solve=list(<span class="string">"145327698839654127672918543496185372218473956753296481367542819984761235521839764"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">81</span>):</span><br><span class="line">    <span class="keyword">if</span>(solve[x]==quiz[x]):</span><br><span class="line">        solve[x] = <span class="string">'0'</span></span><br><span class="line">printList(solve)</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/zhaijiahui/p/7876005.html" target="_blank" rel="noopener">【逆向笔记】2017年全国大学生信息安全竞赛 Reverse 填数游戏</a></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/12/02/isa-ctf3/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/02/isa-ctf3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-txcos-as-imgurl" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/01/txcos-as-imgurl/">在服务器上部署腾讯云COS同步方案</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/01/txcos-as-imgurl/" class="archive-article-date">
+  	<time datetime="2018-12-01T05:25:06.937Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>由于截图后手动上传到COS比较麻烦，而<a href="https://github.com/ShareX/ShareX" target="_blank" rel="noopener">ShareX</a>（一个截图工具）支持SFTP上传到服务器<br>于是决定在服务器上配置腾讯云COS同步方案，然后就可以愉快地截图后上传图片了</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>在腾讯云的对象存储（COS）配置好密钥以后，在服务器上配置同步方案<br>（建议设置一个用户组给予COS读写权限）</p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel</span><br></pre></td></tr></table></figure>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/12/01/txcos-as-imgurl/#more">查看更多 >></a>
         
     
     
@@ -238,7 +432,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/anti-web-js-debugger-code/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/01/txcos-as-imgurl/">展开全文 >></a>
         </p>
       
 
@@ -268,21 +462,87 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-android-reverse-fix-arsc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-how-to-support-me" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-reverse-fix-arsc/">修复反编译资源文件报错问题(resource spec)</a>
+      <a class="article-title" href="/2018/12/01/how-to-support-me/">如何支持博主？</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/android-reverse-fix-arsc/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.099Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2018/12/01/how-to-support-me/" class="archive-article-date">
+  	<time datetime="2018-12-01T04:43:17.793Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        <p>众所周知，支持主要分为经济上和精神上的支持。<br>
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/01/how-to-support-me/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-click-word" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/30/click-word/">Hexo主题增加鼠标点击效果</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/11/30/click-word/" class="archive-article-date">
+  	<time datetime="2018-11-30T12:11:20.575Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
         
       </header>
@@ -304,13 +564,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="关于0x01010540错误"><a href="#关于0x01010540错误" class="headerlink" title="关于0x01010540错误"></a>关于<code>0x01010540</code>错误</h2><p><code>0x01010540</code>是因为SDK版本太高，反编译工具识别不出来，需要替换成<code>0x0101048f</code><br>具体方法见后文</p>
-<h2 id="关于0x01010543错误"><a href="#关于0x01010543错误" class="headerlink" title="关于0x01010543错误"></a>关于<code>0x01010543</code>错误</h2><p>如果只有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; b.a.a.e: resource spec: 0x01010543</span><br></pre></td></tr></table></figure></p>
-<p>没有<code>UndefinedResObject</code><br>则更换<code>apktool</code>后再试<br><code>apktool</code>可以在<a href="https://down.52pojie.cn/Tools/Android_Tools/" target="_blank" rel="noopener">爱盘</a>下载</p>
+            <p></p><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>将以下代码放到主题源文件目录下，如 <code>/themes/yilia/source/js/</code> 下新建文件 <code>click-word.js</code>，代码见下文。<br>下载jquery文件（<a href="https://code.jquery.com/jquery-3.3.1.min.js" target="_blank" rel="noopener">目前最新版本</a>），放到同一目录下（个人喜好）。<br>修改布局文件，<code>/themes/next/layout/_layout.ejs</code>，在末尾body中添加<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面点击特效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/jquery-3.3.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/click-word.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>保存后重新生成即可</p>
+<h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line">jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"body"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"富强"</span>, <span class="string">"民主"</span>, <span class="string">"文明"</span>, <span class="string">"和谐"</span>, <span class="string">"自由"</span>, <span class="string">"平等"</span>, <span class="string">"公正"</span> ,<span class="string">"法治"</span>, <span class="string">"爱国"</span>, <span class="string">"敬业"</span>, <span class="string">"诚信"</span>, <span class="string">"友善"</span>);</span><br><span class="line">        <span class="keyword">var</span> $i = $(<span class="string">"&lt;span /&gt;"</span>).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + <span class="number">1</span>) % a.length;</span><br><span class="line">        <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">        y = e.pageY;</span><br><span class="line">        $i.css(&#123;</span><br><span class="line">            <span class="string">"z-index"</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">20</span>,</span><br><span class="line">            <span class="string">"left"</span>: x,</span><br><span class="line">            <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">            <span class="string">"font-weight"</span>: <span class="string">"bold"</span>,</span><br><span class="line">            <span class="string">"color"</span>: <span class="string">"#ff6651"</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">"body"</span>).append($i);</span><br><span class="line">        $i.animate(&#123;</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">            <span class="string">"opacity"</span>: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="number">1500</span>,</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            $i.remove();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/android-reverse-fix-arsc/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/11/30/click-word/#more">查看更多 >></a>
         
     
     
@@ -325,7 +585,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
         		</li>
       		
 		</ul>
@@ -335,7 +595,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-reverse-fix-arsc/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/30/click-word/">展开全文 >></a>
         </p>
       
 
@@ -365,21 +625,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-android-source-mod-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-git-clean" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-source-mod-anti-antidebug/">修改安卓内核源码 过State TracerPID反调试</a>
+      <a class="article-title" href="/2018/11/30/git-clean/">git删除历史Commit</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/android-source-mod-anti-antidebug/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.099Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2018/11/30/git-clean/" class="archive-article-date">
+  	<time datetime="2018-11-30T01:58:37.366Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
         
       </header>
@@ -401,13 +661,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>修改安卓内核源码来绕过State字段及TracePid字段反调试</p>
-<h2 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h2><p>打开内核源码目录，<code>/fs/proc</code>下的<code>base.c</code>和<code>array.c</code></p>
-<h2 id="修改点"><a href="#修改点" class="headerlink" title="修改点"></a>修改点</h2><h3 id="base-c"><a href="#base-c" class="headerlink" title="base.c"></a>base.c</h3><h4 id="proc-pid-wchan函数"><a href="#proc-pid-wchan函数" class="headerlink" title="proc_pid_wchan函数"></a>proc_pid_wchan函数</h4><p>最后一个else分支改成<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//修改部分</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(symname,<span class="string">"trace"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, <span class="string">"sys_epoll_wait"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, symname);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+            <p></p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>把库克隆到本地后，创建新分支，删除原master分支后，将临时分支更名<br>在库目录下执行以下代码</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan tmp</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">"clean project"</span></span><br><span class="line">git branch -D master</span><br><span class="line">git branch -m master</span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/dounine/article/details/77840416" target="_blank" rel="noopener">Gitlab删除历史commit清理空间</a></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/android-source-mod-anti-antidebug/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/11/30/git-clean/#more">查看更多 >></a>
         
     
     
@@ -422,7 +682,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -432,7 +692,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-source-mod-anti-antidebug/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/30/git-clean/">展开全文 >></a>
         </p>
       
 
@@ -462,21 +722,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-android-import-as-system-cert" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-ida-positive-sp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-import-as-system-cert/">安卓7.0及以上 导入为系统证书</a>
+      <a class="article-title" href="/2018/11/30/ida-positive-sp/">IDA不能F5查看伪代码的解决方法（positive sp value）</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/android-import-as-system-cert/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2018/11/30/ida-positive-sp/" class="archive-article-date">
+  	<time datetime="2018-11-30T00:29:49.474Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
         
       </header>
@@ -498,13 +758,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从安卓7.0开始，Android更改了对用户安装证书的默认信任行为。应用程序默认只信任系统级别的CA证书。<br>所以需要hook第三方包的证书校验函数（如JustTrustMe）或者直接导入为系统证书以供抓包</p>
-<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><h3 id="1-导出-der证书文件"><a href="#1-导出-der证书文件" class="headerlink" title="1. 导出.der证书文件"></a>1. 导出.der证书文件</h3><p>从抓包应用中导出即可。</p>
-<h3 id="2-转换为pem格式并重命名"><a href="#2-转换为pem格式并重命名" class="headerlink" title="2. 转换为pem格式并重命名"></a>2. 转换为pem格式并重命名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　openssl x509 -inform DER -<span class="keyword">in</span> cacert.der -out cacert.pem</span><br><span class="line">　　openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> cacert.pem |head -1</span><br><span class="line">　　mv cacert.pem &lt;<span class="built_in">hash</span>&gt;.0</span><br></pre></td></tr></table></figure>
+            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-30-12.png" alt=""><br>在函数中F5失败，提示堆栈指针为正数，故需要修复堆栈平衡</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>去设置中打开堆栈指针（Stack pointer）显示（也就是sp）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-33-01.png" alt=""></p>
+<p>按G定位到4012B9，发现return时的指针是-10（hex）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-34-15.png" alt=""></p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/android-import-as-system-cert/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/11/30/ida-positive-sp/#more">查看更多 >></a>
         
     
     
@@ -518,301 +778,6 @@ var _hmt = _hmt || [];
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-import-as-system-cert/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-kernel-reverse-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-kernel-reverse-anti-antidebug/">逆向修改安卓内核 x64 过TracerPID反调试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/android-kernel-reverse-anti-antidebug/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="建议在git-bash下操作"><a href="#建议在git-bash下操作" class="headerlink" title="#建议在git bash下操作"></a>#建议在git bash下操作</h2><p>本人解压<code>kernel.gz</code>时使用的不是命令行，导致没有看到输出信息<code>gzip trailing garbage ignored</code>，进而没有对这些数据进行处理，浪费了很多时间。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>手动nop掉TracerPID反调试代码，当然比不上直接修改内核来的快。<br>如果有内核源码以及环境，当然可以通过直接修改源码的方式生成<code>boot.img</code>。<br>在无内核源码（或者还没配置安卓源码编译环境）的情况下则只能通过逆向来修改内核。</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><code>Redmi Note 3</code>, <code>arm64</code>, <code>cm12.1</code></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/android-kernel-reverse-anti-antidebug/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-kernel-reverse-anti-antidebug/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-floatview" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-floatview/">安卓8.0以上创建悬浮窗</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/android-floatview/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.097Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>代码在8.0以下系统可正常创建悬浮窗，8.0以上则创建不了。原因是悬浮窗样式需要重新设置。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>增加SDK判断代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_APPLICATION_OVERLAY;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_PHONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="判断是否拥有悬浮窗权限并申请"><a href="#判断是否拥有悬浮窗权限并申请" class="headerlink" title="判断是否拥有悬浮窗权限并申请"></a>判断是否拥有悬浮窗权限并申请</h2><p>安卓6.0（代号M，SDK 23）之后，需要动态申请权限，悬浮窗权限也不例外。所以可以在添加以下代码来申请悬浮窗权限。<br>PS：当然，必须在<code>AndroidManifest.xml</code>中添加<br><code>&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!Settings.canDrawOverlays(activity))</span><br><span class="line">                &#123;</span><br><span class="line">                    Intent it = <span class="keyword">new</span> Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);</span><br><span class="line">                    activity.startActivityForResult(it, <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/android-floatview/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-floatview/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-debug-onload" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/android-debug-onload/">IDA调试安卓so 在libart.so OpenMemory下断点</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/android-debug-onload/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.096Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果想要在so加载时就下断点的话，需要以调试模式运行，并使用ddms进行jdb的连接。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>一部打开了调试开关（ro.debuggable=1）的手机或可调试的apk, IDA及android_server, 已启动的ddms（启动<code>AndroidSDK\tools\monitor.bat</code>）</p>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-开启端口转发并启动android-server"><a href="#1-开启端口转发并启动android-server" class="headerlink" title="1. 开启端口转发并启动android_server"></a>1. 开启端口转发并启动android_server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:12345 tcp:12345</span><br><span class="line">adb shell su -c <span class="string">"/data/as"</span></span><br></pre></td></tr></table></figure>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/android-debug-onload/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
         		</li>
@@ -824,7 +789,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/android-debug-onload/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/30/ida-positive-sp/">展开全文 >></a>
         </p>
       
 
@@ -854,21 +819,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-andlua-app-reverse" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-isa-ctf2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/andlua-app-reverse/">送给最好的TA app分析</a>
+      <a class="article-title" href="/2018/11/29/isa-ctf2/">isa_ctf2</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/andlua-app-reverse/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.096Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2018/11/29/isa-ctf2/" class="archive-article-date">
+  	<time datetime="2018-11-29T04:49:57.587Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
 </a>
         
       </header>
@@ -890,116 +855,19 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>今天群里有人传了个apk文件，名字叫<code>送给最好的TA</code>。这是一个整人app，安装并打开会播放一段音频，并循环调节媒体音量，维持最大值。从后台划掉/卸载/关机都可以停止该程序。<br><strong>网传所谓的截图、获取设备信息并上传等行为均不存在。反编译后看到的截图相关代码实际上并没有被调用，只是打包apk时封装进去的类，关键逻辑位于main.lua中。</strong></p>
-<h2 id="apk分析"><a href="#apk分析" class="headerlink" title="apk分析"></a>apk分析</h2><p>拿到样本之后，别急着安装运行，先看看它的目录结构。<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-0.png" alt=""><br>打开assets文件夹，看到有一个mp3文件以及两个加密后的lua脚本：<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-1.png" alt=""><br>运行app后会自动播放这个音频文件，先对它进行替换。<br>这里使用AU对该mp3进行静音处理后，重打包并签名。<br>（其实也可以替换成自己想要播放的音频）</p>
-<h2 id="找到加载lua的关键函数"><a href="#找到加载lua的关键函数" class="headerlink" title="找到加载lua的关键函数"></a>找到加载lua的关键函数</h2><p>众所周知，lua脚本需要加载，而在加载之前肯定是要先解密的，所以只要找到解密函数，然后就可以把解密后的lua脚本dump出来。<br>使用<code>IDA</code>打开<code>libluajava.so</code>，经过分析找到函数<code>luaL_loadbufferx</code><br><code>luaL_loadbufferx</code>的第二个参数是加密的字节数组，第三个参数是大小，第四个参数是lua文件位置。<br>程序在这个函数中加载加密lua脚本，其中对脚本进行了解密操作。<br>根据第四个参数我们可以区分目前加载的lua脚本名称，从而选择性地dump<br>（即在函数开头下断点，查看第四个参数内容）<br><code>luaL_loadbufferx</code>函数伪代码如下：<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-2.png" alt=""><br>首先对输入的字节数组进行判断，如果以1B开头，且第二位不是0C，则进行解密操作，否则直接调用<code>j_lua_load</code>加载lua脚本<br>在第41行下断点即可获取到解密后的字节数组，从而dump</p>
+            <p></p><h2 id="Web-Code-Check（湖湘杯）"><a href="#Web-Code-Check（湖湘杯）" class="headerlink" title="Web - Code Check（湖湘杯）"></a>Web - Code Check（湖湘杯）</h2><h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>从get请求id参数中解密出正确id，然后执行sql查询语句,将查询结果返回到数组<br>decode函数：<br>将传入的data（也就是get方法的id参数）解2次base64后<br>使用aes-128位 CBC模式 填充为ZeroPadding 解密，key为<code>ydhaqPQnexoaDuW3</code> iv为<code>2018201920202021</code><br>检测解密后的数据后7位是否为hxb2018<br>如果不是则输出<code>&lt;script&gt;window.location.href=&quot;/index.php&quot;;&lt;/script&gt;</code><br>也就是js跳转到<code>/index.php</code><br>否则，返回去除首尾空格以及末尾hxb2018后的明文数据</p>
+<h3 id="temper"><a href="#temper" class="headerlink" title="temper"></a>temper</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> lib.core.enums <span class="keyword">import</span> PRIORITY</span><br><span class="line"> </span><br><span class="line">__priority__ = PRIORITY.LOW</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dependencies</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AESCipher</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, key,iv)</span>:</span></span><br><span class="line">        self.key = key[<span class="number">0</span>:<span class="number">16</span>] </span><br><span class="line">        self.iv = iv[<span class="number">0</span>:<span class="number">16</span>] </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__pad</span><span class="params">(self, text)</span>:</span></span><br><span class="line">        <span class="string">"PHP只有ZeroPadding"</span></span><br><span class="line">        text_length = len(text)</span><br><span class="line">        amount_to_pad = AES.block_size - (text_length % AES.block_size)</span><br><span class="line">        <span class="keyword">if</span> amount_to_pad == <span class="number">0</span>:</span><br><span class="line">            amount_to_pad = AES.block_size</span><br><span class="line">        pad = <span class="string">'\0'</span></span><br><span class="line">        <span class="keyword">return</span> text + pad * amount_to_pad</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(self, raw)</span>:</span></span><br><span class="line">        raw = self.__pad(raw)</span><br><span class="line">        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)</span><br><span class="line">        <span class="keyword">return</span> base64.b64encode(base64.b64encode(cipher.encrypt(raw)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(text)</span>:</span></span><br><span class="line">    Enc = AESCipher(<span class="string">"ydhaqPQnexoaDuW3"</span>,<span class="string">"2018201920202021"</span>)</span><br><span class="line">    <span class="keyword">return</span> Enc.encrypt(text+<span class="string">"hxb2018"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tamper</span><span class="params">(payload, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> encrypt(payload)</span><br></pre></td></tr></table></figure>
+<h2 id="Misc-Disk（湖湘杯）"><a href="#Misc-Disk（湖湘杯）" class="headerlink" title="Misc - Disk（湖湘杯）"></a>Misc - Disk（湖湘杯）</h2><blockquote>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/andlua-app-reverse/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/11/29/isa-ctf2/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/andlua-app-reverse/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-hzwas-wp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/2019-hzwas-wp/">2019中国杭州网络安全技能大赛 预选赛 哈夫曼之谜 &amp; EasyCpp Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/2019-hzwas-wp/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.094Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="Reverse-EasyCpp"><a href="#Reverse-EasyCpp" class="headerlink" title="Reverse EasyCpp"></a>Reverse EasyCpp</h2><p>[2019/10/25更新]<br>首先读入16个数字，然后生成一个斐波那契数组，长度也为16<br>然后对输入数组进行操作，从第二位开始，都加上第一位的值（<code>transform</code>）<br>动态调试可知<code>accumulate</code>的匿名函数对运算完的数组做反转操作<br>然后与斐波那契数组比较，相同则输出flag<br>也就是说输入的第一个数字是不会变的，所以就是987<br>后面的数字直接脚本跑一下就可以得到结果了</p>
-<h2 id="Crypto-哈夫曼之谜-100pt"><a href="#Crypto-哈夫曼之谜-100pt" class="headerlink" title="Crypto 哈夫曼之谜 100pt"></a>Crypto 哈夫曼之谜 100pt</h2><p>二叉树是真的还没学，还好找到了大佬的代码<br><a href="https://blog.csdn.net/zl1085372438/article/details/54694552" target="_blank" rel="noopener">南邮数据结构实验二—二叉树的基本操作及哈夫曼编码译码系统的实现</a></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>得到一个文本，内容如下</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/2019-hzwas-wp/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
+    </p></blockquote></div>
     <div class="article-info article-info-index">
       
       
@@ -1018,7 +886,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/2019-hzwas-wp/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/29/isa-ctf2/">展开全文 >></a>
         </p>
       
 
@@ -1048,21 +916,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-52pojie-2020-red-packet" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-isa-ctf1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/30/52pojie-2020-red-packet/">2020吾爱破解论坛春节红包前三题题Writeup</a>
+      <a class="article-title" href="/2018/11/29/isa-ctf1/">isa_ctf1</a>
     </h1>
   
 
 
         
-        <a href="/2020/01/30/52pojie-2020-red-packet/" class="archive-article-date">
-  	<time datetime="2020-01-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-30</time>
+        <a href="/2018/11/29/isa-ctf1/" class="archive-article-date">
+  	<time datetime="2018-11-29T04:49:41.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
 </a>
         
       </header>
@@ -1084,19 +952,19 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><p>解题方法并不唯一，仅供参考。</p>
-<h2 id="题目打包下载地址"><a href="#题目打包下载地址" class="headerlink" title="题目打包下载地址"></a>题目打包下载地址</h2><p><a href="https://down.52pojie.cn/Challenge/Happy_New_Year_2020_Challenge.rar" target="_blank" rel="noopener">https://down.52pojie.cn/Challenge/Happy_New_Year_2020_Challenge.rar</a></p>
-<h2 id="第一题-送分题"><a href="#第一题-送分题" class="headerlink" title="第一题 送分题"></a>第一题 送分题</h2><p>关注“吾爱破解论坛”微信公众号，回复指定字符串即可获得本题正确口令。</p>
+            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><ol>
+<li>直接查看源代码<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign1.png" alt=""></li>
+<li>注意到url命名不正常 (居然是indxe.htm)<br>使用Fiddler请求index.htm文件<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign2.png" alt=""></li>
 <p>
         
 
-          <a class="article-more-a" href="/2020/01/30/52pojie-2020-red-packet/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2018/11/29/isa-ctf1/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
+    </p></ol></div>
     <div class="article-info article-info-index">
       
       
@@ -1115,7 +983,104 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/30/52pojie-2020-red-packet/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/29/isa-ctf1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-how-to-fix-fileExts" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/29/how-to-fix-fileExts/">手动修复Windows打开方式（修改注册表）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/11/29/how-to-fix-fileExts/" class="archive-article-date">
+  	<time datetime="2018-11-29T03:42:37.686Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><p>由于不小心把.gitignore设置成了以文本形式打开，导致在Explorer中显示为空文件名的文本文件（非常不顺眼）<br>（Windows的默认设置中无法删除打开方式）<br>而且有的文件手动设置了默认打开方式后也不管用<br>于是通过修改注册表实现</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>HKEY_LOCAL_MACHINE\Software\Classes：该注册表项包括适用所有用户的默认文件关联设置<br>HKEY_CURRENT_USER\Software\Classes：该注册表项包含只适用当前用户的文件关联设置（将覆盖HKEY_LOCAL_MACHINE项中的设置）<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts：该注册表项包含用户自定义的打开方式（勾选始终使用该方式打开）</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/11/29/how-to-fix-fileExts/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></blockquote></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/29/how-to-fix-fileExts/">展开全文 >></a>
         </p>
       
 
@@ -1286,15 +1251,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">

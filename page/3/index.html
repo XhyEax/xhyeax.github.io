@@ -171,21 +171,21 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-linux-set-swapfile" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-hackersgame-2019-writeup" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/linux-set-swapfile/">Linux配置虚拟内存文件</a>
+      <a class="article-title" href="/2019/10/22/hackersgame-2019-writeup/">Hackersgame 2019 部分writeup</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/linux-set-swapfile/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.114Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/10/22/hackersgame-2019-writeup/" class="archive-article-date">
+  	<time datetime="2019-10-22T09:13:24.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
 </a>
         
       </header>
@@ -207,110 +207,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="查询当前内存"><a href="#查询当前内存" class="headerlink" title="查询当前内存"></a>查询当前内存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
-<h3 id="创建交换文件"><a href="#创建交换文件" class="headerlink" title="创建交换文件"></a>创建交换文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch /root/swapfile</span><br><span class="line">dd if=/dev/zero of=/root/swapfile bs=1M count=4096</span><br></pre></td></tr></table></figure>
-<h3 id="格式化交换文件"><a href="#格式化交换文件" class="headerlink" title="格式化交换文件"></a>格式化交换文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /root/swapfile</span><br></pre></td></tr></table></figure>
+            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><p>修改页面源码以及js代码，去掉disabled描述符，使用Fiddler替换，然后强制刷新页面<br>即可点击提交按钮得到flag</p>
+<h2 id="白与夜"><a href="#白与夜" class="headerlink" title="白与夜"></a>白与夜</h2><p>图片是qq中常见的隐藏图，个人做这题时是用的手机<br>直接使用自带相册打开即可看到flag</p>
+<h2 id="信息安全-2077"><a href="#信息安全-2077" class="headerlink" title="信息安全 2077"></a>信息安全 2077</h2><p>注意到页面源码中设置了<code>If-Unmodified-Since</code>为当前时间，而返回的<code>Last-Modified</code>是<code>Fri, 01 Oct 2077 00:00:00 GMT</code>，把<code>If-Unmodified-Since</code>改为该值即可获得flag</p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/linux-set-swapfile/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/linux-set-swapfile/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-isc-2019-wp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/isc-2019-wp/">isc2019 Reverse&amp;Misc&amp;Crypto&amp;Android Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/isc-2019-wp/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.113Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><h3 id="Very-easy"><a href="#Very-easy" class="headerlink" title="Very easy"></a>Very easy</h3><p>得到一个<code>pyc</code>文件，在线反编译得到python源码。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> base64</span><br><span class="line">correct = <span class="string">'VlxRV2uAiXOPeSWPhiOCaY91JGOJj4Qgj4JVhlVigyNt'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">(message)</span>:</span></span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        x = ord(i) ^ <span class="number">32</span></span><br><span class="line">        <span class="keyword">print</span> ord(i)</span><br><span class="line">        x = x + <span class="number">16</span></span><br><span class="line">        s += chr(x)</span><br><span class="line">    <span class="keyword">return</span> base64.b64encode(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">decode()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Input flag:'</span></span><br><span class="line">flag = raw_input()</span><br><span class="line"><span class="keyword">if</span> encode(flag) == correct:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'correct'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'wrong'</span></span><br></pre></td></tr></table></figure>
-<p>逻辑是将输入的字符串逐位与32异或，再加十六，转回ascii码。可写解密函数如下:</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/isc-2019-wp/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-writeup/#more">查看更多 >></a>
         
     
     
@@ -335,7 +238,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/isc-2019-wp/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-writeup/">展开全文 >></a>
         </p>
       
 
@@ -365,21 +268,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-isa-ctf3" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-db-sqlite3-to-sql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/isa-ctf3/">填数游戏&amp;Nonstandard Writeup</a>
+      <a class="article-title" href="/2019/10/15/db-sqlite3-to-sql/">导出sqlite3数据库为sql</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/isa-ctf3/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.113Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/10/15/db-sqlite3-to-sql/" class="archive-article-date">
+  	<time datetime="2019-10-15T13:40:57.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
 </a>
         
       </header>
@@ -393,415 +296,14 @@ var _hmt = _hmt || [];
             
             
         
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="填数游戏"><a href="#填数游戏" class="headerlink" title="填数游戏"></a>填数游戏</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>IDA打开，发现是C++代码。<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-31-16.png" alt=""><br><code>check函数</code><br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-31-24.png" alt=""><br>看对象名字就是数独啊，初始化的内存大小为<code>324=4*9*9</code>，把<code>_data_start_</code>数据导出，脚本跑出数表，然后在线解一下。<a href="http://zh.sudoku.menu/info/solver.html" target="_blank" rel="noopener">在线解数独</a><br><code>问题：005300000800000020070010500400005300010070006003200080060500009004000030000009700</code><br><code>答案：145327698839654127672918543496185372218473956753296481367542819984761235521839764</code><br>提交flag提示错误，所以没那么简单。<br>前面还有个<code>set_sudu</code>函数，点进去看看<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-37-03.png" alt=""><br>要成功走到下一步就需要<code>set_sudu</code>返回0，也就是需要<code>set_number</code>返回1<br>点开<code>set_number</code><br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-12-02_13-43-08.png" alt=""><br>需要<code>*(_DWORD *)(a1 + 4 * (row + 9 * (_DWORD)this))</code>为0，才能返回1。而这个指针指向的就是题目对应位置的数字，所以flag对应位置的要为0</p>
-<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printList</span><span class="params">(li)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(li)):</span><br><span class="line">        print(li[i],end=<span class="string">''</span>)</span><br><span class="line">quiz = list(<span class="string">"005300000800000020070010500400005300010070006003200080060500009004000030000009700"</span>)</span><br><span class="line">printList(quiz)</span><br><span class="line">print()</span><br><span class="line">solve=list(<span class="string">"145327698839654127672918543496185372218473956753296481367542819984761235521839764"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">81</span>):</span><br><span class="line">    <span class="keyword">if</span>(solve[x]==quiz[x]):</span><br><span class="line">        solve[x] = <span class="string">'0'</span></span><br><span class="line">printList(solve)</span><br></pre></td></tr></table></figure>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/zhaijiahui/p/7876005.html" target="_blank" rel="noopener">【逆向笔记】2017年全国大学生信息安全竞赛 Reverse 填数游戏</a></p>
-<p>
-        
 
-          <a class="article-more-a" href="/2020/04/14/isa-ctf3/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/10/15/db-sqlite3-to-sql/#more">查看更多 >></a>
         
     
     
 
       
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/isa-ctf3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
     </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-isa-ctf2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/isa-ctf2/">isa_ctf2</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/isa-ctf2/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="Web-Code-Check（湖湘杯）"><a href="#Web-Code-Check（湖湘杯）" class="headerlink" title="Web - Code Check（湖湘杯）"></a>Web - Code Check（湖湘杯）</h2><h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>从get请求id参数中解密出正确id，然后执行sql查询语句,将查询结果返回到数组<br>decode函数：<br>将传入的data（也就是get方法的id参数）解2次base64后<br>使用aes-128位 CBC模式 填充为ZeroPadding 解密，key为<code>ydhaqPQnexoaDuW3</code> iv为<code>2018201920202021</code><br>检测解密后的数据后7位是否为hxb2018<br>如果不是则输出<code>&lt;script&gt;window.location.href=&quot;/index.php&quot;;&lt;/script&gt;</code><br>也就是js跳转到<code>/index.php</code><br>否则，返回去除首尾空格以及末尾hxb2018后的明文数据</p>
-<h3 id="temper"><a href="#temper" class="headerlink" title="temper"></a>temper</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> lib.core.enums <span class="keyword">import</span> PRIORITY</span><br><span class="line"> </span><br><span class="line">__priority__ = PRIORITY.LOW</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dependencies</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AESCipher</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, key,iv)</span>:</span></span><br><span class="line">        self.key = key[<span class="number">0</span>:<span class="number">16</span>] </span><br><span class="line">        self.iv = iv[<span class="number">0</span>:<span class="number">16</span>] </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__pad</span><span class="params">(self, text)</span>:</span></span><br><span class="line">        <span class="string">"PHP只有ZeroPadding"</span></span><br><span class="line">        text_length = len(text)</span><br><span class="line">        amount_to_pad = AES.block_size - (text_length % AES.block_size)</span><br><span class="line">        <span class="keyword">if</span> amount_to_pad == <span class="number">0</span>:</span><br><span class="line">            amount_to_pad = AES.block_size</span><br><span class="line">        pad = <span class="string">'\0'</span></span><br><span class="line">        <span class="keyword">return</span> text + pad * amount_to_pad</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(self, raw)</span>:</span></span><br><span class="line">        raw = self.__pad(raw)</span><br><span class="line">        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)</span><br><span class="line">        <span class="keyword">return</span> base64.b64encode(base64.b64encode(cipher.encrypt(raw)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(text)</span>:</span></span><br><span class="line">    Enc = AESCipher(<span class="string">"ydhaqPQnexoaDuW3"</span>,<span class="string">"2018201920202021"</span>)</span><br><span class="line">    <span class="keyword">return</span> Enc.encrypt(text+<span class="string">"hxb2018"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tamper</span><span class="params">(payload, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> encrypt(payload)</span><br></pre></td></tr></table></figure>
-<h2 id="Misc-Disk（湖湘杯）"><a href="#Misc-Disk（湖湘杯）" class="headerlink" title="Misc - Disk（湖湘杯）"></a>Misc - Disk（湖湘杯）</h2><blockquote>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/isa-ctf2/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/isa-ctf2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-isa-ctf-4" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/isa-ctf-4/">i春秋 第二届春秋欢乐赛 CryMisc Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/isa-ctf-4/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.111Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>把压缩文件解压，得到<code>crypto.zip</code>和<code>jiami.py</code>，而前者中包含有<code>jiami.py</code>，构造一个zip出来查看CRC，发现是同一文件，所以进行明文攻击。</p>
-<p>然后将其中的<code>gogogo.zip</code>解压，得到三个文件<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/crymisc_1.png" alt=""></p>
-<h2 id="查看代码"><a href="#查看代码" class="headerlink" title="查看代码"></a>查看代码</h2><p>打开<code>AESencrypt.py</code>，查看代码：</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/isa-ctf-4/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/isa-ctf-4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-isa-ctf1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/isa-ctf1/">isa_ctf1</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/isa-ctf1/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.111Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><ol>
-<li>直接查看源代码<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign1.png" alt=""></li>
-<li>注意到url命名不正常 (居然是indxe.htm)<br>使用Fiddler请求index.htm文件<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign2.png" alt=""></li>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/isa-ctf1/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></ol></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/isa-ctf1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-how-to-fix-fileExts" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/how-to-fix-fileExts/">手动修复Windows打开方式（修改注册表）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/how-to-fix-fileExts/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><p>由于不小心把.gitignore设置成了以文本形式打开，导致在Explorer中显示为空文件名的文本文件（非常不顺眼）<br>（Windows的默认设置中无法删除打开方式）<br>而且有的文件手动设置了默认打开方式后也不管用<br>于是通过修改注册表实现</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p>HKEY_LOCAL_MACHINE\Software\Classes：该注册表项包括适用所有用户的默认文件关联设置<br>HKEY_CURRENT_USER\Software\Classes：该注册表项包含只适用当前用户的文件关联设置（将覆盖HKEY_LOCAL_MACHINE项中的设置）<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts：该注册表项包含用户自定义的打开方式（勾选始终使用该方式打开）</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/how-to-fix-fileExts/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
     <div class="article-info article-info-index">
       
       
@@ -820,7 +322,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/how-to-fix-fileExts/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/15/db-sqlite3-to-sql/">展开全文 >></a>
         </p>
       
 
@@ -850,21 +352,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-icq-2nd-happy-rec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-vivado-custom-ip-and-instantiation" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/icq-2nd-happy-rec/">i春秋 第二届春秋欢乐赛 ReCreators&amp;Hello World Writeup</a>
+      <a class="article-title" href="/2019/10/07/vivado-custom-ip-and-instantiation/">Vivado 自定义IP核并实例化调用</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/icq-2nd-happy-rec/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/10/07/vivado-custom-ip-and-instantiation/" class="archive-article-date">
+  	<time datetime="2019-10-07T02:38:24.855Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
 </a>
         
       </header>
@@ -886,13 +388,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><p>浏览器打开，只有一个<code>Hello, World!</code><br>查看源代码看到有个<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"flag.xmas.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>结果没有该文件，尝试打开<code>flag.js</code>，看到混淆过的js，全选复制，放到控制台运行，得到<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Key = <span class="string">"7a57a5a743894a0e"</span>;</span><br><span class="line">CryptoJS.pad.Iso10126 = &#123;</span><br><span class="line">    pad: <span class="function"><span class="keyword">function</span>(<span class="params">data, blockSize</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> blockSizeBytes = blockSize * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;</span><br><span class="line">        data.concat(CryptoJS.lib.WordArray.random(nPaddingBytes - <span class="number">1</span>)).concat(CryptoJS.lib.WordArray.create([nPaddingBytes &lt;&lt; <span class="number">24</span>], <span class="number">1</span>))</span><br><span class="line">    &#125;,</span><br><span class="line">    unpad: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = data.words[(data.sigBytes - <span class="number">1</span>) &gt;&gt;&gt; <span class="number">2</span>] &amp; <span class="number">0xff</span>;</span><br><span class="line">        data.sigBytes -= nPaddingBytes</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesEncrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sendData = CryptoJS.enc.Utf8.parse(data);</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> encrypted = CryptoJS.AES.encrypt(sendData, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> CryptoJS.enc.Base64.stringify(encrypted.ciphertext)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesDecrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> decrypted = CryptoJS.AES.decrypt(data, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> decrypted.toString(CryptoJS.enc.Utf8)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> hint = <span class="string">"SSNRTPIuHLUxqtJmq8mDDPtexRU7RTjNO34tLqz+Tpw="</span>;</span><br></pre></td></tr></table></figure></p>
-<p>然而，这并没有什么用。。。。<br>得到的提示是<code>flag is not here</code></p>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>作业：将四选一数据选择器封装成IP，用以实现八选一数据选择器。</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="将项目封装成IP"><a href="#将项目封装成IP" class="headerlink" title="将项目封装成IP"></a>将项目封装成IP</h3><p>打开要封装的项目，然后点击工具栏<br><code>Tools</code>-<code>Create and Package New IP</code>-<code>Next</code><br>打包当前项目即可（选择完<code>Package your current project</code>后一路Next）<br>（当然，这里也可以手动选择路径进行打包）<br>然后会出现<code>Packaging Steps</code>窗口<br>如果不想修改配置的话，可以直接选择最后一步，<code>Review and Package</code>-<code>Package IP</code></p>
+<h3 id="在其他项目中导入"><a href="#在其他项目中导入" class="headerlink" title="在其他项目中导入"></a>在其他项目中导入</h3><p>打开需要调用IP的项目，点击左侧<br><code>Flow Navigator</code>-<code>IP Catalog</code><br>在空白处右键，<code>Add Repository</code>，选择之前打包的文件夹<br>(如果之前打包的是项目的话，则对应<code>.srcs</code>文件夹，如<code>D:\source\Vivado\mux_8_1\mux_8_1.srcs</code>)<br>然后双击导入的IP，导入并生成<br>导入成功后，在<code>Sources</code>-<code>IP Sources</code>中可以看到IP<br>其中<code>Instantiation Template</code>即为实例化模板</p>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/icq-2nd-happy-rec/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/10/07/vivado-custom-ip-and-instantiation/#more">查看更多 >></a>
         
     
     
@@ -907,7 +409,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vivado</a>
         		</li>
       		
 		</ul>
@@ -917,7 +419,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/icq-2nd-happy-rec/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/07/vivado-custom-ip-and-instantiation/">展开全文 >></a>
         </p>
       
 
@@ -947,87 +449,21 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-how-to-support-me" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-android-import-as-system-cert" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/how-to-support-me/">如何支持博主？</a>
+      <a class="article-title" href="/2019/10/03/android-import-as-system-cert/">安卓7.0及以上 导入为系统证书</a>
     </h1>
   
 
 
         
-        <a href="/2020/04/14/how-to-support-me/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        <p>众所周知，支持主要分为经济上和精神上的支持。<br>
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/how-to-support-me/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-icq-2nd-happy-rsa256" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/icq-2nd-happy-rsa256/">i春秋 第二届春秋欢乐赛 RSA256 Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/icq-2nd-happy-rsa256/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:50:52.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2019/10/03/android-import-as-system-cert/" class="archive-article-date">
+  	<time datetime="2019-10-03T03:30:48.215Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
 </a>
         
       </header>
@@ -1049,13 +485,13 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>解压得到四个文件，有一个<code>public.key</code>和三个加密过的文件，于是先把p和q解出来</p>
-<h2 id="得到e和n"><a href="#得到e和n" class="headerlink" title="得到e和n"></a>得到e和n</h2><p><code>openssl rsa -pubin -text -modulus -in warmup -in public.key</code><br>得到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exponent: 65537 (0x10001)</span><br><span class="line">Modulus=D99E952296A6D960DFC2504ABA545B9442D60A7B9E930AFF451C78EC55D555EB</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用yafu分解，得到p和q"><a href="#使用yafu分解，得到p和q" class="headerlink" title="使用yafu分解，得到p和q"></a>使用yafu分解，得到p和q</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p = 302825536744096741518546212761194311477</span><br><span class="line">q = 325045504186436346209877301320131277983</span><br></pre></td></tr></table></figure>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从安卓7.0开始，Android更改了对用户安装证书的默认信任行为。应用程序默认只信任系统级别的CA证书。<br>所以需要hook第三方包的证书校验函数（如JustTrustMe）或者直接导入为系统证书以供抓包</p>
+<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><h3 id="1-导出-der证书文件"><a href="#1-导出-der证书文件" class="headerlink" title="1. 导出.der证书文件"></a>1. 导出.der证书文件</h3><p>从抓包应用中导出即可。</p>
+<h3 id="2-转换为pem格式并重命名"><a href="#2-转换为pem格式并重命名" class="headerlink" title="2. 转换为pem格式并重命名"></a>2. 转换为pem格式并重命名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　openssl x509 -inform DER -<span class="keyword">in</span> cacert.der -out cacert.pem</span><br><span class="line">　　openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> cacert.pem |head -1</span><br><span class="line">　　mv cacert.pem &lt;<span class="built_in">hash</span>&gt;.0</span><br></pre></td></tr></table></figure>
 <p>
         
 
-          <a class="article-more-a" href="/2020/04/14/icq-2nd-happy-rsa256/#more">查看更多 >></a>
+          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/#more">查看更多 >></a>
         
     
     
@@ -1070,7 +506,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -1080,7 +516,582 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/icq-2nd-happy-rsa256/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-anti-web-js-debugger-code" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/28/anti-web-js-debugger-code/">绕过网站js中的debugger反调试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/28/anti-web-js-debugger-code/" class="archive-article-date">
+  	<time datetime="2019-09-28T12:21:18.258Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用开发者工具(F12)分析一个网站时发现：<br>每隔一段时间就会有js代码主动触发调试器断点，妨碍分析。<br>问之度娘，遂得解法。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-andlua-app-reverse" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/27/andlua-app-reverse/">送给最好的TA app分析</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/27/andlua-app-reverse/" class="archive-article-date">
+  	<time datetime="2019-09-27T09:15:25.287Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>今天群里有人传了个apk文件，名字叫<code>送给最好的TA</code>。这是一个整人app，安装并打开会播放一段音频，并循环调节媒体音量，维持最大值。从后台划掉/卸载/关机都可以停止该程序。<br><strong>网传所谓的截图、获取设备信息并上传等行为均不存在。反编译后看到的截图相关代码实际上并没有被调用，只是打包apk时封装进去的类，关键逻辑位于main.lua中。</strong></p>
+<h2 id="apk分析"><a href="#apk分析" class="headerlink" title="apk分析"></a>apk分析</h2><p>拿到样本之后，别急着安装运行，先看看它的目录结构。<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-0.png" alt=""><br>打开assets文件夹，看到有一个mp3文件以及两个加密后的lua脚本：<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-1.png" alt=""><br>运行app后会自动播放这个音频文件，先对它进行替换。<br>这里使用AU对该mp3进行静音处理后，重打包并签名。<br>（其实也可以替换成自己想要播放的音频）</p>
+<h2 id="找到加载lua的关键函数"><a href="#找到加载lua的关键函数" class="headerlink" title="找到加载lua的关键函数"></a>找到加载lua的关键函数</h2><p>众所周知，lua脚本需要加载，而在加载之前肯定是要先解密的，所以只要找到解密函数，然后就可以把解密后的lua脚本dump出来。<br>使用<code>IDA</code>打开<code>libluajava.so</code>，经过分析找到函数<code>luaL_loadbufferx</code><br><code>luaL_loadbufferx</code>的第二个参数是加密的字节数组，第三个参数是大小，第四个参数是lua文件位置。<br>程序在这个函数中加载加密lua脚本，其中对脚本进行了解密操作。<br>根据第四个参数我们可以区分目前加载的lua脚本名称，从而选择性地dump<br>（即在函数开头下断点，查看第四个参数内容）<br><code>luaL_loadbufferx</code>函数伪代码如下：<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/andlua-app-2.png" alt=""><br>首先对输入的字节数组进行判断，如果以1B开头，且第二位不是0C，则进行解密操作，否则直接调用<code>j_lua_load</code>加载lua脚本<br>在第41行下断点即可获取到解密后的字节数组，从而dump</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/27/andlua-app-reverse/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/27/andlua-app-reverse/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-qq-813-unrevoke-module-develop" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/18/qq-813-unrevoke-module-develop/">QQ8.1.3防撤回(Xposed模块)的原理</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/18/qq-813-unrevoke-module-develop/" class="archive-article-date">
+  	<time datetime="2019-09-18T07:55:19.073Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>开发一个适配QQ 8.1.3的防撤回插件，并显示撤回通知。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="1-防撤回"><a href="#1-防撤回" class="headerlink" title="1. 防撤回"></a>1. 防撤回</h3><p>设置<code>com.tencent.mobileqq.app.message.QQMessageFacade.a(ArrayList.class, boolean.class)</code>方法的返回值为空即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在beforeHookedMethod中执行</span><br><span class="line">param.setResult(null);</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-获取必要信息"><a href="#2-获取必要信息" class="headerlink" title="2. 获取必要信息"></a>2. 获取必要信息</h3><p>上一个方法的第一个参数(<code>ArrayList</code>)内容(<code>toString</code>)形如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RevokeMsgInfo[istroop= 1, shmsgseq= 356, frienduin= 1234568, fromuin= 12345678 msguid= 0, time= 1568796904, senduin= null, longmsgid= 0, longmsgcount=0 longmsgindex=0]</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/18/qq-813-unrevoke-module-develop/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/18/qq-813-unrevoke-module-develop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-chromium-edge-idm-support" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/16/chromium-edge-idm-support/">Microsoft Edge (Chromium内核)安装IDM插件</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/16/chromium-edge-idm-support/" class="archive-article-date">
+  	<time datetime="2019-09-16T14:45:27.137Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>今天从<code>Chrome</code>迁移到了<code>Microsoft Edge, based on Chromium</code><br>期间发现谷歌应用商店居然没有IDM拓展，只有<a href="https://chrome.google.com/webstore/detail/open-with-internet-downlo/epgilldoipfbdlneomlmegekaoonchcj" target="_blank" rel="noopener">Open With Internet Download Manager</a><br>而这个插件需要打<code>native messaging host</code>补丁，补丁不适用于<code>Edge</code>，于是自己研究了一下解决方法</p>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>修改配置文件，手动添加授权拓展</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p>定位到注册表<code>计算机\HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\com.microsoft.browsercore</code><br>项目值为<code>C:\Program Files\Windows Security\BrowserCore\manifest.json</code><br>定位到该文件，修改文件权限后，在<code>allowed_origins</code>中添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;chrome-extension://epgilldoipfbdlneomlmegekaoonchcj/&quot;,</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/16/chromium-edge-idm-support/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/16/chromium-edge-idm-support/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-magisk-set-debuggable" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/magisk-set-debuggable/">使用Magisk指令修改 ro.debuggable（不刷机）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/15/magisk-set-debuggable/" class="archive-article-date">
+  	<time datetime="2019-09-15T07:18:00.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+
+          <a class="article-more-a" href="/2019/09/15/magisk-set-debuggable/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/magisk-set-debuggable/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-latex-to-word-in-mathml" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/latex-to-word-in-mathml/">LaTeX公式复制到Word中显示</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/14/latex-to-word-in-mathml/" class="archive-article-date">
+  	<time datetime="2019-09-14T14:27:50.579Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>LaTeX</code>公式直接复制到word的公式编辑中效果可能不太好，而且不方便。<br>这里通过<code>MathML</code>作为中间格式进行转换</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h2 id="文件转换（建议使用）"><a href="#文件转换（建议使用）" class="headerlink" title="文件转换（建议使用）"></a>文件转换（建议使用）</h2><h3 id="文件转换工具pandoc"><a href="#文件转换工具pandoc" class="headerlink" title="文件转换工具pandoc"></a><a href="https://pandoc.org" target="_blank" rel="noopener">文件转换工具pandoc</a></h3><p>该工具能把tex文件整体转换为docx文件，执行以下命令（homework自行替换）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc homework.tex -o homework.docx</span><br></pre></td></tr></table></figure></p>
+<h2 id="单行转换"><a href="#单行转换" class="headerlink" title="单行转换"></a>单行转换</h2><p>以$\bar{x}$为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\bar&#123;x&#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/14/latex-to-word-in-mathml/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LaTeX</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/14/latex-to-word-in-mathml/">展开全文 >></a>
         </p>
       
 
@@ -1251,15 +1262,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
