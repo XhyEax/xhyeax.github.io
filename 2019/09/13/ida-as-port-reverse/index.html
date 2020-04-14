@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述也许有的反调试会检测23946端口是否占用，所以保险起见不妨使用别的端口。可以使用./android_server -p12345指定端口，但是不如直接逆向修改默认端口。 方法ida载入android_server，进入main函数，按F5查看伪代码，定位到23946（0x5dba）位置，直接修改即可。可以把5D BA改为39 30，即12345端口 参考浅谈android反调试之 转发端口">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-13T05:27:05.417Z">
+<meta property="og:updated_time" content="2020-04-14T03:10:46.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改IDA android_server默认端口">
 <meta name="twitter:description" content="概述也许有的反调试会检测23946端口是否占用，所以保险起见不妨使用别的端口。可以使用./android_server -p12345指定端口，但是不如直接逆向修改默认端口。 方法ida载入android_server，进入main函数，按F5查看伪代码，定位到23946（0x5dba）位置，直接修改即可。可以把5D BA改为39 30，即12345端口 参考浅谈android反调试之 转发端口">
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2019/09/13/ida-as-port-reverse/" class="archive-article-date">
-  	<time datetime="2019-09-13T12:00:49.490Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+  	<time datetime="2019-09-13T04:00:49.490Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
@@ -539,6 +539,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">支持</a>
               </li>
             
             <div class="clearfix"></div>

@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述多进程ptrace反调试是一种常见的反调试手段，思路为fork出子进程，在子进程中ptrace自身，使得调试器无法附加。通过修改源码来禁止指定进程fork 具体步骤定位到源码位置AOSP 5.1.1及6.0.1 fork函数位于：bionic/libc/bionic/fork.cpp 添加过滤函数通过读取status文件来确定进程名，然后跟文件内容比较，相同则禁止其fork代码如下：12345">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-13T05:24:00.249Z">
+<meta property="og:updated_time" content="2020-04-14T03:10:46.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改安卓系统源码(fork) 绕过多进程ptrace反调试">
 <meta name="twitter:description" content="概述多进程ptrace反调试是一种常见的反调试手段，思路为fork出子进程，在子进程中ptrace自身，使得调试器无法附加。通过修改源码来禁止指定进程fork 具体步骤定位到源码位置AOSP 5.1.1及6.0.1 fork函数位于：bionic/libc/bionic/fork.cpp 添加过滤函数通过读取status文件来确定进程名，然后跟文件内容比较，相同则禁止其fork代码如下：12345">
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2019/11/20/android_mod_fork_to_bypass_antidebug/" class="archive-article-date">
-  	<time datetime="2019-11-20T09:45:32.637Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
+  	<time datetime="2019-11-20T01:45:32.637Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
 </a>
         
       </header>
@@ -543,6 +543,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">支持</a>
               </li>
             
             <div class="clearfix"></div>

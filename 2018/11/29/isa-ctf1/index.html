@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_xuejie_0.png">
 <meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_xuejie_1.png">
 <meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_tpcw_0.png">
-<meta property="og:updated_time" content="2020-03-28T01:15:53.293Z">
+<meta property="og:updated_time" content="2020-04-14T03:10:46.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="isa_ctf1">
 <meta name="twitter:description" content="签到题 直接查看源代码 注意到url命名不正常 (居然是indxe.htm)使用Fiddler请求index.htm文件  Debug拖进IDA，查看一下伪C代码，入口处设置了rand的seed，因此查看调用_rand的函数 发现只有prlntf函数调用了，于是查看该函数  这就是关键代码了。 接下来计算call的偏移地址，把调用puts改为调用prlntf所以需要知道2A FF FF FF是怎么">
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/11/29/isa-ctf1/" class="archive-article-date">
-  	<time datetime="2018-11-29T04:49:41.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
+  	<time datetime="2018-11-28T20:49:41.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
 </a>
         
       </header>
@@ -597,6 +597,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">支持</a>
               </li>
             
             <div class="clearfix"></div>
