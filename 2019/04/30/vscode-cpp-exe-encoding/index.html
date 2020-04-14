@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述中文字符串在编辑界面正常显示，编译生成的exe中文乱码。源文件编码为UTF-8，设置输出的可执行文件编码为GB2312后正常显示。解决方案：添加编译参数-fexec-charset=GB2312 修改方法1. tasks.json中直接使用g++的情况具体方法：在tasks[args]中添加&amp;quot;-fexec-charset=GB2312&amp;quot; 1. tasks.json中使用ma">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-14T02:44:42.785Z">
+<meta property="og:updated_time" content="2020-04-14T09:53:00.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VSCode设置输出exe文件的编码">
 <meta name="twitter:description" content="概述中文字符串在编辑界面正常显示，编译生成的exe中文乱码。源文件编码为UTF-8，设置输出的可执行文件编码为GB2312后正常显示。解决方案：添加编译参数-fexec-charset=GB2312 修改方法1. tasks.json中直接使用g++的情况具体方法：在tasks[args]中添加&amp;quot;-fexec-charset=GB2312&amp;quot; 1. tasks.json中使用ma">
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
       
     <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>中文字符串在编辑界面正常显示，编译生成的exe中文乱码。源文件编码为UTF-8，设置输出的可执行文件编码为GB2312后正常显示。<br>解决方案：添加编译参数<code>-fexec-charset=GB2312</code></p>
 <h2 id="修改方法"><a href="#修改方法" class="headerlink" title="修改方法"></a>修改方法</h2><h3 id="1-tasks-json中直接使用g-的情况"><a href="#1-tasks-json中直接使用g-的情况" class="headerlink" title="1. tasks.json中直接使用g++的情况"></a>1. tasks.json中直接使用g++的情况</h3><p>具体方法：<br>在tasks[args]中添加<code>&quot;-fexec-charset=GB2312&quot;</code></p>
-<h3 id="1-tasks-json中使用make的情况"><a href="#1-tasks-json中使用make的情况" class="headerlink" title="1. tasks.json中使用make的情况"></a>1. tasks.json中使用make的情况</h3><p>在makefile中添加<code>-fexec-charset=GB2312</code><br>比如<a href="https://xhyeax.github.io/2019/04/13/vscode-cpp-multiplefile/" target="_blank" rel="noopener">上一篇博文</a>中的makefile，则在<code>CCOBJFLAG</code>后添加该参数，变为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CCOBJFLAG := $(CCFLAG) -c -fexec-charset=GB2312</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-tasks-json中使用make的情况"><a href="#1-tasks-json中使用make的情况" class="headerlink" title="1. tasks.json中使用make的情况"></a>1. tasks.json中使用make的情况</h3><p>在makefile中添加<code>-fexec-charset=GB2312</code><br>比如<a href="https://blog.xhyeax.com/2019/04/13/vscode-cpp-multiplefile/">上一篇博文</a>中的makefile，则在<code>CCOBJFLAG</code>后添加该参数，变为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CCOBJFLAG := $(CCFLAG) -c -fexec-charset=GB2312</span><br></pre></td></tr></table></figure></p>
 
 
 

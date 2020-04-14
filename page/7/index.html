@@ -171,6 +171,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cookies-local-save-read" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/13/cookies-local-save-read/">Cookie的本地保存和读取(Python requests模块)</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/13/cookies-local-save-read/" class="archive-article-date">
+  	<time datetime="2018-12-13T02:52:56.126Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>获取到cookie后转化为dictionary（使用<code>requests.utils.dict_from_cookiejar</code>方法转化CookieJar为dictionary），再以字符串形式保存到文件<br>读取时把字符串转换为字典（<code>json.load</code>方法），再设置为requests请求的cookies</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>这里有个坑，保存到文件时是单引号，使用json读取时需要双引号，所以需要replace一下</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#转换为dictionary</span></span><br><span class="line">load_cookies = requests.utils.dict_from_cookiejar(res.cookies)</span><br><span class="line"><span class="comment">#转换为字符串保存到文件</span></span><br><span class="line">fo = open(<span class="string">"cookie"</span>, <span class="string">"w"</span>)</span><br><span class="line">fo.write(str(load_cookies))</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/12/13/cookies-local-save-read/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/13/cookies-local-save-read/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fix-python-h" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/fix-python-h/">gcc编译Python模块失败(找不到Python.h)</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/07/fix-python-h/" class="archive-article-date">
+  	<time datetime="2018-12-06T23:32:34.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>服务器恢复快照以后，一大堆东西都要重新安装。<br>安装PyCrypto时发生错误，提示<br><code>Python.h: No such file or directory</code><br>于是 首先执行 <code>yum upgrade</code>，升级下试试<br>然而还是编译错误，所以肯定是没有安装依赖</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>查了一下是没安装开发环境（然而之前好像是可以直接编译的。。）<br>而<code>python-devel</code>已安装，然而搜不到<code>python3-devel</code><br>于是搜索<code>python3</code>,找到了<code>python36u-devel</code><br><code>yum install python36u-devel</code><br>安装后编译成功</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u013414502/article/details/79531509" target="_blank" rel="noopener">Centos7 “fatal error: Python.h: No such file or directory “commmand ‘gcc’ failed with exit status 1</a></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/12/07/fix-python-h/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/07/fix-python-h/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tgbot-ret-md" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -898,200 +1092,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/29/isa-ctf2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-isa-ctf1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/isa-ctf1/">isa_ctf1</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/11/29/isa-ctf1/" class="archive-article-date">
-  	<time datetime="2018-11-28T20:49:41.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><ol>
-<li>直接查看源代码<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign1.png" alt=""></li>
-<li>注意到url命名不正常 (居然是indxe.htm)<br>使用Fiddler请求index.htm文件<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ctf1_sign2.png" alt=""></li>
-<p>
-        
-
-          <a class="article-more-a" href="/2018/11/29/isa-ctf1/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></ol></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/29/isa-ctf1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-how-to-fix-fileExts" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/how-to-fix-fileExts/">手动修复Windows打开方式（修改注册表）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/11/29/how-to-fix-fileExts/" class="archive-article-date">
-  	<time datetime="2018-11-28T19:42:37.686Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><p>由于不小心把.gitignore设置成了以文本形式打开，导致在Explorer中显示为空文件名的文本文件（非常不顺眼）<br>（Windows的默认设置中无法删除打开方式）<br>而且有的文件手动设置了默认打开方式后也不管用<br>于是通过修改注册表实现</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p>HKEY_LOCAL_MACHINE\Software\Classes：该注册表项包括适用所有用户的默认文件关联设置<br>HKEY_CURRENT_USER\Software\Classes：该注册表项包含只适用当前用户的文件关联设置（将覆盖HKEY_LOCAL_MACHINE项中的设置）<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts：该注册表项包含用户自定义的打开方式（勾选始终使用该方式打开）</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2018/11/29/how-to-fix-fileExts/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/29/how-to-fix-fileExts/">展开全文 >></a>
         </p>
       
 
