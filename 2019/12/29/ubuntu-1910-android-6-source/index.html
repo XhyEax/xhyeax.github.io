@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述之前编译了AOSP 5.1.1源码，没有写文章记录。这次记录一下编译安卓6.0.0_r1的过程，流程大致跟编译5.1.1一样 步骤安装依赖程序包12345678910sudo apt-get install -y git flex bison gperf build-essential libncurses5-dev:i386sudo apt-get install libx11-dev:i3">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-14T12:19:37.210Z">
+<meta property="og:updated_time" content="2020-04-14T14:20:35.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 19.10 编译安卓6.0.0_r1源码">
 <meta name="twitter:description" content="概述之前编译了AOSP 5.1.1源码，没有写文章记录。这次记录一下编译安卓6.0.0_r1的过程，流程大致跟编译5.1.1一样 步骤安装依赖程序包12345678910sudo apt-get install -y git flex bison gperf build-essential libncurses5-dev:i386sudo apt-get install libx11-dev:i3">
@@ -205,6 +205,11 @@ var _hmt = _hmt || [];
 <h3 id="下载并解压驱动文件"><a href="#下载并解压驱动文件" class="headerlink" title="下载并解压驱动文件"></a>下载并解压驱动文件</h3><p>在<a href="https://developers.google.com/android/drivers" target="_blank" rel="noopener">官网</a>找到对应型号和版本的驱动，并解压到源码目录下：<br>然后逐一运行解压出的脚本，读到第8条第e项之后输入<code>I ACCEPT</code>解压出驱动</p>
 <h3 id="编译前准备"><a href="#编译前准备" class="headerlink" title="编译前准备"></a>编译前准备</h3><p>修改 源码目录/art/build/Android.common_build.mk 文件，定位到75行，将下面的代码：<br><code>ifneq ($(WITHOUT_HOST_CLANG),true)改为ifeq ($(WITHOUT_HOST_CLANG),false)</code></p>
 <h4 id="使用ccache"><a href="#使用ccache" class="headerlink" title="使用ccache"></a>使用ccache</h4><p>为提高编译效率，设置编译器高速缓存<br>(1) 在~/.bashrc文件末尾添加：<code>export USE_CCACHE=1</code><br>(2) 在源码目录执行：<br><code>prebuilts/misc/linux-x86/ccache/ccache -M 100G</code></p>
+<blockquote>
+<blockquote>
+<p>该设置会保存到CCACHE_DIR中，且该命令是长效的，不会因系统重启而失效。</p>
+</blockquote>
+</blockquote>
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>执行<code>export LC_ALL=C</code><br>然后导入编译Android源码所需的环境:<br><code>source build/envsetup.sh</code><br>执行<code>lunch</code>选择编译目标<br><code>make -j26</code> 多线程编译，谷歌建议线程数为2倍的cpu个数（<code>cat /proc/cpuinfo | grep processor</code>查看）再加2</p>
 <p>耐心等待编译完成</p>
 <h3 id="刷入"><a href="#刷入" class="headerlink" title="刷入"></a>刷入</h3><p>在<code>out/target/product/型号</code>下找到生成的镜像，fastboot刷入即可</p>
