@@ -667,7 +667,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/wsl-18-04-android-6-source/">WSL2(Ubuntu 18.04)编译安卓6.0.0_r1源码</a>
+      <a class="article-title" href="/2020/04/14/wsl-18-04-android-6-source/">WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码</a>
     </h1>
   
 
@@ -696,9 +696,9 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="一开始的尝试"><a href="#一开始的尝试" class="headerlink" title="一开始的尝试"></a>一开始的尝试</h2><p>一开始使用wsl1进行编译，即使已使用ccache，编译耗时仍难以接受（编译了很久都没结束）<br>之后使用wsl2进行编译，耗时仍然难以接受<br>原因分析：源码位于D盘，wsl访问文件可能需要经过一次转换，因此编译速度慢。</p>
+            <p></p><h2 id="之前的尝试"><a href="#之前的尝试" class="headerlink" title="之前的尝试"></a>之前的尝试</h2><p>一开始使用wsl1进行编译，即使用了ccache，编译耗时仍难以接受（编译了很久都没结束）<br>之后又使用wsl2进行编译，编译还是需要很久<br>原因猜测：源码位于D盘，wsl访问文件可能需要经过转换，因此IO操作速度慢。<br>搜索发现<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-ux-changes" target="_blank" rel="noopener">WSL 1 与 WSL 2 之间的用户体验更改</a>中提到：</p>
 <blockquote>
-<p>请确保将你要使用 Linux 应用程序频繁访问的文件放在 Linux 根文件系统中，以享受文件性能优势。 这些文件必须位于 Linux 根文件系统内，以便较快地访问文件系统。<br>参见<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-ux-changes" target="_blank" rel="noopener">WSL 1 与 WSL 2 之间的用户体验更改</a></p>
+<p>请确保将你要使用 Linux 应用程序频繁访问的文件放在 Linux 根文件系统中，以享受文件性能优势。 这些文件必须位于 Linux 根文件系统内，以便较快地访问文件系统。<br>验证：<br>在d盘解压源码，速度远远慢于在wsl文件系统中解压<br>由此确定最终方案</p>
 <p>
         
 
