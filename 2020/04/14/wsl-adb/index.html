@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
   <title>WSL中使用adb | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb version 查看adb版本，发现windows是1.0.41，而WSL下是1.0.">
+  <meta name="description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1(可以考虑安装2个wsl系统，分别使用不同版本，按需使用。因为转换版本需要时间)  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb ver">
 <meta name="keywords" content="Android,WSL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL中使用adb">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/04/14/wsl-adb/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb version 查看adb版本，发现windows是1.0.41，而WSL下是1.0.">
+<meta property="og:description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1(可以考虑安装2个wsl系统，分别使用不同版本，按需使用。因为转换版本需要时间)  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb ver">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-15T14:27:34.375Z">
+<meta property="og:updated_time" content="2020-04-15T15:16:37.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WSL中使用adb">
-<meta name="twitter:description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb version 查看adb版本，发现windows是1.0.41，而WSL下是1.0.">
+<meta name="twitter:description" content="概述尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。注意：wsl2中adb无法查询到设备，需要使用wsl1(可以考虑安装2个wsl系统，分别使用不同版本，按需使用。因为转换版本需要时间)  在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。参见WSL2 - 常见问题  解决方案查询adb版本使用1adb ver">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，需要使用wsl1</p>
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，需要使用wsl1<br>(可以考虑安装2个wsl系统，分别使用不同版本，按需使用。因为转换版本需要时间)</p>
 <blockquote>
 <p>在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。<br>参见<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-faq" target="_blank" rel="noopener">WSL2 - 常见问题</a></p>
 </blockquote>
@@ -320,7 +320,7 @@ var _hmt = _hmt || [];
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码
+          WSL2(Ubuntu 18.04)编译安卓6.0.0_r1源码
         
       </div>
     </a>

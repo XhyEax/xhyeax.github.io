@@ -268,103 +268,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-wsl-move-from-os" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/wsl-move-from-os/">迁移WSL至非系统盘</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/wsl-move-from-os/" class="archive-article-date">
-  	<time datetime="2020-04-15T06:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘</p>
-<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><p>建议先转换为wsl2再进行迁移，速度更快</p>
-<h3 id="停止正在运行的wsl"><a href="#停止正在运行的wsl" class="headerlink" title="停止正在运行的wsl"></a>停止正在运行的wsl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/wsl-move-from-os/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/wsl-move-from-os/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-wsl-move-to-non-os-disk" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -764,7 +667,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/wsl-18-04-android-6-source/">WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码</a>
+      <a class="article-title" href="/2020/04/14/wsl-18-04-android-6-source/">WSL2(Ubuntu 18.04)编译安卓6.0.0_r1源码</a>
     </h1>
   
 
@@ -793,9 +696,9 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><strong>使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译</strong><br>理论上来说能最好地利用硬件性能</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>首先使用wsl1进行编译，即使已使用ccache，编译耗时仍难以接受<br>之后使用wsl2进行编译，耗时仍然难以接受<br>（为什么难以接受：编译了很久都没结束，最后直接<code>shift+delete</code>了= =）<br>原因猜测：源码位于D盘，wsl访问文件可能需要经过一次转换，因此编译速度慢。<br>如果把源码直接下载到linux文件系统下，再进行编译，速度应该会有很大提升</p>
+            <p></p><h2 id="一开始的尝试"><a href="#一开始的尝试" class="headerlink" title="一开始的尝试"></a>一开始的尝试</h2><p>一开始使用wsl1进行编译，即使已使用ccache，编译耗时仍难以接受（编译了很久都没结束）<br>之后使用wsl2进行编译，耗时仍然难以接受<br>原因分析：源码位于D盘，wsl访问文件可能需要经过一次转换，因此编译速度慢。</p>
 <blockquote>
+<p>请确保将你要使用 Linux 应用程序频繁访问的文件放在 Linux 根文件系统中，以享受文件性能优势。 这些文件必须位于 Linux 根文件系统内，以便较快地访问文件系统。<br>参见<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-ux-changes" target="_blank" rel="noopener">WSL 1 与 WSL 2 之间的用户体验更改</a></p>
 <p>
         
 
@@ -894,7 +797,7 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，需要使用wsl1</p>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，需要使用wsl1<br>(可以考虑安装2个wsl系统，分别使用不同版本，按需使用。因为转换版本需要时间)</p>
 <blockquote>
 <p>在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。<br>参见<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-faq" target="_blank" rel="noopener">WSL2 - 常见问题</a></p>
 <p>
@@ -1124,6 +1027,107 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/13/draw-bintree-by-graphviz/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-stone-game" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/stone-game/">取石头游戏</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/04/13/stone-game/" class="archive-article-date">
+  	<time datetime="2020-04-12T21:06:46.113Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>两个足够聪明的人玩轮流取石头的游戏，谁取到最后一个石头谁就赢了，他们一次只能取1个、3个、7个或8个石头，写一程序判断n个石头时先取的人是输还是赢。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><p>一个整数n，其值不超过10000000。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h3><p>如果先取的人赢，请以单独一行输出1，否则输出0。</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2020/04/13/stone-game/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OJ</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/stone-game/">展开全文 >></a>
         </p>
       
 
