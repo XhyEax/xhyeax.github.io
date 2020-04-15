@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
   <title>迁移WSL至非系统盘 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
+  <meta name="description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalS">
 <meta name="keywords" content="WSL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="迁移WSL至非系统盘">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/04/15/wsl-move-to-non-os-disk/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
+<meta property="og:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalS">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-15T15:02:16.736Z">
+<meta property="og:updated_time" content="2020-04-15T15:08:42.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迁移WSL至非系统盘">
-<meta name="twitter:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
+<meta name="twitter:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalS">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
     <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘</p>
 <h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><p>建议先转换为wsl2再进行迁移，速度更快</p>
 <h3 id="停止正在运行的wsl"><a href="#停止正在运行的wsl" class="headerlink" title="停止正在运行的wsl"></a>停止正在运行的wsl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
-<h3 id="删除temp文件夹（wsl1）"><a href="#删除temp文件夹（wsl1）" class="headerlink" title="删除temp文件夹（wsl1）"></a>删除temp文件夹（wsl1）</h3><p>打开wsl文件夹：<br><code>C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState</code><br>删除temp文件夹</p>
+<h3 id="删除temp文件夹"><a href="#删除temp文件夹" class="headerlink" title="删除temp文件夹"></a>删除temp文件夹</h3><p>打开wsl文件夹：<br><code>C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState</code><br>删除temp文件夹</p>
 <h3 id="使用工具迁移"><a href="#使用工具迁移" class="headerlink" title="使用工具迁移"></a>使用工具迁移</h3><p>下载：<a href="https://github.com/DDoSolitary/LxRunOffline/releases" target="_blank" rel="noopener">https://github.com/DDoSolitary/LxRunOffline/releases</a><br>然后以管理员权限启动 PowerShell，执行</p>
 <h4 id="查看发行版本"><a href="#查看发行版本" class="headerlink" title="查看发行版本"></a>查看发行版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe list</span><br></pre></td></tr></table></figure>
 <h4 id="执行迁移操作"><a href="#执行迁移操作" class="headerlink" title="执行迁移操作"></a>执行迁移操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe move -n Ubuntu -d D:\Ubuntu</span><br></pre></td></tr></table></figure>
@@ -350,7 +350,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移步骤"><span class="toc-number">2.</span> <span class="toc-text">迁移步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#停止正在运行的wsl"><span class="toc-number">2.1.</span> <span class="toc-text">停止正在运行的wsl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除temp文件夹（wsl1）"><span class="toc-number">2.2.</span> <span class="toc-text">删除temp文件夹（wsl1）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用工具迁移"><span class="toc-number">2.3.</span> <span class="toc-text">使用工具迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看发行版本"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看发行版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行迁移操作"><span class="toc-number">2.3.2.</span> <span class="toc-text">执行迁移操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询迁移结果"><span class="toc-number">2.3.3.</span> <span class="toc-text">查询迁移结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动wsl测试"><span class="toc-number">2.3.4.</span> <span class="toc-text">启动wsl测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移步骤"><span class="toc-number">2.</span> <span class="toc-text">迁移步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#停止正在运行的wsl"><span class="toc-number">2.1.</span> <span class="toc-text">停止正在运行的wsl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除temp文件夹"><span class="toc-number">2.2.</span> <span class="toc-text">删除temp文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用工具迁移"><span class="toc-number">2.3.</span> <span class="toc-text">使用工具迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看发行版本"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看发行版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行迁移操作"><span class="toc-number">2.3.2.</span> <span class="toc-text">执行迁移操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询迁移结果"><span class="toc-number">2.3.3.</span> <span class="toc-text">查询迁移结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动wsl测试"><span class="toc-number">2.3.4.</span> <span class="toc-text">启动wsl测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
