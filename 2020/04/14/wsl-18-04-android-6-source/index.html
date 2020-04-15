@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
   <title>WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="提示本人使用的是wsl（系统版本号1903），编译耗时难以接受（即使使用了ccache）之后使用了wsl2编译，速度快了很多（可能是错觉）所以建议使用wsl2编译（操作系统版本至少为18917，目前需要加入windows预览体验计划才能使用） 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsinghua.edu.cn/ub">
+  <meta name="description" content="提示使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译（编译所用时间最短） 本人使用的是wsl（系统版本号1903），编译耗时难以接受也可以使用wsl2，不过耗时仍然难以接受为什么难以接受：编译了很久都没结束，最后直接shift+delete了= = 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsingh">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/04/14/wsl-18-04-android-6-source/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="提示本人使用的是wsl（系统版本号1903），编译耗时难以接受（即使使用了ccache）之后使用了wsl2编译，速度快了很多（可能是错觉）所以建议使用wsl2编译（操作系统版本至少为18917，目前需要加入windows预览体验计划才能使用） 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsinghua.edu.cn/ub">
+<meta property="og:description" content="提示使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译（编译所用时间最短） 本人使用的是wsl（系统版本号1903），编译耗时难以接受也可以使用wsl2，不过耗时仍然难以接受为什么难以接受：编译了很久都没结束，最后直接shift+delete了= = 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsingh">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-15T10:45:01.787Z">
+<meta property="og:updated_time" content="2020-04-15T11:49:41.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码">
-<meta name="twitter:description" content="提示本人使用的是wsl（系统版本号1903），编译耗时难以接受（即使使用了ccache）之后使用了wsl2编译，速度快了很多（可能是错觉）所以建议使用wsl2编译（操作系统版本至少为18917，目前需要加入windows预览体验计划才能使用） 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsinghua.edu.cn/ub">
+<meta name="twitter:description" content="提示使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译（编译所用时间最短） 本人使用的是wsl（系统版本号1903），编译耗时难以接受也可以使用wsl2，不过耗时仍然难以接受为什么难以接受：编译了很久都没结束，最后直接shift+delete了= = 步骤配置软件源/etc/apt/sources.list1234567deb https://mirrors.tuna.tsingh">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -192,7 +192,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>本人使用的是wsl（系统版本号1903），编译耗时难以接受（即使使用了ccache）<br>之后使用了wsl2编译，速度快了很多（可能是错觉）<br>所以建议使用wsl2编译（操作系统版本至少为18917，目前需要加入windows预览体验计划才能使用）</p>
+    <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><strong>使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译（编译所用时间最短）</strong></p>
+<p>本人使用的是wsl（系统版本号1903），编译耗时难以接受<br>也可以使用wsl2，不过耗时仍然难以接受<br>为什么难以接受：编译了很久都没结束，最后直接<code>shift+delete</code>了= =</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h3><p><code>/etc/apt/sources.list</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://us.archive.ubuntu.com/ubuntu/ xenial main universe</span><br><span class="line">deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main universe</span><br></pre></td></tr></table></figure></p>
 <p>更新软件源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
 <p>如果出现<code>The following signatures couldn&#39;t be verified because the public key is not available</code>错误，则需要手动添加key</p>
