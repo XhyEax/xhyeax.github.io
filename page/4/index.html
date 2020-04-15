@@ -171,6 +171,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-import-as-system-cert" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/android-import-as-system-cert/">安卓7.0及以上 导入为系统证书</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/10/03/android-import-as-system-cert/" class="archive-article-date">
+  	<time datetime="2019-10-02T19:30:48.215Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从安卓7.0开始，Android更改了对用户安装证书的默认信任行为。应用程序默认只信任系统级别的CA证书。<br>所以需要hook第三方包的证书校验函数（如JustTrustMe）或者直接导入为系统证书以供抓包</p>
+<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><h3 id="1-导出-der证书文件"><a href="#1-导出-der证书文件" class="headerlink" title="1. 导出.der证书文件"></a>1. 导出.der证书文件</h3><p>从抓包应用中导出即可。</p>
+<h3 id="2-转换为pem格式并重命名"><a href="#2-转换为pem格式并重命名" class="headerlink" title="2. 转换为pem格式并重命名"></a>2. 转换为pem格式并重命名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　openssl x509 -inform DER -<span class="keyword">in</span> cacert.der -out cacert.pem</span><br><span class="line">　　openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> cacert.pem |head -1</span><br><span class="line">　　mv cacert.pem &lt;<span class="built_in">hash</span>&gt;.0</span><br></pre></td></tr></table></figure>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-anti-web-js-debugger-code" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/28/anti-web-js-debugger-code/">绕过网站js中的debugger反调试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/28/anti-web-js-debugger-code/" class="archive-article-date">
+  	<time datetime="2019-09-28T04:21:18.258Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用开发者工具(F12)分析一个网站时发现：<br>每隔一段时间就会有js代码主动触发调试器断点，妨碍分析。<br>问之度娘，遂得解法。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-andlua-app-reverse" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -948,200 +1142,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-android-source-mod-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/android-source-mod-anti-antidebug/">修改安卓内核源码 过State TracerPID反调试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/09/13/android-source-mod-anti-antidebug/" class="archive-article-date">
-  	<time datetime="2019-09-13T03:23:31.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>修改安卓内核源码来绕过State字段及TracePid字段反调试</p>
-<h2 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h2><p>打开内核源码目录，<code>/fs/proc</code>下的<code>base.c</code>和<code>array.c</code></p>
-<h2 id="修改点"><a href="#修改点" class="headerlink" title="修改点"></a>修改点</h2><h3 id="base-c"><a href="#base-c" class="headerlink" title="base.c"></a>base.c</h3><h4 id="proc-pid-wchan函数"><a href="#proc-pid-wchan函数" class="headerlink" title="proc_pid_wchan函数"></a>proc_pid_wchan函数</h4><p>最后一个else分支改成<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//修改部分</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(symname,<span class="string">"trace"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, <span class="string">"sys_epoll_wait"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, symname);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-kernel-reverse-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">逆向修改安卓内核 x64 过TracerPID反调试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/09/13/android-kernel-reverse-anti-antidebug/" class="archive-article-date">
-  	<time datetime="2019-09-12T16:42:11.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="建议在git-bash下操作"><a href="#建议在git-bash下操作" class="headerlink" title="#建议在git bash下操作"></a>#建议在git bash下操作</h2><p>本人解压<code>kernel.gz</code>时使用的不是命令行，导致没有看到输出信息<code>gzip trailing garbage ignored</code>，进而没有对这些数据进行处理，浪费了很多时间。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>手动nop掉TracerPID反调试代码，当然比不上直接修改内核来的快。<br>如果有内核源码以及环境，当然可以通过直接修改源码的方式生成<code>boot.img</code>。<br>在无内核源码（或者还没配置安卓源码编译环境）的情况下则只能通过逆向来修改内核。</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><code>Redmi Note 3</code>, <code>arm64</code>, <code>cm12.1</code></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1336,6 +1336,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>

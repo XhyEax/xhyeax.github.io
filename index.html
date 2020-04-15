@@ -171,6 +171,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-specify-pip-source-url" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/15/python-specify-pip-source-url/">Python pip永久换源</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/04/15/python-specify-pip-source-url/" class="archive-article-date">
+  	<time datetime="2020-04-15T06:54:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>最近安装python模块非常慢，甚至直接超时。更换源后解决</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p><code>C:\Users\用户名\pip\pip.ini</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>编辑<code>~/.pip/pip.conf</code>内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2020/04/15/python-specify-pip-source-url/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/15/python-specify-pip-source-url/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-wsl-move-from-os" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/15/wsl-move-from-os/">迁移WSL至非系统盘</a>
+    </h1>
+  
+
+
+        
+        <a href="/2020/04/15/wsl-move-from-os/" class="archive-article-date">
+  	<time datetime="2020-04-15T06:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘</p>
+<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><p>建议先转换为wsl2再进行迁移，速度更快</p>
+<h3 id="停止正在运行的wsl"><a href="#停止正在运行的wsl" class="headerlink" title="停止正在运行的wsl"></a>停止正在运行的wsl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
+<p>
+        
+
+          <a class="article-more-a" href="/2020/04/15/wsl-move-from-os/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/15/wsl-move-from-os/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-wsl2-docker" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -229,6 +423,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
         		</li>
       		
 		</ul>
@@ -325,7 +523,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
         		</li>
       		
 		</ul>
@@ -498,9 +696,9 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><strong>使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译（编译所用时间最短）</strong><br>首先使用的是wsl，编译耗时难以接受（已使用ccache）<br>之后升级系统使用wsl2，耗时仍然难以接受<br>为什么难以接受：编译了很久都没结束，最后直接<code>shift+delete</code>了= =<br>原因猜测：源码位于D盘，wsl访问文件可能需要经过一次转换，因此编译速度非常慢</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h3><p><code>/etc/apt/sources.list</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://us.archive.ubuntu.com/ubuntu/ xenial main universe</span><br><span class="line">deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main universe</span><br></pre></td></tr></table></figure></p>
-<p>更新软件源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+            <p></p><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><strong>使用wsl编译只是一次尝试，最好还是在原生Linux系统下进行编译</strong><br>理论上来说能最好地利用硬件性能</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>首先使用wsl1进行编译，即使已使用ccache，编译耗时仍难以接受<br>之后使用wsl2进行编译，耗时仍然难以接受<br>（为什么难以接受：编译了很久都没结束，最后直接<code>shift+delete</code>了= =）<br>原因猜测：源码位于D盘，wsl访问文件可能需要经过一次转换，因此编译速度慢。<br>如果把源码直接下载到linux文件系统下，再进行编译，速度应该会有很大提升</p>
+<blockquote>
 <p>
         
 
@@ -510,7 +708,7 @@ var _hmt = _hmt || [];
     
 
       
-    </p></div>
+    </p></blockquote></div>
     <div class="article-info article-info-index">
       
       
@@ -520,6 +718,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
         		</li>
       		
 		</ul>
@@ -595,9 +797,9 @@ var _hmt = _hmt || [];
         
         
             
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，wsl1才可以</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="查询adb版本"><a href="#查询adb版本" class="headerlink" title="查询adb版本"></a>查询adb版本</h3><p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb version</span><br></pre></td></tr></table></figure></p>
-<p>查看adb版本，发现windows是<code>1.0.41</code>，而WSL下是<code>1.0.39</code></p>
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>尝试在wsl中使用adb，发现找不到设备。搜索一番发现是因为adb版本不统一导致的。<br>注意：wsl2中adb无法查询到设备，需要使用wsl1</p>
+<blockquote>
+<p>在 WSL 2 的初始版本中，将会限制硬件访问支持，例如：你将无法访问 GPU、串行或 USB 设备。<br>参见<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-faq" target="_blank" rel="noopener">WSL2 - 常见问题</a></p>
 <p>
         
 
@@ -607,7 +809,7 @@ var _hmt = _hmt || [];
     
 
       
-    </p></div>
+    </p></blockquote></div>
     <div class="article-info article-info-index">
       
       
@@ -620,7 +822,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
         		</li>
       		
 		</ul>
@@ -955,208 +1157,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-vscode-git-by-ssh" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/vscode-git-by-ssh/">VSCode中配置git使用ssh连接</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/13/vscode-git-by-ssh/" class="archive-article-date">
-  	<time datetime="2020-04-12T19:18:16.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用HTTPS协议时需要输入账号密码，比较麻烦，虽然可以配置自动保存密码，但明文保存可能导致安全性的降低。<br>在部署博客时也收到了github的邮件提醒：</p>
-<blockquote>
-<p>On July 1st, 2020, basic authentication using password to this endpoint will no longer work</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/13/vscode-git-by-ssh/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/13/vscode-git-by-ssh/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vscode-git-save-pwd" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/vscode-git-save-pwd/">VSCode中git设置保存密码</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/13/vscode-git-save-pwd/" class="archive-article-date">
-  	<time datetime="2020-04-12T19:07:30.623Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>在终端中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p>
-<p>然后重新打开VSCode</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>这样配置的话，会在用户目录下生成<code>.git-credentials</code>文件，明文保存账号密码。<br>PS: 用户目录（Windows: <code>C:/User/UserName</code>，Linux: <code>~</code>）</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/13/vscode-git-save-pwd/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/13/vscode-git-save-pwd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1351,6 +1351,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>

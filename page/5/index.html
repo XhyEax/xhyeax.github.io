@@ -171,6 +171,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-source-mod-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/android-source-mod-anti-antidebug/">修改安卓内核源码 过State TracerPID反调试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/13/android-source-mod-anti-antidebug/" class="archive-article-date">
+  	<time datetime="2019-09-13T03:23:31.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>修改安卓内核源码来绕过State字段及TracePid字段反调试</p>
+<h2 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h2><p>打开内核源码目录，<code>/fs/proc</code>下的<code>base.c</code>和<code>array.c</code></p>
+<h2 id="修改点"><a href="#修改点" class="headerlink" title="修改点"></a>修改点</h2><h3 id="base-c"><a href="#base-c" class="headerlink" title="base.c"></a>base.c</h3><h4 id="proc-pid-wchan函数"><a href="#proc-pid-wchan函数" class="headerlink" title="proc_pid_wchan函数"></a>proc_pid_wchan函数</h4><p>最后一个else分支改成<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span></span><br><span class="line">    &#123;   <span class="comment">//修改部分</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(symname,<span class="string">"trace"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, <span class="string">"sys_epoll_wait"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sprintf</span>(buffer, <span class="string">"%s"</span>, symname);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/13/android-source-mod-anti-antidebug/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-android-kernel-reverse-anti-antidebug" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">逆向修改安卓内核 x64 过TracerPID反调试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/13/android-kernel-reverse-anti-antidebug/" class="archive-article-date">
+  	<time datetime="2019-09-12T16:42:11.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="建议在git-bash下操作"><a href="#建议在git-bash下操作" class="headerlink" title="#建议在git bash下操作"></a>#建议在git bash下操作</h2><p>本人解压<code>kernel.gz</code>时使用的不是命令行，导致没有看到输出信息<code>gzip trailing garbage ignored</code>，进而没有对这些数据进行处理，浪费了很多时间。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>手动nop掉TracerPID反调试代码，当然比不上直接修改内核来的快。<br>如果有内核源码以及环境，当然可以通过直接修改源码的方式生成<code>boot.img</code>。<br>在无内核源码（或者还没配置安卓源码编译环境）的情况下则只能通过逆向来修改内核。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><code>Redmi Note 3</code>, <code>arm64</code>, <code>cm12.1</code></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/13/android-kernel-reverse-anti-antidebug/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android-studio-import-so" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -945,200 +1139,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-emui9-magisk-install" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/emui9-magisk-install/">emui9安装Magisk框架</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/04/02/emui9-magisk-install/" class="archive-article-date">
-  	<time datetime="2019-04-01T20:49:28.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h2><p>(设备已解锁BL，电脑fastboot环境正常是前提条件)<br>已下载magisk框架rec安装包（<a href="https://github.com/topjohnwu/Magisk/releases/" target="_blank" rel="noopener">github下载</a>），有sd卡（<code>adb sideload</code>未测试是否可安装，建议用内存卡），并已安装第三方recovery（以下简称rec）<br>或<br>已安装magisk框架app，且有原厂<code>recovery_ramdisk</code>镜像</p>
-<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>fastboot刷入命令（华为没有boot分区，所以rec也是通过这个指令刷入）<br>(BOOT.img请自行替换为对应镜像名)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery_ramdisk BOOT.img</span><br></pre></td></tr></table></figure></p>
-<h3 id="rec安装法"><a href="#rec安装法" class="headerlink" title="rec安装法"></a>rec安装法</h3><p>启动至第三方rec，从sd卡选择magisk卡刷包，安装。<br>安装完成后选择重启到rec模式，即可进入带面具的系统</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/04/02/emui9-magisk-install/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/02/emui9-magisk-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-floatview" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/android-floatview/">安卓8.0以上创建悬浮窗</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/03/15/android-floatview/" class="archive-article-date">
-  	<time datetime="2019-03-15T07:42:36.248Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>代码在8.0以下系统可正常创建悬浮窗，8.0以上则创建不了。原因是悬浮窗样式需要重新设置。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>增加SDK判断代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_APPLICATION_OVERLAY;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_PHONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="判断是否拥有悬浮窗权限并申请"><a href="#判断是否拥有悬浮窗权限并申请" class="headerlink" title="判断是否拥有悬浮窗权限并申请"></a>判断是否拥有悬浮窗权限并申请</h2><p>安卓6.0（代号M，SDK 23）之后，需要动态申请权限，悬浮窗权限也不例外。所以可以在添加以下代码来申请悬浮窗权限。<br>PS：当然，必须在<code>AndroidManifest.xml</code>中添加<br><code>&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!Settings.canDrawOverlays(activity))</span><br><span class="line">                &#123;</span><br><span class="line">                    Intent it = <span class="keyword">new</span> Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);</span><br><span class="line">                    activity.startActivityForResult(it, <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/03/15/android-floatview/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/15/android-floatview/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1333,6 +1333,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>

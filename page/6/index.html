@@ -171,6 +171,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-emui9-magisk-install" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/02/emui9-magisk-install/">emui9安装Magisk框架</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/04/02/emui9-magisk-install/" class="archive-article-date">
+  	<time datetime="2019-04-01T20:49:28.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h2><p>(设备已解锁BL，电脑fastboot环境正常是前提条件)<br>已下载magisk框架rec安装包（<a href="https://github.com/topjohnwu/Magisk/releases/" target="_blank" rel="noopener">github下载</a>），有sd卡（<code>adb sideload</code>未测试是否可安装，建议用内存卡），并已安装第三方recovery（以下简称rec）<br>或<br>已安装magisk框架app，且有原厂<code>recovery_ramdisk</code>镜像</p>
+<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>fastboot刷入命令（华为没有boot分区，所以rec也是通过这个指令刷入）<br>(BOOT.img请自行替换为对应镜像名)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery_ramdisk BOOT.img</span><br></pre></td></tr></table></figure></p>
+<h3 id="rec安装法"><a href="#rec安装法" class="headerlink" title="rec安装法"></a>rec安装法</h3><p>启动至第三方rec，从sd卡选择magisk卡刷包，安装。<br>安装完成后选择重启到rec模式，即可进入带面具的系统</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/04/02/emui9-magisk-install/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/02/emui9-magisk-install/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-android-floatview" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/15/android-floatview/">安卓8.0以上创建悬浮窗</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/03/15/android-floatview/" class="archive-article-date">
+  	<time datetime="2019-03-15T07:42:36.248Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>代码在8.0以下系统可正常创建悬浮窗，8.0以上则创建不了。原因是悬浮窗样式需要重新设置。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>增加SDK判断代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_APPLICATION_OVERLAY;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    wmParams.type = LayoutParams.TYPE_PHONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="判断是否拥有悬浮窗权限并申请"><a href="#判断是否拥有悬浮窗权限并申请" class="headerlink" title="判断是否拥有悬浮窗权限并申请"></a>判断是否拥有悬浮窗权限并申请</h2><p>安卓6.0（代号M，SDK 23）之后，需要动态申请权限，悬浮窗权限也不例外。所以可以在添加以下代码来申请悬浮窗权限。<br>PS：当然，必须在<code>AndroidManifest.xml</code>中添加<br><code>&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!Settings.canDrawOverlays(activity))</span><br><span class="line">                &#123;</span><br><span class="line">                    Intent it = <span class="keyword">new</span> Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);</span><br><span class="line">                    activity.startActivityForResult(it, <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/03/15/android-floatview/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/15/android-floatview/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android-reverse-fix-arsc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -940,200 +1134,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-icq-2nd-happy-rec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/icq-2nd-happy-rec/">i春秋 第二届春秋欢乐赛 ReCreators&amp;Hello World Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/icq-2nd-happy-rec/" class="archive-article-date">
-  	<time datetime="2019-01-26T02:26:40.217Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><p>浏览器打开，只有一个<code>Hello, World!</code><br>查看源代码看到有个<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"flag.xmas.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>结果没有该文件，尝试打开<code>flag.js</code>，看到混淆过的js，全选复制，放到控制台运行，得到<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Key = <span class="string">"7a57a5a743894a0e"</span>;</span><br><span class="line">CryptoJS.pad.Iso10126 = &#123;</span><br><span class="line">    pad: <span class="function"><span class="keyword">function</span>(<span class="params">data, blockSize</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> blockSizeBytes = blockSize * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;</span><br><span class="line">        data.concat(CryptoJS.lib.WordArray.random(nPaddingBytes - <span class="number">1</span>)).concat(CryptoJS.lib.WordArray.create([nPaddingBytes &lt;&lt; <span class="number">24</span>], <span class="number">1</span>))</span><br><span class="line">    &#125;,</span><br><span class="line">    unpad: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = data.words[(data.sigBytes - <span class="number">1</span>) &gt;&gt;&gt; <span class="number">2</span>] &amp; <span class="number">0xff</span>;</span><br><span class="line">        data.sigBytes -= nPaddingBytes</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesEncrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sendData = CryptoJS.enc.Utf8.parse(data);</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> encrypted = CryptoJS.AES.encrypt(sendData, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> CryptoJS.enc.Base64.stringify(encrypted.ciphertext)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesDecrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> decrypted = CryptoJS.AES.decrypt(data, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> decrypted.toString(CryptoJS.enc.Utf8)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> hint = <span class="string">"SSNRTPIuHLUxqtJmq8mDDPtexRU7RTjNO34tLqz+Tpw="</span>;</span><br></pre></td></tr></table></figure></p>
-<p>然而，这并没有什么用。。。。<br>得到的提示是<code>flag is not here</code></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rec/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rec/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fix-flash" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/fix-flash/">修复Flash插件提示地区不符的问题</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/fix-flash/" class="archive-article-date">
-  	<time datetime="2019-01-25T21:31:36.887Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Adobe Flash Player 从 30 版本开始，中国大陆地区用户只能使用特供版.<br>后台存在广告服务、弹出广告窗口、捆绑流氓软件的行为。<br>由于有的网站只能用flash，而安装国际版flash又提示地区不符，所以需要找个办法解决。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="安装直装版（由roustar31制作）"><a href="#安装直装版（由roustar31制作）" class="headerlink" title="安装直装版（由roustar31制作）"></a>安装直装版（由roustar31制作）</h3><p>运行程序后，会卸载原版flash再自动安装。</p>
-<blockquote>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/fix-flash/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/fix-flash/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1328,6 +1328,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>
