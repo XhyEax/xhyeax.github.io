@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Xhy&#39;s Blog</title>
+  <title>在WSL2中安装docker | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/page/3/index.html">
+  <meta name="description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker1sudo service docker start 配置自启动wsl启动时自动开启服务将以下内容添加至/etc/init.wsl1sudo service docker start 设置可执行权限1sudo chmod +x">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在WSL2中安装docker">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/04/15/wsl2-docker/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker1sudo service docker start 配置自启动wsl启动时自动开启服务将以下内容添加至/etc/init.wsl1sudo service docker start 设置可执行权限1sudo chmod +x">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-04-15T09:56:40.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="在WSL2中安装docker">
+<meta name="twitter:description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker1sudo service docker start 配置自启动wsl启动时自动开启服务将以下内容添加至/etc/init.wsl1sudo service docker start 设置可执行权限1sudo chmod +x">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,23 +170,21 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-assemble-own-riru-module" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-wsl2-docker" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/06/assemble-own-riru-module/">编译自己的Riru模块</a>
+    <h1 class="article-title" itemprop="name">
+      在WSL2中安装docker
     </h1>
   
 
 
         
-        <a href="/2019/11/06/assemble-own-riru-module/" class="archive-article-date">
-  	<time datetime="2019-11-06T01:15:22.091Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+        <a href="/2020/04/15/wsl2-docker/" class="archive-article-date">
+  	<time datetime="2020-04-15T01:00:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
 </a>
         
       </header>
@@ -193,324 +192,43 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://github.com/RikkaApps/Riru" target="_blank" rel="noopener">Riru</a> + <a href="https://github.com/ElderDrivers/EdXposed" target="_blank" rel="noopener">EdXposed</a>是目前Android P及以上的一种Xposed解决方案。<br>Riru通过替换<code>libmemtrack.so</code>（会被Zygote加载的一个共享库）从而实现Zygote注入。<br>本文参考大佬文章，实现了Riru模块的编译。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>电脑：安卓NDK<br>手机：Magisk 19.3，Riru-Core</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="克隆文件到本地"><a href="#克隆文件到本地" class="headerlink" title="克隆文件到本地"></a>克隆文件到本地</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/RikkaApps/Riru</span><br></pre></td></tr></table></figure>
-<p>
-        
+    <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure>
+<h3 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h3><h4 id="wsl启动时自动开启服务"><a href="#wsl启动时自动开启服务" class="headerlink" title="wsl启动时自动开启服务"></a>wsl启动时自动开启服务</h4><p>将以下内容添加至<code>/etc/init.wsl</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure></p>
+<p>设置可执行权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /etc/init.wsl</span><br></pre></td></tr></table></figure></p>
+<h4 id="Windows开机自启"><a href="#Windows开机自启" class="headerlink" title="Windows开机自启"></a>Windows开机自启</h4><p>win+r，<code>shell:startup</code>，在该目录下创建vbs脚本<br><code>linux-start.vbs</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set ws = WScript.CreateObject(&quot;WScript.Shell&quot;)</span><br><span class="line">ws.run &quot;wsl -d ubuntu -u root /etc/init.wsl&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/blog5277/p/12071400.html" target="_blank" rel="noopener">WSL2（Ubuntu）安装Docker</a><br><a href="https://www.cnblogs.com/asminfo/p/6789258.html" target="_blank" rel="noopener">使用docker创建aosp编译环境</a><br><a href="https://www.xu.ci/2019/12/windowswsl2ubuntu.html" target="_blank" rel="noopener">Windows开机启动WSL2（Ubuntu）的启动项</a></p>
 
-          <a class="article-more-a" href="/2019/11/06/assemble-own-riru-module/#more">查看更多 >></a>
-        
-    
-    
+
 
       
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/06/assemble-own-riru-module/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
+      
     </div>
-</aside>
-
-
-
-
-  
-    <article id="post-use-cmake-in-windows" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/use-cmake-in-windows/">Windows安装Cmake</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/11/05/use-cmake-in-windows/" class="archive-article-date">
-  	<time datetime="2019-11-05T08:16:19.667Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>已安装<code>MinGW64</code>，即具有<code>mingw32-make.exe</code>文件</p>
-<h2 id="下载CMake"><a href="#下载CMake" class="headerlink" title="下载CMake"></a>下载CMake</h2><p><a href="https://cmake.org/download/" target="_blank" rel="noopener">CMake下载页面</a><br>根据平台下载安装包<br>PS：下载<code>Binary distributions</code>，别下载成源码了</p>
-<h2 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h2><p>创建输出文件夹，指定生成类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir bulid</span><br><span class="line">cd bulid</span><br><span class="line">cmake -G &quot;MinGW Makefiles&quot; ../</span><br><span class="line">mingw32-make</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/11/05/use-cmake-in-windows/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/05/use-cmake-in-windows/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-two-stacks-to-implement-queue" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/two-stacks-to-implement-queue/">两个栈实现队列 (C++)</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/11/05/two-stacks-to-implement-queue/" class="archive-article-date">
-  	<time datetime="2019-11-04T18:25:39.805Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>栈先进后出，一般用数组实现<br>队列先进先出，一般用链表实现<br>所使用两个栈实现队列时，使用的是链表结构</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>参照<a href="https://stackoverflow.com/questions/69192/how-to-implement-a-queue-using-two-stacks" target="_blank" rel="noopener">How to implement a queue using two stacks?</a><br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/2-stacks-queue.png" alt="two-stacks-to-implement-queue"></p>
-<p>Talk is cheap. Show you the code:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(E it)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	inbox.push(it);</span><br><span class="line">	size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">E <span class="title">pop_front</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (outbox.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (!inbox.empty())</span><br><span class="line">		&#123;</span><br><span class="line">			outbox.push(inbox.pop());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	size--;</span><br><span class="line">	<span class="keyword">return</span> outbox.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/11/05/two-stacks-to-implement-queue/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/05/two-stacks-to-implement-queue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl-install-mysql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/wsl-install-mysql/">WSL安装并运行MySQL Server</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/11/04/wsl-install-mysql/" class="archive-article-date">
-  	<time datetime="2019-11-04T07:23:22.745Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line">apt-get install mariadb-client</span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
-<h2 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h2><p><code>sudo service mysql start</code>启动服务<br>然后执行<code>ps -aux | grep mysql</code>可以得到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mysql/plugin --log-error=/var/log/mysql/error.log --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306 --log-syslog=1 --log-syslog-facility=daemon --log-syslog-tag=</span><br></pre></td></tr></table></figure></p>
-<p>启动服务时可能会报错：<code>No directory, logging in with HOME=/</code><br>需要设置一下权限，再重新启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br><span class="line">sudo usermod -d /var/lib/mysql/ mysql</span><br><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/11/04/wsl-install-mysql/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -528,16 +246,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/04/wsl-install-mysql/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/04/15/wsl2-docker/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/15/wsl-to-wsl2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">win10 WSL转换为WSL2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -552,586 +329,32 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hackersgame-2019-fails" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/22/hackersgame-2019-fails/">Hackersgame 2019 的一些失败尝试及复现</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/10/22/hackersgame-2019-fails/" class="archive-article-date">
-  	<time datetime="2019-10-22T01:14:14.335Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于自己的尝试，参考<a href="https://github.com/ustclug/hackergame2019-writeups/" target="_blank" rel="noopener">官方题解</a>进行复现</p>
-<h2 id="（√）天书残篇"><a href="#（√）天书残篇" class="headerlink" title="（√）天书残篇"></a>（√）天书残篇</h2><h3 id="Try"><a href="#Try" class="headerlink" title="Try"></a>Try</h3><p>三种字符，统计结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">20 00100000 : 2100</span><br><span class="line">09 00001001 : 1353</span><br><span class="line">0a 00001010 : 646</span><br></pre></td></tr></table></figure></p>
-<p>各种尝试无果（因为以为是密码学的题，方向完全错了）<br>没想到跟去年一样，又是一种语言</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-fails/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-fails/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动docker"><span class="toc-number">1.2.</span> <span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置自启动"><span class="toc-number">1.3.</span> <span class="toc-text">配置自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wsl启动时自动开启服务"><span class="toc-number">1.3.1.</span> <span class="toc-text">wsl启动时自动开启服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows开机自启"><span class="toc-number">1.3.2.</span> <span class="toc-text">Windows开机自启</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-hackersgame-2019-writeup" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/22/hackersgame-2019-writeup/">Hackersgame 2019 部分writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/10/22/hackersgame-2019-writeup/" class="archive-article-date">
-  	<time datetime="2019-10-22T01:13:24.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><p>修改页面源码以及js代码，去掉disabled描述符，使用Fiddler替换，然后强制刷新页面<br>即可点击提交按钮得到flag</p>
-<h2 id="白与夜"><a href="#白与夜" class="headerlink" title="白与夜"></a>白与夜</h2><p>图片是qq中常见的隐藏图，个人做这题时是用的手机<br>直接使用自带相册打开即可看到flag</p>
-<h2 id="信息安全-2077"><a href="#信息安全-2077" class="headerlink" title="信息安全 2077"></a>信息安全 2077</h2><p>注意到页面源码中设置了<code>If-Unmodified-Since</code>为当前时间，而返回的<code>Last-Modified</code>是<code>Fri, 01 Oct 2077 00:00:00 GMT</code>，把<code>If-Unmodified-Since</code>改为该值即可获得flag</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-writeup/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/22/hackersgame-2019-writeup/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-db-sqlite3-to-sql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/db-sqlite3-to-sql/">导出sqlite3数据库为sql</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/10/15/db-sqlite3-to-sql/" class="archive-article-date">
-  	<time datetime="2019-10-15T05:40:57.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-
-          <a class="article-more-a" href="/2019/10/15/db-sqlite3-to-sql/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/db-sqlite3-to-sql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vivado-custom-ip-and-instantiation" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/vivado-custom-ip-and-instantiation/">Vivado 自定义IP核并实例化调用</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/10/07/vivado-custom-ip-and-instantiation/" class="archive-article-date">
-  	<time datetime="2019-10-06T18:38:24.855Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>作业：将四选一数据选择器封装成IP，用以实现八选一数据选择器。</p>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="将项目封装成IP"><a href="#将项目封装成IP" class="headerlink" title="将项目封装成IP"></a>将项目封装成IP</h3><p>打开要封装的项目，然后点击工具栏<br><code>Tools</code>-<code>Create and Package New IP</code>-<code>Next</code><br>打包当前项目即可（选择完<code>Package your current project</code>后一路Next）<br>（当然，这里也可以手动选择路径进行打包）<br>然后会出现<code>Packaging Steps</code>窗口<br>如果不想修改配置的话，可以直接选择最后一步，<code>Review and Package</code>-<code>Package IP</code></p>
-<h3 id="在其他项目中导入"><a href="#在其他项目中导入" class="headerlink" title="在其他项目中导入"></a>在其他项目中导入</h3><p>打开需要调用IP的项目，点击左侧<br><code>Flow Navigator</code>-<code>IP Catalog</code><br>在空白处右键，<code>Add Repository</code>，选择之前打包的文件夹<br>(如果之前打包的是项目的话，则对应<code>.srcs</code>文件夹，如<code>D:\source\Vivado\mux_8_1\mux_8_1.srcs</code>)<br>然后双击导入的IP，导入并生成<br>导入成功后，在<code>Sources</code>-<code>IP Sources</code>中可以看到IP<br>其中<code>Instantiation Template</code>即为实例化模板</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/10/07/vivado-custom-ip-and-instantiation/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vivado</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/vivado-custom-ip-and-instantiation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-import-as-system-cert" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/android-import-as-system-cert/">安卓7.0及以上 导入为系统证书</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/10/03/android-import-as-system-cert/" class="archive-article-date">
-  	<time datetime="2019-10-02T19:30:48.215Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从安卓7.0开始，Android更改了对用户安装证书的默认信任行为。应用程序默认只信任系统级别的CA证书。<br>所以需要hook第三方包的证书校验函数（如JustTrustMe）或者直接导入为系统证书以供抓包</p>
-<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><h3 id="1-导出-der证书文件"><a href="#1-导出-der证书文件" class="headerlink" title="1. 导出.der证书文件"></a>1. 导出.der证书文件</h3><p>从抓包应用中导出即可。</p>
-<h3 id="2-转换为pem格式并重命名"><a href="#2-转换为pem格式并重命名" class="headerlink" title="2. 转换为pem格式并重命名"></a>2. 转换为pem格式并重命名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　openssl x509 -inform DER -<span class="keyword">in</span> cacert.der -out cacert.pem</span><br><span class="line">　　openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> cacert.pem |head -1</span><br><span class="line">　　mv cacert.pem &lt;<span class="built_in">hash</span>&gt;.0</span><br></pre></td></tr></table></figure>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/03/android-import-as-system-cert/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-anti-web-js-debugger-code" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/anti-web-js-debugger-code/">绕过网站js中的debugger反调试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/09/28/anti-web-js-debugger-code/" class="archive-article-date">
-  	<time datetime="2019-09-28T04:21:18.258Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用开发者工具(F12)分析一个网站时发现：<br>每隔一段时间就会有js代码主动触发调试器断点，妨碍分析。<br>问之度娘，遂得解法。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/28/anti-web-js-debugger-code/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1161,8 +384,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

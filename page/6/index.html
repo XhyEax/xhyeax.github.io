@@ -171,6 +171,103 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-reverse-fix-arsc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/android-reverse-fix-arsc/">修复反编译资源文件报错问题(resource spec)</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/02/28/android-reverse-fix-arsc/" class="archive-article-date">
+  	<time datetime="2019-02-28T00:44:40.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="关于0x01010540错误"><a href="#关于0x01010540错误" class="headerlink" title="关于0x01010540错误"></a>关于<code>0x01010540</code>错误</h2><p><code>0x01010540</code>是因为SDK版本太高，反编译工具识别不出来，需要替换成<code>0x0101048f</code><br>具体方法见后文</p>
+<h2 id="关于0x01010543错误"><a href="#关于0x01010543错误" class="headerlink" title="关于0x01010543错误"></a>关于<code>0x01010543</code>错误</h2><p>如果只有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; b.a.a.e: resource spec: 0x01010543</span><br></pre></td></tr></table></figure></p>
+<p>没有<code>UndefinedResObject</code><br>则更换<code>apktool</code>后再试<br><code>apktool</code>可以在<a href="https://down.52pojie.cn/Tools/Android_Tools/" target="_blank" rel="noopener">爱盘</a>下载</p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/02/28/android-reverse-fix-arsc/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/28/android-reverse-fix-arsc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-52pojie-2019-red-packet" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1008,103 +1105,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/01/26/fix-flash/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fix-crypto-py2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/fix-crypto-py2/">修复crypto模块import失败（Python2）</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/fix-crypto-py2/" class="archive-article-date">
-  	<time datetime="2019-01-25T21:26:35.100Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用Python2.7安装好pycrypto模块后，还是报错，搜索得到解决方案</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>打开Python2.7安装目录，找到<code>Lib/site-package/crypto</code>文件夹<br>重命名为Crypto即可</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/fawaikuangtu123/p/9761943.html" target="_blank" rel="noopener">解释Crypto模块怎么就这么”皮”？No module named “Crypto”</a></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/fix-crypto-py2/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/fix-crypto-py2/">展开全文 >></a>
         </p>
       
 
