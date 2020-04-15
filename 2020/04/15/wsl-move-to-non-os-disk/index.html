@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Archives | Xhy&#39;s Blog</title>
+  <title>迁移WSL至非系统盘 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/archives/page/8/index.html">
+  <meta name="description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
+<meta name="keywords" content="WSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迁移WSL至非系统盘">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/04/15/wsl-move-to-non-os-disk/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-04-15T15:02:16.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="迁移WSL至非系统盘">
+<meta name="twitter:description" content="概述由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘 迁移步骤建议先转换为wsl2再进行迁移，速度更快 停止正在运行的wsl1wsl --shutdown 删除temp文件夹（wsl1）打开wsl文件夹：C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,367 +170,205 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-wsl-move-to-non-os-disk" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      迁移WSL至非系统盘
+    </h1>
+  
+
+
+        
+        <a href="/2020/04/15/wsl-move-to-non-os-disk/" class="archive-article-date">
+  	<time datetime="2020-04-15T06:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘</p>
+<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><p>建议先转换为wsl2再进行迁移，速度更快</p>
+<h3 id="停止正在运行的wsl"><a href="#停止正在运行的wsl" class="headerlink" title="停止正在运行的wsl"></a>停止正在运行的wsl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
+<h3 id="删除temp文件夹（wsl1）"><a href="#删除temp文件夹（wsl1）" class="headerlink" title="删除temp文件夹（wsl1）"></a>删除temp文件夹（wsl1）</h3><p>打开wsl文件夹：<br><code>C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState</code><br>删除temp文件夹</p>
+<h3 id="使用工具迁移"><a href="#使用工具迁移" class="headerlink" title="使用工具迁移"></a>使用工具迁移</h3><p>下载：<a href="https://github.com/DDoSolitary/LxRunOffline/releases" target="_blank" rel="noopener">https://github.com/DDoSolitary/LxRunOffline/releases</a><br>然后以管理员权限启动 PowerShell，执行</p>
+<h4 id="查看发行版本"><a href="#查看发行版本" class="headerlink" title="查看发行版本"></a>查看发行版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe list</span><br></pre></td></tr></table></figure>
+<h4 id="执行迁移操作"><a href="#执行迁移操作" class="headerlink" title="执行迁移操作"></a>执行迁移操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe move -n Ubuntu -d D:\Ubuntu</span><br></pre></td></tr></table></figure>
+<p>如果是wsl1的话，会输出警告，不用管</p>
+<h4 id="查询迁移结果"><a href="#查询迁移结果" class="headerlink" title="查询迁移结果"></a>查询迁移结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./LxRunOffline.exe get-dir -n Ubuntu</span><br></pre></td></tr></table></figure>
+<h4 id="启动wsl测试"><a href="#启动wsl测试" class="headerlink" title="启动wsl测试"></a>启动wsl测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/tonydz0523/article/details/103443768" target="_blank" rel="noopener">搞机：window10安装Linux子系统（WSL）及迁移到非系统盘</a></p>
+
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/txcos-as-imgurl/" class="archive-article-date">
-  	<time datetime="2018-11-30T21:25:06.937Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/txcos-as-imgurl/">在服务器上部署腾讯云COS同步方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/04/15/wsl-move-to-non-os-disk/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/how-to-support-me/" class="archive-article-date">
-  	<time datetime="2018-11-30T20:43:17.793Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/04/15/wsl-move-from-os/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          迁移WSL至非系统盘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/15/wsl2-docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在WSL2中安装docker</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/how-to-support-me/">如何支持博主？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">支持</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移步骤"><span class="toc-number">2.</span> <span class="toc-text">迁移步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#停止正在运行的wsl"><span class="toc-number">2.1.</span> <span class="toc-text">停止正在运行的wsl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除temp文件夹（wsl1）"><span class="toc-number">2.2.</span> <span class="toc-text">删除temp文件夹（wsl1）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用工具迁移"><span class="toc-number">2.3.</span> <span class="toc-text">使用工具迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看发行版本"><span class="toc-number">2.3.1.</span> <span class="toc-text">查看发行版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行迁移操作"><span class="toc-number">2.3.2.</span> <span class="toc-text">执行迁移操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询迁移结果"><span class="toc-number">2.3.3.</span> <span class="toc-text">查询迁移结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动wsl测试"><span class="toc-number">2.3.4.</span> <span class="toc-text">启动wsl测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/click-word/" class="archive-article-date">
-  	<time datetime="2018-11-30T04:11:20.575Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/click-word/">Hexo主题增加鼠标点击效果</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/git-clean/" class="archive-article-date">
-  	<time datetime="2018-11-29T17:58:37.366Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/git-clean/">git删除历史Commit</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/ida-positive-sp/" class="archive-article-date">
-  	<time datetime="2018-11-29T16:29:49.474Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/ida-positive-sp/">IDA不能F5查看伪代码的解决方法（positive sp value）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/isa-ctf2/" class="archive-article-date">
-  	<time datetime="2018-11-28T20:49:57.587Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/isa-ctf2/">isa_ctf2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/isa-ctf1/" class="archive-article-date">
-  	<time datetime="2018-11-28T20:49:41.241Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/isa-ctf1/">isa_ctf1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/how-to-fix-fileExts/" class="archive-article-date">
-  	<time datetime="2018-11-28T19:42:37.686Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/how-to-fix-fileExts/">手动修复Windows打开方式（修改注册表）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/28/hello-world/" class="archive-article-date">
-  	<time datetime="2018-11-28T05:56:28.430Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/hello-world/">Hexo&#39;s Usage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/7/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span>
-    </nav>
   
 
 
@@ -560,8 +399,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
