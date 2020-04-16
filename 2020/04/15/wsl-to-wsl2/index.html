@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="环境win10系统，操作系统版本大于等于18917 步骤启用虚拟机平台和 Linux 子系统功能以管理员权限启动 PowerShell12Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatformEnable-WindowsOptionalFeature -Online -FeatureName Microso">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-15T15:02:21.806Z">
+<meta property="og:updated_time" content="2020-04-16T02:17:13.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="win10 WSL转换为WSL2">
 <meta name="twitter:description" content="环境win10系统，操作系统版本大于等于18917 步骤启用虚拟机平台和 Linux 子系统功能以管理员权限启动 PowerShell12Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatformEnable-WindowsOptionalFeature -Online -FeatureName Microso">
@@ -198,7 +198,6 @@ var _hmt = _hmt || [];
 <h3 id="转换为wsl2"><a href="#转换为wsl2" class="headerlink" title="转换为wsl2"></a>转换为wsl2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
 <p>查看当前子系统名称及版本<br>转换当前版本到wsl2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-version Ubuntu 2</span><br></pre></td></tr></table></figure></p>
 <p>等待转换完成后，再次执行<code>wsl -l -v</code>查看是否转换成功<br>如果要恢复的话，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-version Ubuntu 1</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置默认安装wsl2版本"><a href="#配置默认安装wsl2版本" class="headerlink" title="配置默认安装wsl2版本"></a>配置默认安装wsl2版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/WPwalter/article/details/101508601" target="_blank" rel="noopener">如何在 Windows 10 中安装 WSL2 的 Linux 子系统</a><br><a href="https://blog.csdn.net/littlehaes/article/details/104879476" target="_blank" rel="noopener">WSL 2 需要更新其内核组件</a></p>
 
 
@@ -347,7 +346,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启用虚拟机平台和-Linux-子系统功能"><span class="toc-number">2.1.</span> <span class="toc-text">启用虚拟机平台和 Linux 子系统功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新内核组件"><span class="toc-number">2.2.</span> <span class="toc-text">更新内核组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转换为wsl2"><span class="toc-number">2.3.</span> <span class="toc-text">转换为wsl2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置默认安装wsl2版本"><span class="toc-number">2.4.</span> <span class="toc-text">配置默认安装wsl2版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启用虚拟机平台和-Linux-子系统功能"><span class="toc-number">2.1.</span> <span class="toc-text">启用虚拟机平台和 Linux 子系统功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新内核组件"><span class="toc-number">2.2.</span> <span class="toc-text">更新内核组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转换为wsl2"><span class="toc-number">2.3.</span> <span class="toc-text">转换为wsl2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
