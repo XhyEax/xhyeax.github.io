@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述使用HTTPS协议时需要输入账号密码，比较麻烦，虽然可以配置自动保存密码，但明文保存可能导致安全性的降低。在部署博客时也收到了github的邮件提醒：  On July 1st, 2020, basic authentication using password to this endpoint will no longer work  故决定使用ssh密钥连接git 步骤安装git bash">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-14T02:44:42.717Z">
+<meta property="og:updated_time" content="2020-04-16T07:58:20.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VSCode中配置git使用ssh连接">
 <meta name="twitter:description" content="概述使用HTTPS协议时需要输入账号密码，比较麻烦，虽然可以配置自动保存密码，但明文保存可能导致安全性的降低。在部署博客时也收到了github的邮件提醒：  On July 1st, 2020, basic authentication using password to this endpoint will no longer work  故决定使用ssh密钥连接git 步骤安装git bash">
@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
 <p>故决定使用ssh密钥连接git</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装git-bash"><a href="#安装git-bash" class="headerlink" title="安装git bash"></a>安装git bash</h3><p><a href="https://gitforwindows.org/" target="_blank" rel="noopener">https://gitforwindows.org/</a></p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>打开<code>git bash</code>，配置用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name author</span><br><span class="line">git config --global user.email author@gmail.com</span><br></pre></td></tr></table></figure></p>
-<h3 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h3><p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;author@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;author@gmail.com&quot;</span><br></pre></td></tr></table></figure>
 <p>回车设置为默认路径，然后输入两次密码（直接回车则密码为空）</p>
 <h3 id="在github中添加ssh-key"><a href="#在github中添加ssh-key" class="headerlink" title="在github中添加ssh key"></a>在github中添加ssh key</h3><p>打开<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a><br>将<code>id_rsa.pub</code>内容填入即可</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
