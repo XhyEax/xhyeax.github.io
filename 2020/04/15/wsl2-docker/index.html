@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>在WSL2中安装docker | Xhy&#39;s Blog</title>
+  <title>在WSL2(Ubuntu 18.04)中安装docker并配置自启动 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）ws">
+  <meta name="description" content="安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）wsl启">
 <meta name="keywords" content="Linux,WSL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在WSL2中安装docker">
+<meta property="og:title" content="在WSL2(Ubuntu 18.04)中安装docker并配置自启动">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/04/15/wsl2-docker/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）ws">
+<meta property="og:description" content="安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）wsl启">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-16T05:43:42.841Z">
+<meta property="og:updated_time" content="2020-04-16T08:17:26.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在WSL2中安装docker">
-<meta name="twitter:description" content="步骤安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）ws">
+<meta name="twitter:title" content="在WSL2(Ubuntu 18.04)中安装docker并配置自启动">
+<meta name="twitter:description" content="安装12curl -fsSL https://get.docker.com -o get-docker.shsudo sh get-docker.sh 启动docker并配置权限12sudo service docker startsudo usermod -aG docker $USER 重新登录wsl执行以下命令进行测试1docker run hello-world 配置自启动（可选）wsl启">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      在WSL2中安装docker
+      在WSL2(Ubuntu 18.04)中安装docker并配置自启动
     </h1>
   
 
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+    <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
 <h3 id="启动docker并配置权限"><a href="#启动docker并配置权限" class="headerlink" title="启动docker并配置权限"></a>启动docker并配置权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
 <p>重新登录wsl<br>执行以下命令进行测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></p>
 <h3 id="配置自启动（可选）"><a href="#配置自启动（可选）" class="headerlink" title="配置自启动（可选）"></a>配置自启动（可选）</h3><h4 id="wsl启动时自动开启服务"><a href="#wsl启动时自动开启服务" class="headerlink" title="wsl启动时自动开启服务"></a>wsl启动时自动开启服务</h4><p>将以下内容添加至<code>/etc/init.wsl</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure></p>
@@ -350,8 +350,8 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动docker并配置权限"><span class="toc-number">1.2.</span> <span class="toc-text">启动docker并配置权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置自启动（可选）"><span class="toc-number">1.3.</span> <span class="toc-text">配置自启动（可选）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wsl启动时自动开启服务"><span class="toc-number">1.3.1.</span> <span class="toc-text">wsl启动时自动开启服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows开机自启"><span class="toc-number">1.3.2.</span> <span class="toc-text">Windows开机自启</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动docker并配置权限"><span class="toc-number">2.</span> <span class="toc-text">启动docker并配置权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置自启动（可选）"><span class="toc-number">3.</span> <span class="toc-text">配置自启动（可选）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wsl启动时自动开启服务"><span class="toc-number">3.1.</span> <span class="toc-text">wsl启动时自动开启服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows开机自启"><span class="toc-number">3.2.</span> <span class="toc-text">Windows开机自启</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
+                    </li></div>
                 </span>
             </div>
         </div>
