@@ -7,19 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Xhy&#39;s Blog</title>
+  <title>PowerShell配置主题、字体 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/index.html">
+  <meta name="description" content="主题安装安装模块win+x, PowerShell(管理员)12Install-Module posh-git -Force -SkipPublisherCheckInstall-Module oh-my-posh -Force -SkipPublisherCheck 编辑配置文件12if (!(Test-Path -Path $PROFILE )) &amp;#123; New-Item -Type F">
+<meta name="keywords" content="经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PowerShell配置主题、字体">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/04/17/powershell-add-font/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="主题安装安装模块win+x, PowerShell(管理员)12Install-Module posh-git -Force -SkipPublisherCheckInstall-Module oh-my-posh -Force -SkipPublisherCheck 编辑配置文件12if (!(Test-Path -Path $PROFILE )) &amp;#123; New-Item -Type F">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/powershell_readline.png">
+<meta property="og:updated_time" content="2020-04-17T05:00:16.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="PowerShell配置主题、字体">
+<meta name="twitter:description" content="主题安装安装模块win+x, PowerShell(管理员)12Install-Module posh-git -Force -SkipPublisherCheckInstall-Module oh-my-posh -Force -SkipPublisherCheck 编辑配置文件12if (!(Test-Path -Path $PROFILE )) &amp;#123; New-Item -Type F">
+<meta name="twitter:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/powershell_readline.png">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,16 +172,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-powershell-add-font" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-powershell-add-font" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/17/powershell-add-font/">PowerShell配置主题、字体</a>
+    <h1 class="article-title" itemprop="name">
+      PowerShell配置主题、字体
     </h1>
   
 
@@ -193,33 +194,50 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><p>win+x, PowerShell(管理员)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Install-Module posh-git -Force -SkipPublisherCheck</span><br><span class="line">Install-Module oh-my-posh -Force -SkipPublisherCheck</span><br></pre></td></tr></table></figure></p>
+    <h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><p>win+x, PowerShell(管理员)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Install-Module posh-git -Force -SkipPublisherCheck</span><br><span class="line">Install-Module oh-my-posh -Force -SkipPublisherCheck</span><br></pre></td></tr></table></figure></p>
 <h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (!(Test-Path -Path $PROFILE )) &#123; New-Item -Type File -Path $PROFILE -Force &#125;</span><br><span class="line">notepad $PROFILE</span><br></pre></td></tr></table></figure>
 <p>写入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module oh-my-posh</span><br><span class="line">Set-Theme Paradox</span><br></pre></td></tr></table></figure></p>
-<p>
-        
+<p>全部主题见：<a href="https://github.com/JanDeDobbeleer/oh-my-posh/tree/master/Themes" target="_blank" rel="noopener">JanDeDobbeleer/oh-my-posh/Themes</a></p>
+<h2 id="字体安装及切换"><a href="#字体安装及切换" class="headerlink" title="字体安装及切换"></a>字体安装及切换</h2><h3 id="下载字体"><a href="#下载字体" class="headerlink" title="下载字体"></a>下载字体</h3><p>字体可以在这下载：<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">powerline/fonts</a></p>
+<h3 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h3><p>安装<code>for Powerline</code>结尾的字体，以<a href="https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf" target="_blank" rel="noopener">DejaVu Sans Mono for Powerline.ttf</a>为例<br>右键字体文件，为所有用户安装</p>
+<h3 id="应用字体"><a href="#应用字体" class="headerlink" title="应用字体"></a>应用字体</h3><p>重新打开PowerShell，右键标题栏，在<code>属性-字体</code>中修改字体<br>PS：如果没有已安装的字体，先执行<code>chcp 65001</code>再试</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>重新打开PowerShell，观察默认字体是否发生变化</p>
+<h2 id="安装PSReadLine（可选）"><a href="#安装PSReadLine（可选）" class="headerlink" title="安装PSReadLine（可选）"></a>安装PSReadLine（可选）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Module -Name PSReadLine -Force -SkipPublisherCheck</span><br></pre></td></tr></table></figure>
+<p><code>notepad $PROFILE</code>，添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-PSReadlineOption -EditMode Emacs</span><br></pre></td></tr></table></figure></p>
+<p>双击Tab会出现智能提示：<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/powershell_readline.png" alt=""><br>参考：<a href="https://www.pstips.net/let-psreadline-light-ps-console.html" target="_blank" rel="noopener">PSReadLine让PowerShell控制台高亮起来</a></p>
+<h2 id="配置cmd默认活动代码页编号（可选）"><a href="#配置cmd默认活动代码页编号（可选）" class="headerlink" title="配置cmd默认活动代码页编号（可选）"></a>配置cmd默认活动代码页编号（可选）</h2><p>win+r,<code>regedit</code><br>定位到<code>计算机\HKEY_CURRENT_USER\Console\%SystemRoot%_system32_cmd.exe</code><br>修改<code>CodePage</code>字段为65001(10进制)<br>之后启动cmd即可切换字体</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/weixin_30646315/article/details/95469049" target="_blank" rel="noopener">Powershell 主题美化学习过程</a><br><a href="https://zhuanlan.zhihu.com/p/51901035" target="_blank" rel="noopener">超酷的 PowerShell 美化指南</a></p>
 
-          <a class="article-more-a" href="/2020/04/17/powershell-add-font/#more">查看更多 >></a>
-        
-    
-    
+
 
       
-    </p></div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -237,16 +255,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/17/powershell-add-font/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/04/17/powershell-add-font/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/16/aosp-docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在WSL2中使用docker编译安卓源码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -261,902 +338,32 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-aosp-docker" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/aosp-docker/">在WSL2中使用docker编译安卓源码</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/16/aosp-docker/" class="archive-article-date">
-  	<time datetime="2020-04-15T23:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p><a href="https://blog.xhyeax.com/2020/04/15/wsl2-docker/">在WSL2(Ubuntu 18.04)中安装docker并配置自启动</a></p>
-<h3 id="配置docker源"><a href="#配置docker源" class="headerlink" title="配置docker源"></a>配置docker源</h3><p>使用阿里云的加速服务，解决下载镜像速度慢的问题<br>打开<a href="https://cr.console.aliyun.com" target="_blank" rel="noopener">容器镜像服务</a><br>镜像中心 - 镜像加速器<br>将加速器地址写入<code>/etc/docker/daemon.json</code>，格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://xxxxxx.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>重启docker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/16/aosp-docker/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/aosp-docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主题安装"><span class="toc-number">1.</span> <span class="toc-text">主题安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装模块"><span class="toc-number">1.1.</span> <span class="toc-text">安装模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑配置文件"><span class="toc-number">1.2.</span> <span class="toc-text">编辑配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体安装及切换"><span class="toc-number">2.</span> <span class="toc-text">字体安装及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载字体"><span class="toc-number">2.1.</span> <span class="toc-text">下载字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装字体"><span class="toc-number">2.2.</span> <span class="toc-text">安装字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用字体"><span class="toc-number">2.3.</span> <span class="toc-text">应用字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装PSReadLine（可选）"><span class="toc-number">3.</span> <span class="toc-text">安装PSReadLine（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置cmd默认活动代码页编号（可选）"><span class="toc-number">4.</span> <span class="toc-text">配置cmd默认活动代码页编号（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-curl-set-proxy-by-pathvar" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/curl-set-proxy-by-pathvar/">Linux通过环境变量设置curl代理</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/16/curl-set-proxy-by-pathvar/" class="archive-article-date">
-  	<time datetime="2020-04-15T20:08:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://your-ip-address:port/</span><br><span class="line">export http_proxy=http://user:password@your-proxy-ip-address:port</span><br></pre></td></tr></table></figure>
-<p>代理格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://[user:password@]proxyhost[:port]/</span><br><span class="line">https://[user:password@]proxyhost[:port]/</span><br><span class="line">socks5://[user:password@]proxyhost[:port]/</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/zafu/p/10000188.html" target="_blank" rel="noopener">如何让 curl 命令通过代理访问</a></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/16/curl-set-proxy-by-pathvar/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/curl-set-proxy-by-pathvar/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-apt-pk-not-available" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/apt-pk-not-available/">apt update 报错 the public key is not available</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/16/apt-pk-not-available/" class="archive-article-date">
-  	<time datetime="2020-04-15T16:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>apt-get update</code>出现<code>The following signatures couldn&#39;t be verified because the public key is not available</code>错误，则需要手动添加key</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>执行以下命令：(<code>B02C46DF417A0893</code>替换为报错信息中显示的值)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gpg --keyserver keyserver.ubuntu.com --recv B02C46DF417A0893</span><br><span class="line">sudo gpg --export --armor B02C46DF417A0893 | sudo apt-key add -</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/zhuiqiuzhuoyue583/article/details/90597499" target="_blank" rel="noopener">解决GPG error: The following signatures couldn’t be verified because the public key is not available</a></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/16/apt-pk-not-available/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/apt-pk-not-available/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python-specify-pip-source-url" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/python-specify-pip-source-url/">Python pip永久换源</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/python-specify-pip-source-url/" class="archive-article-date">
-  	<time datetime="2020-04-15T06:54:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>最近安装python模块非常慢，甚至直接超时。更换源后解决</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p><code>C:\Users\用户名\pip\pip.ini</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>编辑<code>~/.pip/pip.conf</code>内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/python-specify-pip-source-url/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/python-specify-pip-source-url/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl-move-to-non-os-disk" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/wsl-move-to-non-os-disk/">迁移WSL至非系统盘</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/wsl-move-to-non-os-disk/" class="archive-article-date">
-  	<time datetime="2020-04-15T06:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于要在WSL中使用Docker，系统盘空间不足，故迁移WSL到D盘</p>
-<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><h3 id="删除temp文件夹"><a href="#删除temp文件夹" class="headerlink" title="删除temp文件夹"></a>删除temp文件夹</h3><p>打开wsl文件夹：<br><code>C:\Users\用户名\AppData\Local\Packages\WSL文件夹\LocalState</code><br>WSL文件夹名：<br>Ubuntu ：<code>CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc</code><br>Ubuntu 18.04 LTS：<code>CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc</code><br>Kali Linux：<code>KaliLinux.54290C8133FEE_ey8k8hqnwqnmg</code><br>删除temp文件夹</p>
-<h3 id="（可选操作）"><a href="#（可选操作）" class="headerlink" title="（可选操作）"></a>（可选操作）</h3><p>也可以先转换为wsl2再进行迁移<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-version Ubuntu 2</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/wsl-move-to-non-os-disk/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/wsl-move-to-non-os-disk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl2-docker" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/wsl2-docker/">在WSL2(Ubuntu 18.04)中安装docker并配置自启动</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/wsl2-docker/" class="archive-article-date">
-  	<time datetime="2020-04-15T01:00:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
-<h3 id="启动docker并配置权限"><a href="#启动docker并配置权限" class="headerlink" title="启动docker并配置权限"></a>启动docker并配置权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-<p>重新登录wsl<br>执行以下命令进行测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/wsl2-docker/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/wsl2-docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl-to-wsl2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/wsl-to-wsl2/">win10 WSL转换为WSL2</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/wsl-to-wsl2/" class="archive-article-date">
-  	<time datetime="2020-04-14T18:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>win10系统，操作系统版本大于等于18917</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="启用虚拟机平台和-Linux-子系统功能"><a href="#启用虚拟机平台和-Linux-子系统功能" class="headerlink" title="启用虚拟机平台和 Linux 子系统功能"></a>启用虚拟机平台和 Linux 子系统功能</h3><p>以管理员权限启动 PowerShell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform</span><br><span class="line">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</span><br></pre></td></tr></table></figure></p>
-<h3 id="更新内核组件"><a href="#更新内核组件" class="headerlink" title="更新内核组件"></a>更新内核组件</h3><p>前往<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel</a>下载内核更新包并安装<br>x64的更新包下载：<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/wsl-to-wsl2/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/wsl-to-wsl2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-win10-open-diagtask-for-inside" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/win10-open-diagtask-for-inside/">win10 切换诊断数据为完整</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/15/win10-open-diagtask-for-inside/" class="archive-article-date">
-  	<time datetime="2020-04-14T16:01:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>安装windows预览版，需要切换诊断数据为<code>完整</code>，而本人切换到<code>完整</code>后又会自动跳回<code>基本</code>。搜索后找到解决方案。<br>原因是<code>Connected User Experiences and Telemetry</code>服务被禁用</p>
-<h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><p>Win+R,<code>services.msc</code>,找到<code>Connected User Experiences and Telemetry</code>，设置为<code>自动(延迟启动)</code>，再点击启动此服务即可成功切换</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://tieba.baidu.com/p/6483106526" target="_blank" rel="noopener">安装win10预览版，诊断数据无设置成完整</a></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/15/win10-open-diagtask-for-inside/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/win10-open-diagtask-for-inside/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl-18-04-android-6-source" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/wsl-18-04-android-6-source/">WSL(Ubuntu 18.04)编译安卓6.0.0_r1源码</a>
-    </h1>
-  
-
-
-        
-        <a href="/2020/04/14/wsl-18-04-android-6-source/" class="archive-article-date">
-  	<time datetime="2020-04-14T01:54:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="之前的尝试"><a href="#之前的尝试" class="headerlink" title="之前的尝试"></a>之前的尝试</h2><p>一开始使用wsl1进行编译，即使用了ccache，编译耗时仍难以接受（编译了很久都没结束）<br>之后又使用wsl2进行编译，编译还是需要很久<br>原因猜测：源码位于D盘，wsl访问文件可能需要经过转换，因此IO操作速度慢。<br>搜索发现<a href="https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-ux-changes" target="_blank" rel="noopener">WSL 1 与 WSL 2 之间的用户体验更改</a>中提到：</p>
-<blockquote>
-<p>请确保将你要使用 Linux 应用程序频繁访问的文件放在 Linux 根文件系统中，以享受文件性能优势。 这些文件必须位于 Linux 根文件系统内，以便较快地访问文件系统。<br>验证：使用wsl在d盘解压源码，速度远慢于直接在wsl文件系统中解压<br>由此确定最终方案</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2020/04/14/wsl-18-04-android-6-source/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/wsl-18-04-android-6-source/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1186,8 +393,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
