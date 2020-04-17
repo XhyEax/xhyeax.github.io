@@ -18,7 +18,7 @@
 <meta property="og:description" content="主题安装安装模块win+x, PowerShell(管理员)12Install-Module posh-git -Force -SkipPublisherCheckInstall-Module oh-my-posh -Force -SkipPublisherCheck 编辑配置文件12if (!(Test-Path -Path $PROFILE )) &amp;#123; New-Item -Type F">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/powershell_readline.png">
-<meta property="og:updated_time" content="2020-04-17T05:00:16.661Z">
+<meta property="og:updated_time" content="2020-04-17T14:49:36.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerShell配置主题、字体">
 <meta name="twitter:description" content="主题安装安装模块win+x, PowerShell(管理员)12Install-Module posh-git -Force -SkipPublisherCheckInstall-Module oh-my-posh -Force -SkipPublisherCheck 编辑配置文件12if (!(Test-Path -Path $PROFILE )) &amp;#123; New-Item -Type F">
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
       
     <h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><p>win+x, PowerShell(管理员)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Install-Module posh-git -Force -SkipPublisherCheck</span><br><span class="line">Install-Module oh-my-posh -Force -SkipPublisherCheck</span><br></pre></td></tr></table></figure></p>
 <h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (!(Test-Path -Path $PROFILE )) &#123; New-Item -Type File -Path $PROFILE -Force &#125;</span><br><span class="line">notepad $PROFILE</span><br></pre></td></tr></table></figure>
-<p>写入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module oh-my-posh</span><br><span class="line">Set-Theme Paradox</span><br></pre></td></tr></table></figure></p>
+<p>写入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chcp 65001</span><br><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module oh-my-posh</span><br><span class="line">Set-Theme Paradox</span><br></pre></td></tr></table></figure></p>
 <p>全部主题见：<a href="https://github.com/JanDeDobbeleer/oh-my-posh/tree/master/Themes" target="_blank" rel="noopener">JanDeDobbeleer/oh-my-posh/Themes</a></p>
 <h2 id="字体安装及切换"><a href="#字体安装及切换" class="headerlink" title="字体安装及切换"></a>字体安装及切换</h2><h3 id="下载字体"><a href="#下载字体" class="headerlink" title="下载字体"></a>下载字体</h3><p>字体可以在这下载：<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">powerline/fonts</a></p>
 <h3 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h3><p>安装<code>for Powerline</code>结尾的字体，以<a href="https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf" target="_blank" rel="noopener">DejaVu Sans Mono for Powerline.ttf</a>为例<br>右键字体文件，为所有用户安装</p>
