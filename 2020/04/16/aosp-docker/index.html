@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="安装docker在WSL2(Ubuntu 18.04)中安装docker并配置自启动 配置docker源使用阿里云的加速服务，解决下载镜像速度慢的问题打开容器镜像服务镜像中心 - 镜像加速器将加速器地址写入/etc/docker/daemon.json，格式为：123&amp;#123;  &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://xxxxxx.mirror">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-16T12:05:22.966Z">
+<meta property="og:updated_time" content="2020-04-17T05:22:19.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在WSL2中使用docker编译安卓源码">
 <meta name="twitter:description" content="安装docker在WSL2(Ubuntu 18.04)中安装docker并配置自启动 配置docker源使用阿里云的加速服务，解决下载镜像速度慢的问题打开容器镜像服务镜像中心 - 镜像加速器将加速器地址写入/etc/docker/daemon.json，格式为：123&amp;#123;  &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://xxxxxx.mirror">
@@ -197,11 +197,12 @@ var _hmt = _hmt || [];
 <p>重启docker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure></p>
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/XhyEax/docker-aosp</span><br></pre></td></tr></table></figure>
 <h3 id="配置源码保存路径（可选）"><a href="#配置源码保存路径（可选）" class="headerlink" title="配置源码保存路径（可选）"></a>配置源码保存路径（可选）</h3><p>默认保存到<code>~/aosp-root</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export AOSP_VOL=~/Android/</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置镜像版本"><a href="#配置镜像版本" class="headerlink" title="配置镜像版本"></a>配置镜像版本</h3><p>如果是编译5.0到6.0系统，则需要配置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export AOSP_IMAGE=&quot;kylemanna/aosp:5.0-lolipop&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置镜像版本"><a href="#配置镜像版本" class="headerlink" title="配置镜像版本"></a>配置镜像版本</h3><p>如果是编译5.0到6.0系统，则需修改<code>aosp</code>的第十二行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AOSP_IMAGE=$&#123;AOSP_IMAGE:-kylemanna/aosp&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AOSP_IMAGE=$&#123;AOSP_IMAGE:-kylemanna/aosp:5.0-lolipop&#125;</span><br></pre></td></tr></table></figure></p>
 <p>7.0及以上系统没必要配置镜像版本，直接使用最新镜像即可<br>所有tag：<a href="https://hub.docker.com/r/kylemanna/aosp/tags" target="_blank" rel="noopener">dockerhub kylemanna/aosp tags</a></p>
 <h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tests</span><br><span class="line">bash ./build-aosp.sh</span><br></pre></td></tr></table></figure>
 <p>该脚本下载的是<code>android-6.0.0_r1</code>的代码，如需更换请自行修改脚本</p>
-<h3 id="进入bash"><a href="#进入bash" class="headerlink" title="进入bash"></a>进入bash</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./docker_aosp</span><br></pre></td></tr></table></figure>
+<h3 id="进入bash"><a href="#进入bash" class="headerlink" title="进入bash"></a>进入bash</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./aosp</span><br></pre></td></tr></table></figure>
 <h3 id="以root用户登录bash"><a href="#以root用户登录bash" class="headerlink" title="以root用户登录bash"></a>以root用户登录bash</h3><p>主要用于修改系统文件</p>
 <h4 id="查询容器id"><a href="#查询容器id" class="headerlink" title="查询容器id"></a>查询容器id</h4><p>启动docker容器后，复制容器id（用户名后面的字符）<br>也可以使用<code>docker ps</code>查询</p>
 <h4 id="root用户登录bash"><a href="#root用户登录bash" class="headerlink" title="root用户登录bash"></a>root用户登录bash</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec --privileged -u root -it 容器id bash</span><br></pre></td></tr></table></figure>
