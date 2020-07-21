@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Archives | Xhy&#39;s Blog</title>
+  <title>使用__attribute__配置结构体，禁用编译器自动对齐 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/archives/page/6/index.html">
+  <meta name="description" content="概述结构体声明中加上__attribute__((packed))，可以防止编译器对结构进行字节对齐优化。使用__attribute__((aligned(8)))(8为对齐字节数)，可以强制编译器按指定字节对齐。 结构体定义使用 packed123456struct AlignTest&amp;#123;	char a;	 //1	short b; //2    int c;	 //4&amp;#125; __">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用__attribute__配置结构体，禁用编译器自动对齐">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/07/21/use-attribute-packed-to-disable-align/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="概述结构体声明中加上__attribute__((packed))，可以防止编译器对结构进行字节对齐优化。使用__attribute__((aligned(8)))(8为对齐字节数)，可以强制编译器按指定字节对齐。 结构体定义使用 packed123456struct AlignTest&amp;#123;	char a;	 //1	short b; //2    int c;	 //4&amp;#125; __">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-07-21T09:46:35.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="使用__attribute__配置结构体，禁用编译器自动对齐">
+<meta name="twitter:description" content="概述结构体声明中加上__attribute__((packed))，可以防止编译器对结构进行字节对齐优化。使用__attribute__((aligned(8)))(8为对齐字节数)，可以强制编译器按指定字节对齐。 结构体定义使用 packed123456struct AlignTest&amp;#123;	char a;	 //1	short b; //2    int c;	 //4&amp;#125; __">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,36 +170,70 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-use-attribute-packed-to-disable-align" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用__attribute__配置结构体，禁用编译器自动对齐
+    </h1>
+  
+
+
+        
+        <a href="/2020/07/21/use-attribute-packed-to-disable-align/" class="archive-article-date">
+  	<time datetime="2020-07-21T01:06:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>结构体声明中加上<code>__attribute__((packed))</code>，可以防止编译器对结构进行字节对齐优化。<br>使用<code>__attribute__((aligned(8)))</code>(8为对齐字节数)，可以强制编译器按指定字节对齐。</p>
+<h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><h3 id="使用-packed"><a href="#使用-packed" class="headerlink" title="使用 packed"></a>使用 packed</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AlignTest</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> a;	 <span class="comment">//1</span></span><br><span class="line">	<span class="keyword">short</span> b; <span class="comment">//2</span></span><br><span class="line">    <span class="keyword">int</span> c;	 <span class="comment">//4</span></span><br><span class="line">&#125; __attribute__((packed));</span><br></pre></td></tr></table></figure>
+<p>使用sizeof获取结构体的大小，返回7</p>
+<h3 id="不使用-packed"><a href="#不使用-packed" class="headerlink" title="不使用 packed"></a>不使用 packed</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AlignTest</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> a;	 <span class="comment">//1</span></span><br><span class="line">	<span class="keyword">short</span> b; <span class="comment">//2</span></span><br><span class="line">	<span class="keyword">int</span> c;	 <span class="comment">//4</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>根据结构体中最长的类型(int)，进行对齐，获取到的结构体大小为8</p>
+<h3 id="指定对齐大小"><a href="#指定对齐大小" class="headerlink" title="指定对齐大小"></a>指定对齐大小</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AlignTest</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> a;	 <span class="comment">//1</span></span><br><span class="line">	<span class="keyword">short</span> b; <span class="comment">//2</span></span><br><span class="line">	<span class="keyword">int</span> c;	 <span class="comment">//4</span></span><br><span class="line">    <span class="keyword">int</span> d;	 <span class="comment">//4</span></span><br><span class="line">&#125; __attribute__((aligned(<span class="number">8</span>)));</span><br></pre></td></tr></table></figure>
+<p>不使用指定对齐字节时，结构体大小为3*4=12，指定后变为16</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/zuiyinian/article/details/81174031" target="_blank" rel="noopener">为什么要用 “ <strong>attribute</strong> ((<strong>packed</strong>)) ” 定义结构体</a><br><a href="https://blog.csdn.net/swj9099/article/details/96713277" target="_blank" rel="noopener"><strong>attribute</strong> 用法</a></p>
+
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/07/cpp-template-class-cout-overload/" class="archive-article-date">
-  	<time datetime="2019-05-07T07:05:54.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/07/cpp-template-class-cout-overload/">C++中模板类的输出流重载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,372 +245,118 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/07/21/use-attribute-packed-to-disable-align/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/01/cpp-class-member-func-ptr/" class="archive-article-date">
-  	<time datetime="2019-04-30T22:38:44.926Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/17/powershell-add-font/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PowerShell配置主题、字体</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/01/cpp-class-member-func-ptr/">C++中类的成员函数的函数指针</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构体定义"><span class="toc-number">2.</span> <span class="toc-text">结构体定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-packed"><span class="toc-number">2.1.</span> <span class="toc-text">使用 packed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不使用-packed"><span class="toc-number">2.2.</span> <span class="toc-text">不使用 packed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指定对齐大小"><span class="toc-number">2.3.</span> <span class="toc-text">指定对齐大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/30/vscode-cpp-exe-encoding/" class="archive-article-date">
-  	<time datetime="2019-04-30T04:44:36.739Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/30/vscode-cpp-exe-encoding/">VSCode设置输出exe文件的编码</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/13/vscode-cpp-multiplefile/" class="archive-article-date">
-  	<time datetime="2019-04-13T06:52:07.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/13/vscode-cpp-multiplefile/">VSCode配置C++多文件环境</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/2019-hzwas-wp/" class="archive-article-date">
-  	<time datetime="2019-04-07T04:03:45.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/2019-hzwas-wp/">2019中国杭州网络安全技能大赛 预选赛 哈夫曼之谜 &amp; EasyCpp Writeup</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/emui9-magisk-install/" class="archive-article-date">
-  	<time datetime="2019-04-01T20:49:28.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/emui9-magisk-install/">emui9安装Magisk框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/android-floatview/" class="archive-article-date">
-  	<time datetime="2019-03-15T07:42:36.248Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/android-floatview/">安卓8.0以上创建悬浮窗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/28/android-reverse-fix-arsc/" class="archive-article-date">
-  	<time datetime="2019-02-28T00:44:40.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/28/android-reverse-fix-arsc/">修复反编译资源文件报错问题(resource spec)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/19/52pojie-2019-red-packet/" class="archive-article-date">
-  	<time datetime="2019-02-19T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/19/52pojie-2019-red-packet/">2019吾爱破解论坛春节红包四题Writeup</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/16/ubuntu-install/" class="archive-article-date">
-  	<time datetime="2019-02-16T06:37:23.606Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/16/ubuntu-install/">Ubuntu18.04安装记录(与Win10双系统共存)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -606,8 +387,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
