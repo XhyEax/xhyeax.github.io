@@ -7,19 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Archives | Xhy&#39;s Blog</title>
+  <title>饥荒联机版 Linux(CentOS) 开服、mod安装 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/archives/page/6/index.html">
+  <meta name="description" content="环境腾讯云服务器，CentOS 7.7 64位， 1核CPU，1G内存，1G交换空间 交换空间配置见Linux配置虚拟内存文件 获取cluster_token打开饥荒，控制台输入1TheNet:GenerateClusterToken() 然后使用资源管理器定位到...\文档\Klei\DoNotStarveTogether\用户id，下面有一个刚生成的cluster_token.txt，把内容保">
+<meta name="keywords" content="经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="饥荒联机版 Linux(CentOS) 开服、mod安装">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/03/03/dst-server-linux/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="环境腾讯云服务器，CentOS 7.7 64位， 1核CPU，1G内存，1G交换空间 交换空间配置见Linux配置虚拟内存文件 获取cluster_token打开饥荒，控制台输入1TheNet:GenerateClusterToken() 然后使用资源管理器定位到...\文档\Klei\DoNotStarveTogether\用户id，下面有一个刚生成的cluster_token.txt，把内容保">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ark-server.png">
+<meta property="og:updated_time" content="2020-08-18T08:05:09.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="饥荒联机版 Linux(CentOS) 开服、mod安装">
+<meta name="twitter:description" content="环境腾讯云服务器，CentOS 7.7 64位， 1核CPU，1G内存，1G交换空间 交换空间配置见Linux配置虚拟内存文件 获取cluster_token打开饥荒，控制台输入1TheNet:GenerateClusterToken() 然后使用资源管理器定位到...\文档\Klei\DoNotStarveTogether\用户id，下面有一个刚生成的cluster_token.txt，把内容保">
+<meta name="twitter:image" content="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ark-server.png">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,272 +172,90 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dst-server-linux" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      饥荒联机版 Linux(CentOS) 开服、mod安装
+    </h1>
+  
+
+
+        
+        <a href="/2020/03/03/dst-server-linux/" class="archive-article-date">
+  	<time datetime="2020-03-02T20:14:15.083Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>腾讯云服务器，CentOS 7.7 64位， 1核CPU，1G内存，1G交换空间</p>
+<h3 id="交换空间配置"><a href="#交换空间配置" class="headerlink" title="交换空间配置"></a>交换空间配置</h3><p>见<a href="https://blog.xhyeax.com/2020/03/25/linux-set-swapfile/">Linux配置虚拟内存文件</a></p>
+<h2 id="获取cluster-token"><a href="#获取cluster-token" class="headerlink" title="获取cluster_token"></a>获取cluster_token</h2><p>打开饥荒，控制台输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TheNet:GenerateClusterToken()</span><br></pre></td></tr></table></figure></p>
+<p>然后使用资源管理器定位到<code>...\文档\Klei\DoNotStarveTogether\用户id</code>，下面有一个刚生成的<code>cluster_token.txt</code>，把内容保存下来，之后要用</p>
+<h2 id="服务器安装"><a href="#服务器安装" class="headerlink" title="服务器安装"></a>服务器安装</h2><h3 id="创建用户并设置密码"><a href="#创建用户并设置密码" class="headerlink" title="创建用户并设置密码"></a>创建用户并设置密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser dstserver</span><br><span class="line">passwd dstserver</span><br></pre></td></tr></table></figure>
+<h3 id="开放以下端口"><a href="#开放以下端口" class="headerlink" title="开放以下端口"></a>开放以下端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11000/udp</span><br><span class="line">27018/udp</span><br></pre></td></tr></table></figure>
+<p>PS：云服务器一般是在安全组规则中设置放行<br>同时关闭系统自带的防火墙（root用户执行<code>service firewalld stop</code>）</p>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - dstserver</span><br></pre></td></tr></table></figure>
+<h3 id="下载并运行一键安装脚本"><a href="#下载并运行一键安装脚本" class="headerlink" title="下载并运行一键安装脚本"></a>下载并运行一键安装脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O linuxgsm.sh https://linuxgsm.sh &amp;&amp; chmod +x linuxgsm.sh &amp;&amp; bash linuxgsm.sh dstserver</span><br></pre></td></tr></table></figure>
+<p>PS：如果访问<code>raw.githubusercontent.com</code>经常出错，可修改hosts文件（<code>/etc/hosts</code>），添加以下内容（root用户）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">199.232.4.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="运行安装文件"><a href="#运行安装文件" class="headerlink" title="运行安装文件"></a>运行安装文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./dstserver install</span><br></pre></td></tr></table></figure>
+<p>一路回车，直到提示输入cluster_token</p>
+<h3 id="安装过程中可能出现的问题"><a href="#安装过程中可能出现的问题" class="headerlink" title="安装过程中可能出现的问题"></a>安装过程中可能出现的问题</h3><h4 id="出现-ERROR、FAIL"><a href="#出现-ERROR、FAIL" class="headerlink" title="出现 ERROR、FAIL"></a>出现 ERROR、FAIL</h4><p>一般是网络问题导致的下载失败，删除报错的脚本后重新执行<code>./dstserver install</code></p>
+<h4 id="依赖程序包缺失"><a href="#依赖程序包缺失" class="headerlink" title="依赖程序包缺失"></a>依赖程序包缺失</h4><p>表现为check_deps.sh执行时，出现红字<br>使用yum命令安装缺失程序包即可<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python3 jq -y</span><br></pre></td></tr></table></figure></p>
+<p>之后再次执行<code>./dstserver install</code></p>
+<h2 id="开服相关"><a href="#开服相关" class="headerlink" title="开服相关"></a>开服相关</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>以创建的第一个世界为例，配置文件位于<code>/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/cluster.ini</code></p>
+<h4 id="配置文件模板"><a href="#配置文件模板" class="headerlink" title="配置文件模板"></a>配置文件模板</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[GAMEPLAY]</span><br><span class="line">game_mode = endless         # 游戏模式</span><br><span class="line">max_players = 8             # 最大玩家人数</span><br><span class="line">pvp = false                 # pvp开关</span><br><span class="line">pause_when_empty = true     # 没人在线时暂停世界</span><br><span class="line">vote_enabled = true         # 投票开关(投票T人，投票重置世界)</span><br><span class="line"></span><br><span class="line">[NETWORK]</span><br><span class="line">lan_only_cluster = false    # 只允许本地局域网加入开关</span><br><span class="line">offline_cluster = false     # 离线游戏</span><br><span class="line">cluster_description = &apos;0.0&apos; # 服务器简介</span><br><span class="line">cluster_name = &apos;My World&apos;   # 服务器名称</span><br><span class="line">cluster_intention = cooperative     # 服务器类型</span><br><span class="line">cluster_password = 123456   # 服务器密码</span><br><span class="line">tick_rate = 30              # 帧刷新频率</span><br><span class="line">connection_timeout = 120000 # 掉线等待时间，单位毫秒</span><br><span class="line">whitelist_slots = 1         # 白名单个数</span><br><span class="line">autosaver_enabled = true    # 天亮自动保存</span><br><span class="line"></span><br><span class="line">[MISC]</span><br><span class="line">console_enable = true       # 是否开启控制台</span><br><span class="line">max_snapshots = 6           # 最大快照</span><br><span class="line"></span><br><span class="line">[SHARD]</span><br><span class="line">shard_enabled = true        # 是否多世界</span><br><span class="line">bind_ip = 127.0.0.1         # 主从世界在同一台服务器上(默认)</span><br><span class="line">master_ip = 127.0.0.1       # 主从世界在同一台服务器上(默认)</span><br><span class="line">master_port = 10888         # 端口</span><br><span class="line">cluster_key = rain          # 主从世界连接密码</span><br><span class="line"></span><br><span class="line">[STEAM]</span><br><span class="line">steam_group_only = false    # 是否只允许同steam组的人加入</span><br><span class="line">steam_group_id = 2222222    # steam组ID</span><br><span class="line">steam_group_admins = true   # steam组员自动成为管理员</span><br></pre></td></tr></table></figure>
+<h4 id="个人配置"><a href="#个人配置" class="headerlink" title="个人配置"></a>个人配置</h4><p>修改了游戏模式、服务器名、服务器描述、服务器密码、帧刷新频率、天亮自动保存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[GAMEPLAY]</span><br><span class="line">game_mode = endless</span><br><span class="line">max_players = 6</span><br><span class="line">pause_when_empty = true</span><br><span class="line">pvp = false</span><br><span class="line">vote_enabled = true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[MISC]</span><br><span class="line">console_enabled = true</span><br><span class="line">max_snapshots = 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[NETWORK]</span><br><span class="line">cluster_description = Hello World!</span><br><span class="line">cluster_name = Xhy&apos;s Ark</span><br><span class="line">cluster_intention = cooperative</span><br><span class="line">cluster_password = whatisit</span><br><span class="line">tick_rate = 60</span><br><span class="line">autosaver_enabled = true</span><br><span class="line"></span><br><span class="line">[SHARD]</span><br><span class="line">shard_enabled = false</span><br><span class="line">bind_ip = 127.0.0.1</span><br><span class="line">master_ip = 127.0.0.1</span><br><span class="line">master_port = 10888</span><br><span class="line">cluster_key = xhy</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mod安装"><a href="#Mod安装" class="headerlink" title="Mod安装"></a>Mod安装</h3><p>编辑<code>/home/dstserver/serverfiles/mods/dedicated_server_mods_setup.lua</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServerModSetup(&quot;666155465&quot;)</span><br><span class="line">ServerModSetup(&quot;374550642&quot;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mod加载"><a href="#Mod加载" class="headerlink" title="Mod加载"></a>Mod加载</h3><p>编辑<code>/home/dstserver/serverfiles/mods/modsettings.lua</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ForceEnableMod(&quot;666155465&quot;)</span><br><span class="line">ForceEnableMod(&quot;374550642&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>注意：Mod加载的越多，服务器负载越大，建议只使用一些基础mod</p>
+<h2 id="加入服务器"><a href="#加入服务器" class="headerlink" title="加入服务器"></a>加入服务器</h2><h3 id="手动收藏"><a href="#手动收藏" class="headerlink" title="手动收藏"></a>手动收藏</h3><p>打开steam主窗口，左上角<code>视图</code>-<code>服务器</code>（如图所示）<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ark-server.png" alt="视图"><br>在<code>收藏夹</code>中点击<code>添加服务器</code>，输入地址后点击<code>在此地址上寻找游戏</code>，<code>将选定的游戏添加到收藏夹</code>，然后<code>连接</code>即可。</p>
+<h3 id="浏览世界-使用过滤器搜索"><a href="#浏览世界-使用过滤器搜索" class="headerlink" title="浏览世界-使用过滤器搜索"></a>浏览世界-使用过滤器搜索</h3><p>直接输入配置好的服务器名，然后搜索即可<br>之后可以直接检索<code>我玩过的</code><br>PS：网络不好的话，检索可能需要花费较多时间，建议直接从收藏夹进入服务器</p>
+<h3 id="游戏内使用控制台连接"><a href="#游戏内使用控制台连接" class="headerlink" title="游戏内使用控制台连接"></a>游戏内使用控制台连接</h3><p>打开控制台，输入(<code>1.2.3.4</code>改为服务器ip)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c_connect(&quot;1.2.3.4&quot;,11000)</span><br></pre></td></tr></table></figure></p>
+<h2 id="回档"><a href="#回档" class="headerlink" title="回档"></a>回档</h2><p>管理员进入服务器后，按住tab键，点击左上角菜单-回档</p>
+<h2 id="关于延迟"><a href="#关于延迟" class="headerlink" title="关于延迟"></a>关于延迟</h2><p>如果感觉拾取物品有一定延迟，可以在客户端的设置中把延迟补偿关掉</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="服务器文件解析"><a href="#服务器文件解析" class="headerlink" title="服务器文件解析"></a>服务器文件解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">文件夹:</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/ --服务器根目录</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Master --地表存档根目录</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Caves --洞穴存档根目录</span><br><span class="line"></span><br><span class="line">文件:</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/cluster.ini --服务器设置文件</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/cluster_token.txt --令牌文件</span><br><span class="line"></span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Master/server.ini --地表存档设置文件</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Master/modoverrides.lua --mod配置文件</span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Master/worldgenoverride.lua(可选) --地图配置文件</span><br><span class="line"></span><br><span class="line">/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Caves/server.ini --洞穴存档设置文件</span><br><span class="line">文档/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Caves/modoverrides.lua --mod配置文件</span><br><span class="line">文档/home/dstserver/.klei/DoNotStarveTogether/Cluster_1/Caves/worldgenoverride.lua --地图配置文件</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/75cc3cfaf117" target="_blank" rel="noopener">Linux 搭建饥荒联机版服务器</a></p>
+
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/28/isc-2019-wp/" class="archive-article-date">
-  	<time datetime="2019-05-28T04:43:22.558Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/28/isc-2019-wp/">isc2019 Reverse&amp;Misc&amp;Crypto&amp;Android Writeup</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/07/cpp-template-class-cout-overload/" class="archive-article-date">
-  	<time datetime="2019-05-07T07:05:54.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/07/cpp-template-class-cout-overload/">C++中模板类的输出流重载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/01/cpp-class-member-func-ptr/" class="archive-article-date">
-  	<time datetime="2019-04-30T22:38:44.926Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/01/cpp-class-member-func-ptr/">C++中类的成员函数的函数指针</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/30/vscode-cpp-exe-encoding/" class="archive-article-date">
-  	<time datetime="2019-04-30T04:44:36.739Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/30/vscode-cpp-exe-encoding/">VSCode设置输出exe文件的编码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/13/vscode-cpp-multiplefile/" class="archive-article-date">
-  	<time datetime="2019-04-13T06:52:07.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/13/vscode-cpp-multiplefile/">VSCode配置C++多文件环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/2019-hzwas-wp/" class="archive-article-date">
-  	<time datetime="2019-04-07T04:03:45.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/2019-hzwas-wp/">2019中国杭州网络安全技能大赛 预选赛 哈夫曼之谜 &amp; EasyCpp Writeup</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/emui9-magisk-install/" class="archive-article-date">
-  	<time datetime="2019-04-01T20:49:28.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/emui9-magisk-install/">emui9安装Magisk框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -446,136 +267,127 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/03/03/dst-server-linux/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/android-floatview/" class="archive-article-date">
-  	<time datetime="2019-03-15T07:42:36.248Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/03/ark-server-linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          方舟生存进化 Linux(CentOS) 开服、mod安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/29/52pojie-2020-red-packet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2020吾爱破解论坛春节红包前三题题Writeup</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/android-floatview/">安卓8.0以上创建悬浮窗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#交换空间配置"><span class="toc-number">1.1.</span> <span class="toc-text">交换空间配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取cluster-token"><span class="toc-number">2.</span> <span class="toc-text">获取cluster_token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器安装"><span class="toc-number">3.</span> <span class="toc-text">服务器安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建用户并设置密码"><span class="toc-number">3.1.</span> <span class="toc-text">创建用户并设置密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开放以下端口"><span class="toc-number">3.2.</span> <span class="toc-text">开放以下端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换用户"><span class="toc-number">3.3.</span> <span class="toc-text">切换用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载并运行一键安装脚本"><span class="toc-number">3.4.</span> <span class="toc-text">下载并运行一键安装脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行安装文件"><span class="toc-number">3.5.</span> <span class="toc-text">运行安装文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装过程中可能出现的问题"><span class="toc-number">3.6.</span> <span class="toc-text">安装过程中可能出现的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#出现-ERROR、FAIL"><span class="toc-number">3.6.1.</span> <span class="toc-text">出现 ERROR、FAIL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖程序包缺失"><span class="toc-number">3.6.2.</span> <span class="toc-text">依赖程序包缺失</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开服相关"><span class="toc-number">4.</span> <span class="toc-text">开服相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">4.1.</span> <span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置文件模板"><span class="toc-number">4.1.1.</span> <span class="toc-text">配置文件模板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#个人配置"><span class="toc-number">4.1.2.</span> <span class="toc-text">个人配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mod安装"><span class="toc-number">4.2.</span> <span class="toc-text">Mod安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mod加载"><span class="toc-number">4.3.</span> <span class="toc-text">Mod加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加入服务器"><span class="toc-number">5.</span> <span class="toc-text">加入服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#手动收藏"><span class="toc-number">5.1.</span> <span class="toc-text">手动收藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览世界-使用过滤器搜索"><span class="toc-number">5.2.</span> <span class="toc-text">浏览世界-使用过滤器搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏内使用控制台连接"><span class="toc-number">5.3.</span> <span class="toc-text">游戏内使用控制台连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回档"><span class="toc-number">6.</span> <span class="toc-text">回档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于延迟"><span class="toc-number">7.</span> <span class="toc-text">关于延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">8.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器文件解析"><span class="toc-number">8.1.</span> <span class="toc-text">服务器文件解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/28/android-reverse-fix-arsc/" class="archive-article-date">
-  	<time datetime="2019-02-28T00:44:40.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/28/android-reverse-fix-arsc/">修复反编译资源文件报错问题(resource spec)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/19/52pojie-2019-red-packet/" class="archive-article-date">
-  	<time datetime="2019-02-19T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/19/52pojie-2019-red-packet/">2019吾爱破解论坛春节红包四题Writeup</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -606,8 +418,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
