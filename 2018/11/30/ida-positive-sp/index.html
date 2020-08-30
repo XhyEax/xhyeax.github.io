@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-34-15.png">
 <meta property="og:image" content="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_09-55-41.png">
 <meta property="og:image" content="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-35-09.png">
-<meta property="og:updated_time" content="2020-04-14T03:10:46.501Z">
+<meta property="og:updated_time" content="2020-04-14T03:25:17.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDA不能F5查看伪代码的解决方法（positive sp value）">
 <meta name="twitter:description" content="问题在函数中F5失败，提示堆栈指针为正数，故需要修复堆栈平衡 解决方案去设置中打开堆栈指针（Stack pointer）显示（也就是sp） 按G定位到4012B9，发现return时的指针是-10（hex） 找到最接近的call（401295），在该行修改sp值（按alt+K或者右键修改）,设置偏移值为-0x10（目的就是使return前的sp为0）修复后：然后就可以愉快地F5了 参考IDA sp">
@@ -477,6 +477,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CTF</a>
               </li>
              
@@ -490,6 +498,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +521,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,7 +529,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">支持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,7 +537,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计组</a>
+                <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,22 +546,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">支持</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>

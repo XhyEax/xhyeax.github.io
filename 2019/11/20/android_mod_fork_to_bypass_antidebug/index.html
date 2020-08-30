@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Xhy&#39;s Blog">
 <meta property="og:description" content="概述多进程ptrace反调试是一种常见的反调试手段，思路为fork出子进程，在子进程中ptrace自身，使得调试器无法附加。通过修改源码来禁止指定进程fork 具体步骤定位到源码位置AOSP 5.1.1及6.0.1 fork函数位于：bionic/libc/bionic/fork.cpp 添加过滤函数通过读取status文件来确定进程名，然后跟文件内容比较，相同则禁止其fork代码如下：12345">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-04-19T08:18:20.001Z">
+<meta property="og:updated_time" content="2020-04-19T08:37:20.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改安卓系统源码(fork) 绕过多进程ptrace反调试">
 <meta name="twitter:description" content="概述多进程ptrace反调试是一种常见的反调试手段，思路为fork出子进程，在子进程中ptrace自身，使得调试器无法附加。通过修改源码来禁止指定进程fork 具体步骤定位到源码位置AOSP 5.1.1及6.0.1 fork函数位于：bionic/libc/bionic/fork.cpp 添加过滤函数通过读取status文件来确定进程名，然后跟文件内容比较，相同则禁止其fork代码如下：12345">
@@ -486,6 +486,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CTF</a>
               </li>
              
@@ -499,6 +507,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +530,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,7 +538,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">支持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +546,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计组</a>
+                <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,22 +555,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">支持</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MIPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>
