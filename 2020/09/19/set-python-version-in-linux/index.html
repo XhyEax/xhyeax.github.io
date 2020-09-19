@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
   <title>Linux设置默认Python版本 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3 查询当前配置1update-alternatives --list python">
+  <meta name="description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。(执行apt-get install python3-pip安装python3) 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux设置默认Python版本">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/09/19/set-python-version-in-linux/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3 查询当前配置1update-alternatives --list python">
+<meta property="og:description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。(执行apt-get install python3-pip安装python3) 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-19T14:27:04.884Z">
+<meta property="og:updated_time" content="2020-09-19T15:04:41.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux设置默认Python版本">
-<meta name="twitter:description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3 查询当前配置1update-alternatives --list python">
+<meta name="twitter:description" content="概述由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。(执行apt-get install python3-pip安装python3) 配置原理：使用update-alternatives进行配置 查看python位置1ls /usr/bin/python* 一般是/usr/bin/python2和/usr/bin/python3">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。</p>
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>由于默认的python版本为2.7，执行命令时需要改为python3，比较麻烦。所以将python3设置为默认版本。(执行<code>apt-get install python3-pip</code>安装python3)</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>原理：使用update-alternatives进行配置</p>
 <h3 id="查看python位置"><a href="#查看python位置" class="headerlink" title="查看python位置"></a>查看python位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/bin/python*</span><br></pre></td></tr></table></figure>
 <p>一般是<code>/usr/bin/python2</code>和<code>/usr/bin/python3</code></p>
@@ -200,6 +200,7 @@ var _hmt = _hmt || [];
 <p>没有配置过的话会返回<code>update-alternatives: error: no alternatives for python</code></p>
 <h3 id="配置默认版本"><a href="#配置默认版本" class="headerlink" title="配置默认版本"></a>配置默认版本</h3><p>通过设置优先级来实现默认使用python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1</span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2</span><br></pre></td></tr></table></figure></p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>查询默认版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>有些脚本需要手动修改python版本（如yum），将<code>/usr/bin/python</code>改为<code>/usr/bin/python2</code></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/fang_chuan/article/details/60958329" target="_blank" rel="noopener">更改Ubuntu默认python版本的两种方法</a></p>
 
 
@@ -339,7 +340,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看python位置"><span class="toc-number">2.1.</span> <span class="toc-text">查看python位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询当前配置"><span class="toc-number">2.2.</span> <span class="toc-text">查询当前配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置默认版本"><span class="toc-number">2.3.</span> <span class="toc-text">配置默认版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看python位置"><span class="toc-number">2.1.</span> <span class="toc-text">查看python位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询当前配置"><span class="toc-number">2.2.</span> <span class="toc-text">查询当前配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置默认版本"><span class="toc-number">2.3.</span> <span class="toc-text">配置默认版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
