@@ -171,6 +171,103 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-qq-813-unrevoke-module-develop" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/18/qq-813-unrevoke-module-develop/">QQ8.1.3防撤回(Xposed模块)的原理</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/09/18/qq-813-unrevoke-module-develop/" class="archive-article-date">
+  	<time datetime="2019-09-17T23:55:19.073Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>开发一个适配QQ 8.1.3的防撤回插件，并显示撤回通知。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="1-防撤回"><a href="#1-防撤回" class="headerlink" title="1. 防撤回"></a>1. 防撤回</h3><p>设置<code>com.tencent.mobileqq.app.message.QQMessageFacade.a(ArrayList.class, boolean.class)</code>方法的返回值为空即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//在beforeHookedMethod中执行</span><br><span class="line">param.setResult(null);</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-获取必要信息"><a href="#2-获取必要信息" class="headerlink" title="2. 获取必要信息"></a>2. 获取必要信息</h3><p>上一个方法的第一个参数(<code>ArrayList</code>)内容(<code>toString</code>)形如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[RevokeMsgInfo[istroop= 1, shmsgseq= 356, frienduin= 1234568, fromuin= 12345678 msguid= 0, time= 1568796904, senduin= null, longmsgid= 0, longmsgcount=0 longmsgindex=0]</span><br></pre></td></tr></table></figure></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2019/09/18/qq-813-unrevoke-module-develop/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/18/qq-813-unrevoke-module-develop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-chromium-edge-idm-support" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1009,100 +1106,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/02/android-studio-import-so/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cpp_vscode_segmentation_fault_cygwinS" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/">修复VSCode Segmentation Fault in cygwinS</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/" class="archive-article-date">
-  	<time datetime="2019-07-02T23:24:04.801Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-
-          <a class="article-more-a" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/03/cpp_vscode_segmentation_fault_cygwinS/">展开全文 >></a>
         </p>
       
 

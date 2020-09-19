@@ -171,6 +171,103 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ida-positive-sp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/30/ida-positive-sp/">IDA不能F5查看伪代码的解决方法（positive sp value）</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/11/30/ida-positive-sp/" class="archive-article-date">
+  	<time datetime="2018-11-29T16:29:49.474Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+    
+        
+        
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+            
+            <p></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-30-12.png" alt=""><br>在函数中F5失败，提示堆栈指针为正数，故需要修复堆栈平衡</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>去设置中打开堆栈指针（Stack pointer）显示（也就是sp）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-33-01.png" alt=""></p>
+<p>按G定位到4012B9，发现return时的指针是-10（hex）<br><img src="http://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/ida_2018-11-30_08-34-15.png" alt=""></p>
+<p>
+        
+
+          <a class="article-more-a" href="/2018/11/30/ida-positive-sp/#more">查看更多 >></a>
+        
+    
+    
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/30/ida-positive-sp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-isa-ctf2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
