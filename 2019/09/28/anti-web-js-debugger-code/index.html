@@ -193,8 +193,8 @@ var _hmt = _hmt || [];
 
       
     <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用开发者工具(F12)分析一个网站时发现：<br>每隔一段时间就会有js代码主动触发调试器断点，妨碍分析。<br>问之度娘，遂得解法。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> _$gy(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h2 id="1-使用控制台对方法进行nop"><a href="#1-使用控制台对方法进行nop" class="headerlink" title="1. 使用控制台对方法进行nop"></a>1. 使用控制台对方法进行nop</h2><p>有两种情况，一种是直接调用debugger，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_$gy</span>(<span class="params"></span>)</span>&#123;<span class="keyword">debugger</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么控制台执行以下语句即可：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_$gy</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>另一种是匿名函数，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="keyword">debugger</span>; <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>() - a &gt; <span class="number">100</span>;&#125;())</span><br></pre></td></tr></table></figure></p>
 <p>需要查看调用栈，找到调用进行重定义。具体操作为：<br>双击调用栈中的主调函数，找到函数名，控制台进行nop。</p>
 <h2 id="2-禁用所有断点"><a href="#2-禁用所有断点" class="headerlink" title="2. 禁用所有断点"></a>2. 禁用所有断点</h2><blockquote>
@@ -489,14 +489,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CTF</a>
               </li>
              
@@ -517,11 +509,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,7 +549,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vivado</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
             
             <div class="clearfix"></div>
