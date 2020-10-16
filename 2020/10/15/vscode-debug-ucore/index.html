@@ -7,19 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
-  <title>Xhy&#39;s Blog</title>
+  <title>在Linux下使用VSCode调试uCore内核代码 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of XhyEax, Share and make progress together.">
-<meta name="keywords" content="XhyEax&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xhy&#39;s Blog">
-<meta property="og:url" content="http://blog.xhyeax.com/page/7/index.html">
+  <meta name="description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核代码是C语言编写，于是尝试使用VSCode调试代码。 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改配置文件使用VSCode打开LABX文件夹（如LAB1），然后按下F5，选择C++(GDB/LLDB">
+<meta name="keywords" content="Linux,VSCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Linux下使用VSCode调试uCore内核代码">
+<meta property="og:url" content="http://blog.xhyeax.com/2020/10/15/vscode-debug-ucore/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="Blog of XhyEax, Share and make progress together.">
+<meta property="og:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核代码是C语言编写，于是尝试使用VSCode调试代码。 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改配置文件使用VSCode打开LABX文件夹（如LAB1），然后按下F5，选择C++(GDB/LLDB">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-10-16T05:39:59.017Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xhy&#39;s Blog">
-<meta name="twitter:description" content="Blog of XhyEax, Share and make progress together.">
+<meta name="twitter:title" content="在Linux下使用VSCode调试uCore内核代码">
+<meta name="twitter:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核代码是C语言编写，于是尝试使用VSCode调试代码。 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改配置文件使用VSCode打开LABX文件夹（如LAB1），然后按下F5，选择C++(GDB/LLDB">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -169,23 +170,21 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-android-reverse-fix-arsc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-vscode-debug-ucore" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/28/android-reverse-fix-arsc/">修复反编译资源文件报错问题(resource spec)</a>
+    <h1 class="article-title" itemprop="name">
+      在Linux下使用VSCode调试uCore内核代码
     </h1>
   
 
 
         
-        <a href="/2019/02/28/android-reverse-fix-arsc/" class="archive-article-date">
-  	<time datetime="2019-02-28T00:44:40.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
+        <a href="/2020/10/15/vscode-debug-ucore/" class="archive-article-date">
+  	<time datetime="2020-10-15T00:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
 </a>
         
       </header>
@@ -193,227 +192,47 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="关于0x01010540错误"><a href="#关于0x01010540错误" class="headerlink" title="关于0x01010540错误"></a>关于<code>0x01010540</code>错误</h2><p><code>0x01010540</code>是因为SDK版本太高，反编译工具识别不出来，需要替换成<code>0x0101048f</code><br>具体方法见后文</p>
-<h2 id="关于0x01010543错误"><a href="#关于0x01010543错误" class="headerlink" title="关于0x01010543错误"></a>关于<code>0x01010543</code>错误</h2><p>如果只有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; b.a.a.e: resource spec: 0x01010543</span><br></pre></td></tr></table></figure></p>
-<p>没有<code>UndefinedResObject</code><br>则更换<code>apktool</code>后再试<br><code>apktool</code>可以在<a href="https://down.52pojie.cn/Tools/Android_Tools/" target="_blank" rel="noopener">爱盘</a>下载</p>
-<p>
-        
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核代码是C语言编写，于是尝试使用VSCode调试代码。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode</p>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h3 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h3><p>安装<code>C/C++</code>拓展<br>PS：建议安装语言包，搜索<code>Chinese</code>即可找到</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>使用VSCode打开LABX文件夹（如LAB1），然后按下F5，选择<code>C++(GDB/LLDB)</code>，将跳转到<code>launch.json</code>文件<br>然后将<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"program": "输入程序名称，例如 $&#123;workspaceFolder&#125;/a.out",</span><br></pre></td></tr></table></figure></p>
+<p>替换为<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"miDebuggerServerAddress": "127.0.0.1:1234",</span><br><span class="line">"program": "$&#123;workspaceFolder&#125;/bin/kernel",</span><br></pre></td></tr></table></figure></p>
+<p>PS：将<code>.vscode</code>文件夹复制到其他LAB下即可直接使用</p>
+<h3 id="修改Makefile"><a href="#修改Makefile" class="headerlink" title="修改Makefile"></a>修改Makefile</h3><p>打开<code>Makefile</code>，搜索<code>debug:</code>，在上面添加<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">debug-nogdb: <span class="variable">$(UCOREIMG)</span></span></span><br><span class="line">	<span class="variable">$(V)</span><span class="variable">$(QEMU)</span> -S -s -parallel stdio -hda <span class="variable">$&lt;</span> -serial null&amp;</span><br><span class="line">	<span class="variable">$(V)</span>sleep 2</span><br></pre></td></tr></table></figure></p>
+<p>PS：其实就是去掉了自动附加gdb的命令，因为要使用VSCode运行的gdb去附加qemu</p>
+<h3 id="下断点调试"><a href="#下断点调试" class="headerlink" title="下断点调试"></a>下断点调试</h3><p>在内核代码下断点（如<code>kern/init/init.c</code>），然后在终端执行<code>make debug-nogdb</code>，按下F5即可进行调试</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/whileskies/p/13138491.html" target="_blank" rel="noopener">ucore lab0 实验准备</a></p>
 
-          <a class="article-more-a" href="/2019/02/28/android-reverse-fix-arsc/#more">查看更多 >></a>
-        
-    
-    
+
 
       
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/28/android-reverse-fix-arsc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">感谢支持</p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
+      
     </div>
-</aside>
-
-
-
-
-  
-    <article id="post-52pojie-2019-red-packet" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/19/52pojie-2019-red-packet/">2019吾爱破解论坛春节红包四题Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/02/19/52pojie-2019-red-packet/" class="archive-article-date">
-  	<time datetime="2019-02-19T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><p>解题方法并不唯一，仅供参考。</p>
-<h2 id="题目打包下载地址"><a href="#题目打包下载地址" class="headerlink" title="题目打包下载地址"></a>题目打包下载地址</h2><p><a href="https://down.52pojie.cn/Challenge/Happy_New_Year_2019_Challenge.rar" target="_blank" rel="noopener">https://down.52pojie.cn/Challenge/Happy_New_Year_2019_Challenge.rar</a></p>
-<h2 id="第一题-签到题"><a href="#第一题-签到题" class="headerlink" title="第一题 签到题"></a>第一题 签到题</h2><p>关注“吾爱破解论坛”公众号，回复指定字符串即可获得本题正确口令和第二题题目下载地址。</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/02/19/52pojie-2019-red-packet/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/19/52pojie-2019-red-packet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu-install" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/16/ubuntu-install/">Ubuntu18.04安装记录(与Win10双系统共存)</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/02/16/ubuntu-install/" class="archive-article-date">
-  	<time datetime="2019-02-16T06:37:23.606Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="第一步，分区"><a href="#第一步，分区" class="headerlink" title="第一步，分区"></a>第一步，分区</h2><p>Linux只有分区挂载目录的概念，所以需要在Windows下分出一块较大的未分配空间，不需要格式化</p>
-<h2 id="下载镜像并写入U盘"><a href="#下载镜像并写入U盘" class="headerlink" title="下载镜像并写入U盘"></a>下载镜像并写入U盘</h2><p>下载完镜像以后，使用软碟通将镜像写入U盘，然后重启。<br>PS: 如果U盘本身就支持efi启动的话，可以直接把镜像解压到U盘<br>开机后把握时机进入Boot Menu，选择从USB启动。<br>注意：需要在BIOS中关闭安全启动（Secure Boot）</p>
-<h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><h3 id="进入安装程序"><a href="#进入安装程序" class="headerlink" title="进入安装程序"></a>进入安装程序</h3><p>正常情况下，启动后会出现grub引导菜单，选择第二个即可进入Ubuntu安装程序。<br>然而，由于我的显卡是Nvidia的，无法进入安装界面。</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/02/16/ubuntu-install/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -424,95 +243,9 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/16/ubuntu-install/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ida-call-analysis-fail" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/16/ida-call-analysis-fail/">IDA不能F5查看伪代码的解决方法(call analysis failed)</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/02/16/ida-call-analysis-fail/" class="archive-article-date">
-  	<time datetime="2019-02-16T06:17:04.695Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-
-          <a class="article-more-a" href="/2019/02/16/ida-call-analysis-fail/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IDA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
         		</li>
       		
 		</ul>
@@ -521,16 +254,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/16/ida-call-analysis-fail/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.xhyeax.com/2020/10/15/vscode-debug-ucore/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/19/set-python-version-in-linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux设置默认Python版本</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -545,599 +337,32 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fix-linux-time" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/16/fix-linux-time/">修复双系统（Win+Linux）时间不同步问题</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/02/16/fix-linux-time/" class="archive-article-date">
-  	<time datetime="2019-02-16T05:54:29.259Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>笔记本装了win10+Ubuntu18.04双系统，但是两个系统的时间并不同步，相差8小时（正好是时区数）。于是搜索之，找到解决方案</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Windows 与 Mac/Linux 看待系统硬件时间（Hardware Ttime，或称实时时间，即RTC，Real_Time Clock）的方式不同。<br>Windows把计算机硬件时间当作本地时间(local time)，所以在Windows系统中显示的时间跟BIOS中显示的时间是一样的。<br>而Linux/Unix/Mac把计算机硬件时间当作UTC（Universal Time Coordinated，世界统一时间）， 所以在Linux/Unix/Mac系统启动后在该时间的基础上，加上电脑设置的时区数。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>所以只需要使两个系统对待硬件时间的方式一致即可。<br>自然，有两种方法。</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/02/16/fix-linux-time/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/16/fix-linux-time/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">2.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置步骤"><span class="toc-number">3.</span> <span class="toc-text">配置步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装拓展"><span class="toc-number">3.1.</span> <span class="toc-text">安装拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改配置文件"><span class="toc-number">3.2.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改Makefile"><span class="toc-number">3.3.</span> <span class="toc-text">修改Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下断点调试"><span class="toc-number">3.4.</span> <span class="toc-text">下断点调试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-friend-ctf" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/03/friend-ctf/">一道同学出的CTF题</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/02/03/friend-ctf/" class="archive-article-date">
-  	<time datetime="2019-02-02T22:53:40.529Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="来自中老年的表情包"><a href="#来自中老年的表情包" class="headerlink" title="来自中老年的表情包"></a>来自中老年的表情包</h2><p>图片如下（可以自己尝试分析）<br><img src="https://xhy-1252675344.cos.ap-beijing.myqcloud.com/imgs/friend_ctf_1.gif" alt=""></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>只有一个gif，惯例<code>010Editor</code>打开，文件尾有个压缩包<br>提取之，不出意外的有密码，而且并不是伪加密</p>
-<h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><p>输入新年快乐，密码错误<br>输入happy，密码错误<br>输入happy2019，密码错误<br>难道隐藏在图片里？于是PS提取之，得到6张png<br>一番尝试后没有任何收获（陷入僵局.jpg<br>甚至怀疑是否在网页中含有密码，询问作者，得到回复：</p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/02/03/friend-ctf/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/03/friend-ctf/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-shanghai-3rd-classic" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/shanghai-3rd-classic/">第三届上海市大学生网络安全大赛 Classical Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/shanghai-3rd-classic/" class="archive-article-date">
-  	<time datetime="2019-01-26T06:07:53.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>cipher.txt内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ld hcrakewcfaxr, f hofjjlhfo hlaxuc lj f krau ev hlaxuc kxfk zfj tjui xljkeclhfoor gtk dez xfj vfooud, vec kxu pejk afck, ldke iljtju. Ld hedkcfjk ke peiucd hcrakewcfaxlh foweclkxpj, pejk hofjjlhfo hlaxucj hfd gu acfhklhfoor hepatkui fdi jeoyui gr xfdi. Xezuyuc, OrmkO3vydJCoe2qyNLmcN2qlpJXnM3SxM2Xke3q9 kxur fcu foje tjtfoor yucr jlpaou ke gcufn zlkx peiucd kuhxdeoewr. Kxu kucp ldhotiuj kxu jlpaou jrjkupj tjui jldhu Wcuun fdi Cepfd klpuj, kxu uofgecfku Cudfljjfdhu hlaxucj, Zecoi Zfc LL hcrakewcfaxr jthx fj kxu Udlwpf pfhxldu fdi guredi. F btlhn gcezd veq mtpa eyuc kxu ofsr iew.</span><br></pre></td></tr></table></figure>
-<p>推测是移位的密码，使用<code>WinCrypto</code>分析得到（也可以使用<a href="https://quipqiup.com/" target="_blank" rel="noopener">quip</a>在线分析并修复）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In cryptography, a classical cipher is a type of cipher that was used historically but now has fallen, for the most part, into disuse. In contrast to modern cryptographic algorithms, most classical ciphers can be practically computed and solved by hand. However, LyjtL3fvnSRlo2xvKIjrK2ximSHkJ3ZhJ2Hto3x9 they are also usually very simple to break with modern technology. The term includes the simple systems used since Greek and Roman times, the elaborate Renaissance ciphers, World War II cryptography such as the Enigma machine and beyond. A quick brown fox jump over the lazy dog.</span><br></pre></td></tr></table></figure></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/shanghai-3rd-classic/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/shanghai-3rd-classic/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-icq-2nd-happy-rsa256" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/icq-2nd-happy-rsa256/">i春秋 第二届春秋欢乐赛 RSA256 Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/icq-2nd-happy-rsa256/" class="archive-article-date">
-  	<time datetime="2019-01-26T03:59:21.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>解压得到四个文件，有一个<code>public.key</code>和三个加密过的文件，于是先把p和q解出来</p>
-<h2 id="得到e和n"><a href="#得到e和n" class="headerlink" title="得到e和n"></a>得到e和n</h2><p><code>openssl rsa -pubin -text -modulus -in warmup -in public.key</code><br>得到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exponent: 65537 (0x10001)</span><br><span class="line">Modulus=D99E952296A6D960DFC2504ABA545B9442D60A7B9E930AFF451C78EC55D555EB</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用yafu分解，得到p和q"><a href="#使用yafu分解，得到p和q" class="headerlink" title="使用yafu分解，得到p和q"></a>使用yafu分解，得到p和q</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p = 302825536744096741518546212761194311477</span><br><span class="line">q = 325045504186436346209877301320131277983</span><br></pre></td></tr></table></figure>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rsa256/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rsa256/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-icq-2nd-happy-rec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/icq-2nd-happy-rec/">i春秋 第二届春秋欢乐赛 ReCreators&amp;Hello World Writeup</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/icq-2nd-happy-rec/" class="archive-article-date">
-  	<time datetime="2019-01-26T02:26:40.217Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><p>浏览器打开，只有一个<code>Hello, World!</code><br>查看源代码看到有个<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"flag.xmas.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>结果没有该文件，尝试打开<code>flag.js</code>，看到混淆过的js，全选复制，放到控制台运行，得到<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Key = <span class="string">"7a57a5a743894a0e"</span>;</span><br><span class="line">CryptoJS.pad.Iso10126 = &#123;</span><br><span class="line">    pad: <span class="function"><span class="keyword">function</span>(<span class="params">data, blockSize</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> blockSizeBytes = blockSize * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;</span><br><span class="line">        data.concat(CryptoJS.lib.WordArray.random(nPaddingBytes - <span class="number">1</span>)).concat(CryptoJS.lib.WordArray.create([nPaddingBytes &lt;&lt; <span class="number">24</span>], <span class="number">1</span>))</span><br><span class="line">    &#125;,</span><br><span class="line">    unpad: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nPaddingBytes = data.words[(data.sigBytes - <span class="number">1</span>) &gt;&gt;&gt; <span class="number">2</span>] &amp; <span class="number">0xff</span>;</span><br><span class="line">        data.sigBytes -= nPaddingBytes</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesEncrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sendData = CryptoJS.enc.Utf8.parse(data);</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> encrypted = CryptoJS.AES.encrypt(sendData, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> CryptoJS.enc.Base64.stringify(encrypted.ciphertext)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> aesDecrypt = <span class="function"><span class="keyword">function</span>(<span class="params">data, keyStr, ivStr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key = CryptoJS.enc.Utf8.parse(keyStr);</span><br><span class="line">    <span class="keyword">var</span> iv = CryptoJS.enc.Utf8.parse(ivStr);</span><br><span class="line">    <span class="keyword">var</span> decrypted = CryptoJS.AES.decrypt(data, key, &#123;</span><br><span class="line">        iv: iv,</span><br><span class="line">        mode: CryptoJS.mode.CBC,</span><br><span class="line">        padding: CryptoJS.pad.Iso10126</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> decrypted.toString(CryptoJS.enc.Utf8)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> hint = <span class="string">"SSNRTPIuHLUxqtJmq8mDDPtexRU7RTjNO34tLqz+Tpw="</span>;</span><br></pre></td></tr></table></figure></p>
-<p>然而，这并没有什么用。。。。<br>得到的提示是<code>flag is not here</code></p>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rec/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/icq-2nd-happy-rec/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fix-flash" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/fix-flash/">修复Flash插件提示地区不符的问题</a>
-    </h1>
-  
-
-
-        
-        <a href="/2019/01/26/fix-flash/" class="archive-article-date">
-  	<time datetime="2019-01-25T21:31:36.887Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-    
-        
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-            
-            <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Adobe Flash Player 从 30 版本开始，中国大陆地区用户只能使用特供版<br>后台存在广告服务、弹出广告窗口、捆绑流氓软件的行为。<br>由于有的网站只能用flash，而安装国际版flash又提示地区不符，所以需要找个办法解决。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="安装直装版（由roustar31制作）"><a href="#安装直装版（由roustar31制作）" class="headerlink" title="安装直装版（由roustar31制作）"></a>安装直装版（由roustar31制作）</h3><p>运行程序后，会卸载原版flash再自动安装。</p>
-<blockquote>
-<p>
-        
-
-          <a class="article-more-a" href="/2019/01/26/fix-flash/#more">查看更多 >></a>
-        
-    
-    
-
-      
-    </p></blockquote></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/fix-flash/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1167,8 +392,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
