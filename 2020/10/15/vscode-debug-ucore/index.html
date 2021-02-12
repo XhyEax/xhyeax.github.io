@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://blog.xhyeax.com">
   <title>在Linux下使用VSCode调试uCore内核代码 | Xhy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug:">
+  <meta name="description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。由于内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug">
 <meta name="keywords" content="Linux,VSCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Linux下使用VSCode调试uCore内核代码">
 <meta property="og:url" content="http://blog.xhyeax.com/2020/10/15/vscode-debug-ucore/index.html">
 <meta property="og:site_name" content="Xhy&#39;s Blog">
-<meta property="og:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug:">
+<meta property="og:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。由于内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-10-16T08:20:29.956Z">
+<meta property="og:updated_time" content="2021-02-12T02:10:26.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Linux下使用VSCode调试uCore内核代码">
-<meta name="twitter:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug:">
+<meta name="twitter:description" content="概述操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。由于内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得make debug） 环境Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode 配置步骤安装拓展安装C/C++拓展PS：建议安装语言包，搜索Chinese即可找到 修改Makefile打开Makefile，搜索debug">
   
     <link rel="alternative" href="/atom.xml" title="Xhy&#39;s Blog" type="application/atom+xml">
   
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
 
       
-    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。而内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得<code>make debug</code>）</p>
+    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>操作系统实验使用的是清华大学的uCore，而实验指导书使用的是命令行调试。由于内核是由C语言编写的，于是尝试使用VSCode调试内核代码。（调试boot还是得<code>make debug</code>）</p>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Ubuntu 18.04，已根据指导书配置环境，并安装了VSCode</p>
 <h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h3 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h3><p>安装<code>C/C++</code>拓展<br>PS：建议安装语言包，搜索<code>Chinese</code>即可找到</p>
 <h3 id="修改Makefile"><a href="#修改Makefile" class="headerlink" title="修改Makefile"></a>修改Makefile</h3><p>打开<code>Makefile</code>，搜索<code>debug:</code>，添加<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">debug-nogdb: <span class="variable">$(UCOREIMG)</span></span></span><br><span class="line">	<span class="variable">$(V)</span><span class="variable">$(QEMU)</span> -S -s -parallel stdio -hda <span class="variable">$&lt;</span> -serial null</span><br></pre></td></tr></table></figure></p>
@@ -374,7 +374,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Xhy
+    		&copy; 2021 Xhy
     	</div>
       	<div class="footer-right">
 <!-- 统计-->
